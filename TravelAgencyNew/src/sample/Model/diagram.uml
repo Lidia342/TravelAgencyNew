@@ -1,13 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Diagram>
   <ID>JAVA</ID>
-  <OriginalElement />
-  <nodes />
+  <OriginalElement>sample.Model</OriginalElement>
+  <nodes>
+    <node x="0.0" y="1226.0">sample.Model.DBconnection</node>
+    <node x="325.0" y="686.0">sample.Model.Hotel</node>
+    <node x="278.0" y="1226.0">sample.Model.Package</node>
+    <node x="900.0" y="686.0">sample.Model.Data</node>
+    <node x="481.5" y="299.0">sample.Model.Person.Type</node>
+    <node x="575.5" y="310.0">sample.Model.User</node>
+    <node x="0.0" y="686.0">sample.Model.Flight</node>
+    <node x="1011.0" y="1002.0">sample.Model.SceneSwitcher</node>
+    <node x="0.0" y="1002.0">sample.Model.DataStorage</node>
+    <node x="230.0" y="1002.0">sample.Model.Exception</node>
+    <node x="836.0" y="1002.0">sample.Model.Car</node>
+    <node x="523.0" y="686.0">sample.Model.Booking</node>
+    <node x="0.0" y="0.0">sample.Model.UserTable</node>
+    <node x="447.0" y="0.0">sample.Model.Person</node>
+  </nodes>
   <notes />
-  <edges />
-  <settings layout="Hierarchic Group" zoom="1.0" x="0.0" y="0.0" />
-  <SelectedNodes />
-  <Categories />
+  <edges>
+    <edge source="sample.Model.Person.Type" target="sample.Model.Person">
+      <point x="0.0" y="-37.5" />
+      <point x="518.5" y="274.0" />
+      <point x="543.75" y="274.0" />
+      <point x="-96.75" y="124.5" />
+    </edge>
+    <edge source="sample.Model.User" target="sample.Model.Person">
+      <point x="0.0" y="-26.5" />
+      <point x="762.5" y="274.0" />
+      <point x="737.25" y="274.0" />
+      <point x="96.75" y="124.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="200.0" y="202.0" />
+  <SelectedNodes>
+    <node>sample.Model.DBconnection</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
   <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
 </Diagram>
 

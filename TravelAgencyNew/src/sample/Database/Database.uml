@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>sample.Database</OriginalElement>
+  <nodes>
+    <node x="597.0" y="210.0">sample.Database.LogInQueries</node>
+    <node x="866.0" y="297.0">sample.Database.BookingQueries</node>
+    <node x="0.0" y="145.0">sample.Database.PersonQueries</node>
+    <node x="637.5" y="0.0">sample.Database.DatabaseConnection</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="sample.Database.BookingQueries" target="sample.Database.DatabaseConnection">
+      <point x="0.0" y="-14.5" />
+      <point x="936.5" y="120.0" />
+      <point x="777.5" y="120.0" />
+      <point x="56.0" y="47.5" />
+    </edge>
+    <edge source="sample.Database.LogInQueries" target="sample.Database.DatabaseConnection">
+      <point x="0.0" y="-101.5" />
+      <point x="0.0" y="47.5" />
+    </edge>
+    <edge source="sample.Database.PersonQueries" target="sample.Database.DatabaseConnection">
+      <point x="0.0" y="-166.5" />
+      <point x="288.5" y="120.0" />
+      <point x="665.5" y="120.0" />
+      <point x="-56.0" y="47.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="397.0" y="246.0" />
+  <SelectedNodes>
+    <node>sample.Database.DatabaseConnection</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+    <Category>Constructors</Category>
+    <Category>Properties</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
