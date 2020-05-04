@@ -25,13 +25,13 @@ public class LogInController {
         TfPassword.getText();
 
 
-        if (TfEmail.getText().isEmpty()) {
+        if (TfEmail.getText().trim().isEmpty()) {
             e.setTitle("IS empty");
             e.setHeaderText("Empty");
             e.show();
             return;
         }
-        if (TfPassword.getText().isEmpty()) {
+        if (TfPassword.getText().trim().isEmpty()) {
             e.setTitle("IS empty");
             e.setHeaderText("enter password");
             e.show();

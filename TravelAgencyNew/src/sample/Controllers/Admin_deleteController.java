@@ -11,7 +11,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-import sample.Model.PersonTable;
+import sample.Model.UserTable;
 import sample.Model.SceneSwitcher;
 
 
@@ -27,15 +27,15 @@ public class Admin_deleteController {
     private Connection connection;
     ResultSet resultSet;
     PreparedStatement pt;
-    private ObservableList<PersonTable> obsList = FXCollections.observableArrayList();
-    @FXML private TableView <PersonTable> table;
-    @FXML private TableColumn <PersonTable, String> ssnColumn;
-    @FXML private TableColumn <PersonTable, String> firstNameColumn;
-    @FXML private TableColumn <PersonTable, String> lastNameColumn;
-    @FXML private TableColumn <PersonTable, String> phoneNumberColumn;
-    @FXML private TableColumn <PersonTable, String> emailColumn;
-    @FXML private TableColumn <PersonTable, String> passwordColumn;
-    @FXML private TableColumn <PersonTable, String> addressColumn;
+    private ObservableList<UserTable> obsList = FXCollections.observableArrayList();
+    @FXML private TableView <UserTable> table;
+    @FXML private TableColumn <UserTable, String> ssnColumn;
+    @FXML private TableColumn <UserTable, String> firstNameColumn;
+    @FXML private TableColumn <UserTable, String> lastNameColumn;
+    @FXML private TableColumn <UserTable, String> phoneNumberColumn;
+    @FXML private TableColumn <UserTable, String> emailColumn;
+    @FXML private TableColumn <UserTable, String> passwordColumn;
+    @FXML private TableColumn <UserTable, String> addressColumn;
     @FXML private TextField deleteTextField;
 
 
@@ -58,8 +58,8 @@ public class Admin_deleteController {
 
 
        while (resultSet.next()){
-            PersonTable ut = new PersonTable("SSN", "firstName", "lastName",
-                    "phoneNumber","email", "password", "address");
+            UserTable ut = new UserTable("SSN", "firstName", "lastName",
+                    "phoneNumber","email", "password", "address","type");
 
 
             ut.setSSN(resultSet.getString("SSN"));

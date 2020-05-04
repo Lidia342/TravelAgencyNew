@@ -2,12 +2,12 @@ package sample.Model;
 
 import javafx.beans.property.SimpleStringProperty;
 
-public class PersonTable {
-    private SimpleStringProperty SSN, firstName, lastName, phoneNumber, email, password, address;
+public class UserTable {
+    private SimpleStringProperty SSN, firstName, lastName, phoneNumber, email, password, address, type;
 
-    public PersonTable(String SSN, String firstName, String lastName,
+    public UserTable(String SSN, String firstName, String lastName,
                      String phoneNumber, String email, String password,
-                     String address) {
+                     String address, String type) {
         this.SSN = new SimpleStringProperty(SSN);
         this.firstName = new SimpleStringProperty(firstName);
         this.lastName = new SimpleStringProperty(lastName);
@@ -15,6 +15,7 @@ public class PersonTable {
         this.email = new SimpleStringProperty(email);
         this.password = new SimpleStringProperty(password);
         this.address = new SimpleStringProperty(address);
+        this.type = new SimpleStringProperty(type);
     }
 
     public String getSSN() {
@@ -99,5 +100,17 @@ public class PersonTable {
 
     public void setAddress(String address) {
         this.address.set(address);
+    }
+
+    public String getType() {
+        return type.get();
+    }
+
+    public SimpleStringProperty typeProperty() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type.set(type);
     }
 }

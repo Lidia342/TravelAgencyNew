@@ -7,20 +7,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
 import sample.Database.PersonQueries;
-import sample.Model.PersonTable;
-import sample.Model.PersonalInfoException;
-import sample.Model.SceneSwitcher;
+import sample.Model.*;
+import sample.Model.Exception;
 
-import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
@@ -28,35 +21,37 @@ import java.util.ResourceBundle;
 
 public class Admin_updateController implements Initializable {
 
+   PersonQueries personQueries = new PersonQueries();
 
-    private String url1 = "jdbc:mysql://den1.mysql5.gear.host:3306/travelagency1";
+    /*private String url1 = "jdbc:mysql://den1.mysql5.gear.host:3306/travelagency1";
     private String userName1 = "travelagency1";
     private String password1 = "Cw0Mr?!4KN2V";
-    private Connection connection;
-    private ObservableList<PersonTable> obsList = FXCollections.observableArrayList();
+    private Connection connection;*/
+    private ObservableList<UserTable> obsList = FXCollections.observableArrayList();
     @FXML
-    private TableView<PersonTable> table;
+    private TableView<UserTable> table;
 
     @FXML
-    private TableColumn<PersonTable, String> SSNColumn;
+    private TableColumn<UserTable, String> SSNColumn;
 
     @FXML
-    private TableColumn<PersonTable, String> firstNameColumn;
+    private TableColumn<UserTable, String> firstNameColumn;
 
     @FXML
-    private TableColumn<PersonTable, String> lastNameColumn;
+    private TableColumn<UserTable, String> lastNameColumn;
 
     @FXML
-    private TableColumn<PersonTable, String> phoNumColumn;
+    private TableColumn<UserTable, String> phoNumColumn;
 
     @FXML
-    private TableColumn<PersonTable, String> emailColumn;
+    private TableColumn<UserTable, String> emailColumn;
 
     @FXML
-    private TableColumn<PersonTable, String> passwordColumn;
+    private TableColumn<UserTable, String> passwordColumn;
 
     @FXML
-    private TableColumn<PersonTable, String> addressColumn;
+    private TableColumn<UserTable, String> addressColumn;
+    @FXML private TableColumn<UserTable, String> typecoloum;
 
     @FXML
     private TextField passwordTxtField;
@@ -76,28 +71,76 @@ public class Admin_updateController implements Initializable {
     private Button uppdatebutton;
 
 
-    private PersonalInfoException personalInfoException;
+    private Exception exception;
 
+UserTable ut;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        personalInfoException = new PersonalInfoException();
-        personalInfoException.onlyNumber(ssnTxtField);
-        personalInfoException.onlyNumber(phoneTxtField);
+        exception = new Exception();
+        exception.onlyNumber(ssnTxtField);
+        exception.onlyNumber(phoneTxtField);
 
 
-        textLimiter(phoneTxtField,13);
+        inputLimit(phoneTxtField,13,10);
+
+        personQueries.personTableSelect();
+
+        SSNColumn.setCellValueFactory(new PropertyValueFactory<>("SSN"));
+        firstNameColumn.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        lastNameColumn.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        phoNumColumn.setCellValueFactory(new PropertyValueFactory<>("PhoneNumber"));
+        emailColumn.setCellValueFactory(new PropertyValueFactory<>("Email"));
+        passwordColumn.setCellValueFactory(new PropertyValueFactory<>("Password"));
+        addressColumn.setCellValueFactory(new PropertyValueFactory<>("Address"));
+        typecoloum.setCellValueFactory(new PropertyValueFactory<>("type"));
 
 
     }
+    /*
+    public void reloaddata(){
 
+        PersonQueries pq = new PersonQueries();
+        DataStorage.getInstance().setPersonData(pq.getPersonInfo());
+
+    }
+    /*
     @FXML public void select() throws SQLException {
-        connection = DriverManager.getConnection(url1,
+
+        // PersonQueries personQueries = new PersonQueries();'
+
+
+
+
+
+
+/*        for (int i = 0; i < DataStorage.getInstance().getPersonData().size(); i++) {
+            obsList.add(new UserTable(DataStorage.getInstance().getPersonData().get(i).getSSN(),
+                    DataStorage.getInstance().getPersonData().get(i).getFirstName(),
+                    DataStorage.getInstance().getPersonData().get(i).getLastName(),
+                    DataStorage.getInstance().getPersonData().get(i).getPhoneNumber(),
+                    DataStorage.getInstance().getPersonData().get(i).getEmail(),
+                    DataStorage.getInstance().getPersonData().get(i).getPassword(),
+                    DataStorage.getInstance().getPersonData().get(i).getAddress(),
+                    DataStorage.getInstance().getPersonData().get(i).getType()));
+
+        }*/
+
+
+
+
+
+        // table.setItems(obsList);
+
+        /*connection = DriverManager.getConnection(url1,
                 userName1, password1);
 
         String selectQuery = "SELECT * FROM person WHERE SSN != 199205134561";
 
         ResultSet resultSet = connection.createStatement().executeQuery(selectQuery);
+
+        personQueries.personTableSelect();
+
         SSNColumn.setCellValueFactory(new PropertyValueFactory<>("SSN"));
         firstNameColumn.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         lastNameColumn.setCellValueFactory(new PropertyValueFactory<>("lastName"));
@@ -106,9 +149,12 @@ public class Admin_updateController implements Initializable {
         passwordColumn.setCellValueFactory(new PropertyValueFactory<>("Password"));
         addressColumn.setCellValueFactory(new PropertyValueFactory<>("Address"));
 
+        PersonTable ut = new PersonTable("SSN", "firstName", "lastName",
+                "phoneNumber","email", "password", "address");
 
+        ut.set
 
-        while (resultSet.next()){
+        /*while (resultSet.next()){
             PersonTable ut = new PersonTable("SSN", "firstName", "lastName",
                     "phoneNumber","email", "password", "address");
 
@@ -126,14 +172,24 @@ public class Admin_updateController implements Initializable {
 
         }
 
-        table.setItems(obsList);
+        table.setItems(obsList);*/
 
-    }
+    //n}
 
 
     @FXML public void update() throws SQLException {
 
-        connection = DriverManager.getConnection(url1,userName1,password1);
+        personQueries.updatePersonTable(phoneTxtField.getText(), passwordTxtField.getText() , addressTxtField.getText(),
+                emailTxtField.getText(),ssnTxtField.getText());
+        table.getItems().clear();
+        //select();
+        phoneTxtField.clear();
+        emailTxtField.clear();
+        passwordTxtField.clear();
+        addressTxtField.clear();
+        ssnTxtField.clear();
+
+        /*connection = DriverManager.getConnection(url1,userName1,password1);
         String updateQuery = "UPDATE person SET phoneNumber = ?, email = ?, password = ?, address = ?  WHERE SSN = ?";
         PreparedStatement pt = connection.prepareStatement(updateQuery);
         pt.setString(1,phoneTxtField.getText());
@@ -141,9 +197,9 @@ public class Admin_updateController implements Initializable {
         pt.setString(3,passwordTxtField.getText());
         pt.setString(4,addressTxtField.getText());
         pt.setString(5,ssnTxtField.getText());
-        pt.executeUpdate();
+        pt.executeUpdate();*/
         table.getItems().clear();
-        select();
+        //select();
         phoneTxtField.clear();
         emailTxtField.clear();
         passwordTxtField.clear();
@@ -174,13 +230,15 @@ public class Admin_updateController implements Initializable {
 
 
     }
-    public void textLimiter ( final TextField tf, final int maxLength){
-        tf.textProperty().addListener(new ChangeListener<String>() {
+    public void inputLimit ( final TextField txtFld, final int maxSize, final int minSize){
+        txtFld.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(final ObservableValue<? extends String> ov, final String oldValue, final String newValue) {
-                if (tf.getText().length() > maxLength&& tf.getText().length()<16) {
-                    String s = tf.getText().substring(0, maxLength);
-                    tf.setText(s);
+                if (txtFld.getText().length() > maxSize && txtFld.getText().length()< minSize){
+                    String str = txtFld.getText().substring(0, maxSize);
+                    String str1 = txtFld.getText().substring(0, minSize);
+                    txtFld.setText(str);
+                    txtFld.setText(str1);
                 }
             }
         });

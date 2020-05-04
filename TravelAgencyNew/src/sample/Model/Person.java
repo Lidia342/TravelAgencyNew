@@ -8,15 +8,10 @@ public abstract class Person {
     private String password;
     private String address;
     private String email;
+    private String type;
 
-    public Person(String SSN, String firstName, String lastName, String phoneNumber, String password, String address, String email) {
-        this.SSN = SSN;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phoneNumber = phoneNumber;
-        this.password = password;
-        this.address = address;
-        this.email = email;
+    public enum Type{
+        Admin,Customer
     }
 
     public String getSSN() {
@@ -27,15 +22,17 @@ public abstract class Person {
         this.SSN = SSN;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
-
     public String getLastName() {
         return lastName;
     }
-
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
@@ -52,6 +49,7 @@ public abstract class Person {
     public String getPassword() {
         return password;
     }
+
     public void setPassword(String password) {
         this.password = password;
     }
@@ -70,6 +68,25 @@ public abstract class Person {
 
     public void setEmail(String email) {
         this.email = email;
-
     }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public Person(String SSN, String firstName, String lastName, String phoneNumber, String password, String address, String email, String type) {
+        this.SSN = SSN;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+        this.password = password;
+        this.address = address;
+        this.email = email;
+        this.type = type;
+    }
+
 }

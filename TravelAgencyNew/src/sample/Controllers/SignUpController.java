@@ -11,7 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import sample.Database.PersonQueries;
-import sample.Model.PersonalInfoException;
+import sample.Model.Exception;
 import sample.Model.SceneSwitcher;
 
 import java.net.URL;
@@ -21,7 +21,7 @@ import java.util.ResourceBundle;
 
 public class SignUpController implements Initializable {
 
-    private PersonalInfoException personalInfoException;
+    private Exception exception;
 
     Alert a = new Alert(Alert.AlertType.ERROR);
 
@@ -38,16 +38,16 @@ public class SignUpController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        personalInfoException = new PersonalInfoException();
-        personalInfoException.onlyNumber(textFieldSSN);
-        personalInfoException.onlyLetters(textFieldFirstName);
-        personalInfoException.onlyLetters(textFieldLastName);
-        personalInfoException.onlyNumber(textFieldPhoneNum);
+        exception = new Exception();
+        exception.onlyNumber(textFieldSSN);
+        exception.onlyLetters(textFieldFirstName);
+        exception.onlyLetters(textFieldLastName);
+        exception.onlyNumber(textFieldPhoneNum);
 
 
-        textLimiter(textFieldPhoneNum,13);
+        inputLimit(textFieldPhoneNum,13,10);
 
-        personalInfoException.fieldsAreEmpty(textFieldSSN, textFieldFirstName, textFieldLastName, textFieldEmail,textFieldPhoneNum, textFieldAddress, passwordTextField, buttonCreate);
+        exception.fieldsAreEmpty(textFieldSSN, textFieldFirstName, textFieldLastName, textFieldEmail,textFieldPhoneNum, textFieldAddress, passwordTextField, buttonCreate);
 
     }
     @FXML
@@ -56,35 +56,37 @@ public class SignUpController implements Initializable {
         try{
             PersonQueries personQueries = new PersonQueries();
 
-            boolean allowSave = true;
+            boolean save = true;
 
-            if (allowSave) {
+
+
+           if (save) {
                 if (personQueries.emailExists(textFieldEmail.getText())) {
-                    allowSave = false;
+                    save = false;
                     a.setTitle("Email");
                     a.setHeaderText("Email already exist! Please try again");
                     a.showAndWait();
                 }
             }
-            if (allowSave) {
-                if (personalInfoException.lengthOfPassword(passwordTextField.getText())&&personalInfoException.lengthOfPassword1(passwordTextField.getText())) {
-                    allowSave = false;
+            if (save) {
+                if (exception.sizePassword(passwordTextField.getText())&& exception.sizePassword1(passwordTextField.getText())) {
+                    save = false;
                     a.setTitle("Password");
                     a.setHeaderText("Password should be from 8 to 16 digits or letters");
                     a.showAndWait();
                 }
             }
-            if (allowSave) {
-                if (personalInfoException.IsNotPhoneNumber(textFieldPhoneNum.getText())){
-                    allowSave = false;
+            if (save) {
+                if (exception.IsNotPhoneNumber(textFieldPhoneNum.getText())){
+                    save = false;
                     a.setTitle("Phone Number");
                     a.setHeaderText("phone number can be 13 numbers");
                     a.showAndWait();
                 }
             }
-            if (allowSave){
+            if (save){
                 personQueries.addPersonInformation(textFieldSSN.getText(),textFieldFirstName.getText(),textFieldLastName.getText(),
-                        textFieldPhoneNum.getText(),textFieldEmail.getText(),passwordTextField.getText(),textFieldAddress.getText());
+                        textFieldPhoneNum.getText(),textFieldEmail.getText(),passwordTextField.getText(),textFieldAddress.getText(), "Customer");
 
                 textFieldEmail.clear();
                 textFieldFirstName.clear();
@@ -98,7 +100,7 @@ public class SignUpController implements Initializable {
                 a.showAndWait();
             }
 
-        }catch (Exception e){
+        }catch (java.lang.Exception e){
 
             Alert a = new Alert(Alert.AlertType.ERROR);
 
@@ -106,13 +108,15 @@ public class SignUpController implements Initializable {
         }
     }
 
-    public void textLimiter ( final TextField tf, final int maxLength){
-        tf.textProperty().addListener(new ChangeListener<String>() {
+    public void inputLimit ( final TextField txtFld, final int maxSize, final int minSize){
+        txtFld.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(final ObservableValue<? extends String> ov, final String oldValue, final String newValue) {
-                if (tf.getText().length() > maxLength&& tf.getText().length()<16) {
-                    String s = tf.getText().substring(0, maxLength);
-                    tf.setText(s);
+                if (txtFld.getText().length() > maxSize && txtFld.getText().length()< minSize) {
+                    String  str = txtFld.getText().substring(0, maxSize);
+                    String str1 = txtFld.getText().substring(0, minSize);
+                    txtFld.setText(str);
+                    txtFld.setText(str1);
                 }
             }
         });

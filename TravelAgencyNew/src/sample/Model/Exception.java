@@ -5,7 +5,7 @@ import javafx.beans.binding.Bindings;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
-public class PersonalInfoException {
+public class Exception {
     public void onlyLetters(TextField textField){
         textField.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue.matches("\\sa-zA-Z*")) {
@@ -25,14 +25,14 @@ public class PersonalInfoException {
         return phoneNumberChecker;
     }
 
-   public boolean lengthOfPassword(String password){
+   public boolean sizePassword(String password){
         boolean passwordError = false;
         if (password.length() < 8 ){
             passwordError=true;
         }
         return  passwordError;
     }
-    public boolean lengthOfPassword1(String password){
+    public boolean sizePassword1(String password){
         boolean passwordError = false;
         if (password.length() >16){
             passwordError=true;
