@@ -101,7 +101,7 @@ UserTable ut;
 
     @FXML public void select() throws SQLException {
 
-        // PersonQueries personQueries = new PersonQueries();'
+
 
 
 
@@ -153,15 +153,6 @@ UserTable ut;
             personQueries.updatePersonTable(phoneTxtField.getText(), passwordTxtField.getText(), addressTxtField.getText(),
                     emailTxtField.getText(), ssnTxtField.getText());
 
-        /*connection = DriverManager.getConnection(url1,userName1,password1);
-        String updateQuery = "UPDATE person SET phoneNumber = ?, email = ?, password = ?, address = ?  WHERE SSN = ?";
-        PreparedStatement pt = connection.prepareStatement(updateQuery);
-        pt.setString(1,phoneTxtField.getText());
-        pt.setString(2,emailTxtField.getText());
-        pt.setString(3,passwordTxtField.getText());
-        pt.setString(4,addressTxtField.getText());
-        pt.setString(5,ssnTxtField.getText());
-        pt.executeUpdate();*/
             table.getItems().clear();
             select();
             phoneTxtField.clear();
@@ -192,66 +183,6 @@ UserTable ut;
                 }
             });
         }
-
-  /*  @FXML public void update(){
-
-        Alert a = new Alert(Alert.AlertType.ERROR);
-
-        try{
-            PersonQueries personQueries = new PersonQueries();
-
-            boolean allowSave = true;
-
-            if (allowSave) {
-                if (personQueries.emailExists(emailTxtField.getText())) {
-                    allowSave = false;
-                    a.setTitle("Email");
-                    a.setHeaderText("Email already exist! Please try again");
-                    a.showAndWait();
-                }
-            }
-            if (allowSave) {
-                if (personalInfoException.lengthOfPassword(passwordTxtField.getText())&&personalInfoException.lengthOfPassword1(passwordTxtField.getText())) {
-                    allowSave = false;
-                    a.setTitle("Password");
-                    a.setHeaderText("Password should be from 8 to 16 digits or letters");
-                    a.showAndWait();
-                }
-            }
-            if (allowSave) {
-                if (personalInfoException.IsNotPhoneNumber(phoneTxtField.getText())){
-                    allowSave = false;
-                    a.setTitle("Phone Number");
-                    a.setHeaderText("phone number can be 13 numbers");
-                    a.showAndWait();
-                }
-            }
-            if (allowSave){
-                personQueries.viewPersonInformation(phoneTxtField.getText(),emailTxtField.getText(),
-                        passwordTxtField.getText(),addressTxtField.getText(),ssnTxtField.getText());
-
-                phoneTxtField.clear();
-                emailTxtField.clear();
-                passwordTxtField.clear();
-                addressTxtField.clear();
-                ssnTxtField.clear();
-
-                a.setHeaderText("connected!");
-                a.showAndWait();
-                select();
-
-
-            }
-
-        }catch (Exception e){
-
-            a.setHeaderText("Error");
-            a.setContentText("Could not update");
-            a.showAndWait();
-
-
-        }
-    }*/
 
 }
 
