@@ -47,7 +47,6 @@ public class PersonQueries extends DatabaseConnection {
             preparedStatement.setString(6, password);
             preparedStatement.setString(7, address);
             preparedStatement.setString(8,type);
-            // preparedStatement.setInt(8, customerId);
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
@@ -65,7 +64,6 @@ public class PersonQueries extends DatabaseConnection {
             preparedStatement.setString(3, password);
             preparedStatement.setString(4, address);
             preparedStatement.setString(5, SSN);
-            // preparedStatement.setInt(8, customerId);
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {

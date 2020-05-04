@@ -11,6 +11,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import sample.Model.SceneSwitcher;
 import sample.Model.UserTable;
 
 
@@ -42,7 +43,7 @@ public class Admin_deleteController {
        connection = DriverManager.getConnection(url1,
         userName1,password1 );
 
-        String selectQuery = "SELECT * FROM person WHERE SSN != 199205134561";
+        String selectQuery = "SELECT * FROM user WHERE SSN != 199205134561";
 
         resultSet = connection.createStatement().executeQuery(selectQuery);
 
@@ -84,7 +85,7 @@ public class Admin_deleteController {
         connection = DriverManager.getConnection(url1,
                 userName1,password1 );
         try {
-            String updateQuery = "DELETE FROM person WHERE SSN = ?";
+            String updateQuery = "DELETE FROM user WHERE SSN = ?";
             pt = connection.prepareStatement(updateQuery);
             pt.setString(1, deleteTextField.getText());
             pt.executeUpdate();
@@ -99,8 +100,7 @@ public class Admin_deleteController {
         }
     }
     @FXML public void backButton(ActionEvent ae){
-
-
+        SceneSwitcher.SwitchScene(ae,"../View/Admin_menu.fxml");
 
     }
 
