@@ -97,14 +97,15 @@ UserTable ut;
 
 
     }
-    /*
-    public void reloaddata(){
 
-        PersonQueries pq = new PersonQueries();
-        DataStorage.getInstance().setPersonData(pq.getPersonInfo());
+    public void reloadData(){
+
+       personQueries.personTableSelect();
+       DataStorage.getInstance().setPersonData(personQueries.getPersonInfo());
+
 
     }
-    /*
+
     @FXML public void select() throws SQLException {
 
         // PersonQueries personQueries = new PersonQueries();'
@@ -112,9 +113,9 @@ UserTable ut;
 
 
 
+            reloadData();
 
-
-/*        for (int i = 0; i < DataStorage.getInstance().getPersonData().size(); i++) {
+            for (int i = 0; i < DataStorage.getInstance().getPersonData().size(); i++) {
             obsList.add(new UserTable(DataStorage.getInstance().getPersonData().get(i).getSSN(),
                     DataStorage.getInstance().getPersonData().get(i).getFirstName(),
                     DataStorage.getInstance().getPersonData().get(i).getLastName(),
@@ -124,13 +125,12 @@ UserTable ut;
                     DataStorage.getInstance().getPersonData().get(i).getAddress(),
                     DataStorage.getInstance().getPersonData().get(i).getType()));
 
-        }*/
 
 
 
 
 
-        // table.setItems(obsList);
+        //table.setItems(obsList);
 
         /*connection = DriverManager.getConnection(url1,
                 userName1, password1);
@@ -167,14 +167,14 @@ UserTable ut;
             ut.setPassword(resultSet.getString("password"));
             ut.setAddress(resultSet.getString("address"));
 
-            obsList.add(ut);
+            obsList.add(ut);*/
 
 
         }
 
-        table.setItems(obsList);*/
+        table.setItems(obsList);
 
-    //n}
+    }
 
 
     @FXML public void update() throws SQLException {
@@ -182,7 +182,7 @@ UserTable ut;
         personQueries.updatePersonTable(phoneTxtField.getText(), passwordTxtField.getText() , addressTxtField.getText(),
                 emailTxtField.getText(),ssnTxtField.getText());
         table.getItems().clear();
-        //select();
+        select();
         phoneTxtField.clear();
         emailTxtField.clear();
         passwordTxtField.clear();
@@ -199,7 +199,7 @@ UserTable ut;
         pt.setString(5,ssnTxtField.getText());
         pt.executeUpdate();*/
         table.getItems().clear();
-        //select();
+        select();
         phoneTxtField.clear();
         emailTxtField.clear();
         passwordTxtField.clear();
