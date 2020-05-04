@@ -30,7 +30,7 @@ public class PersonQueries extends DatabaseConnection {
                                         String address, String type) {
 
         String CustomerQuery = "INSERT INTO user(SSN, firstName, lastName, phoneNumber, email, " +
-                "password, address) Values (?,?,?,?,?,?,?)";
+                "password, address, type) Values (?,?,?,?,?,?,?,?)";
         personTablePreparedStatement (SSN, firstName, lastName, phoneNumber, email, password, address,type,CustomerQuery);
 
     }

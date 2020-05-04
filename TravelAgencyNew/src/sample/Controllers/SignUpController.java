@@ -86,7 +86,8 @@ public class SignUpController implements Initializable {
             }
             if (save){
                 personQueries.addPersonInformation(textFieldSSN.getText(),textFieldFirstName.getText(),textFieldLastName.getText(),
-                        textFieldPhoneNum.getText(),textFieldEmail.getText(),passwordTextField.getText(),textFieldAddress.getText(), "Customer");
+                        textFieldPhoneNum.getText(),textFieldEmail.getText(),passwordTextField.getText(),textFieldAddress.getText(),
+                        "Customer");
 
                 textFieldEmail.clear();
                 textFieldFirstName.clear();
