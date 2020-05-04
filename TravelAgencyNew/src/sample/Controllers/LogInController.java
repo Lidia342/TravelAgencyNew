@@ -18,7 +18,7 @@ public class LogInController {
 
 
     Alert e = new Alert(Alert.AlertType.ERROR);
-   // Alert c = new Alert(Alert.AlertType.CONFIRMATION);
+
 
     public void loginException(){
         TfEmail.getText();
@@ -89,47 +89,16 @@ public class LogInController {
     @FXML public void createOneHere(ActionEvent ae) throws IOException {
         SceneSwitcher.SwitchScene(ae,"../View/SignUp.fxml");
 
-        /*Node node = (Node)ae.getSource();
-        Stage stage = (Stage)node.getScene().getWindow();
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/SignUp.fxml"));
-        Parent root = loader.load();
-
-        Scene scene = new Scene(root);
-        stage.setScene(scene);*/
-
-
-
     }
 
     @FXML public void adminScene(ActionEvent ae) throws IOException {
         SceneSwitcher.SwitchScene(ae,"../View/Admin_menu.fxml");
-        /*
-        Node node = (Node)ae.getSource();
-        Stage stage = (Stage)node.getScene().getWindow();
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/Admin_menu.fxml"));
-        Parent root = loader.load();
-
-        Scene scene = new Scene(root);
-        stage.setScene(scene);*/
-
-
-
     }
 
     @FXML public void customerScene(ActionEvent ae) throws IOException {
 
         SceneSwitcher.SwitchScene(ae,"../View/CustomerMenu.fxml");
 
-        /*Node node = (Node)ae.getSource();
-        Stage stage = (Stage)node.getScene().getWindow();
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/CustomerMenu.fxml"));
-        Parent root = loader.load();
-
-        Scene scene = new Scene(root);
-        stage.setScene(scene);*/
     }
 
 }
