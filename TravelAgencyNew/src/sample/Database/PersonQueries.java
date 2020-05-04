@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class PersonQueries extends DatabaseConnection {
     private Connection connection;
     private Statement statement;
-    private ArrayList<User> personInfo;
+
     private ResultSet rst;
 
 
@@ -17,7 +17,7 @@ public class PersonQueries extends DatabaseConnection {
 
             this.connection = getConnection();
             this.statement = connection.createStatement();
-            personInfo = new ArrayList<>();
+
 
 
         } catch (SQLException e) {
@@ -30,7 +30,7 @@ public class PersonQueries extends DatabaseConnection {
                                         String address, String type) {
 
         String CustomerQuery = "INSERT INTO user(SSN, firstName, lastName, phoneNumber, email, " +
-                "password, address) Values (?,?,?,?,?,?,?)";
+                "password, address, type) Values (?,?,?,?,?,?,?,?)";
         personTablePreparedStatement (SSN, firstName, lastName, phoneNumber, email, password, address,type,CustomerQuery);
 
     }
@@ -47,7 +47,6 @@ public class PersonQueries extends DatabaseConnection {
             preparedStatement.setString(6, password);
             preparedStatement.setString(7, address);
             preparedStatement.setString(8,type);
-            // preparedStatement.setInt(8, customerId);
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
@@ -65,7 +64,6 @@ public class PersonQueries extends DatabaseConnection {
             preparedStatement.setString(3, password);
             preparedStatement.setString(4, address);
             preparedStatement.setString(5, SSN);
-            // preparedStatement.setInt(8, customerId);
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
@@ -128,80 +126,4 @@ public class PersonQueries extends DatabaseConnection {
 
     }
 
-    public ArrayList<User> getPersonInfo() {
-        return personInfo;
-    }
-    /*
-    public void selectPersonInfo() throws SQLException {
-
-        ObservableList<PersonTable> obsList = FXCollections.observableArrayList();
-
-        String selectQuery = "SELECT * FROM person WHERE SSN != 199205134561";
-
-        resultSet = connection.createStatement().executeQuery(selectQuery);
-        while (resultSet.next()){
-            PersonTable ut = new PersonTable("SSN", "firstName", "lastName",
-                    "phoneNumber","email", "password", "address");
-
-
-            ut.setSSN(resultSet.getString("SSN"));
-            ut.setFirstName(resultSet.getString("firstName"));
-            ut.setLastName(resultSet.getString("lastName"));
-            ut.setPhoneNumber(resultSet.getString("phoneNumber"));
-            ut.setEmail(resultSet.getString("email"));
-            ut.setPassword(resultSet.getString("password"));
-            ut.setAddress(resultSet.getString("address"));
-            obsList.add(ut);
-
-    }
-
-    }
-
-    public void viewPersonInformation(String SSN, String phoneNumber, String password, String address,
-                                     String email) {
-
-        String updateQuery = "UPDATE person SET phoneNumber = ?, email = ?, password = ?, address = ?  WHERE SSN = ?";
-        personTablePreparedStatement1 (phoneNumber, email, password, address, SSN,updateQuery);
-
-    }
-    private void personTablePreparedStatement1(String SSN,
-                                              String phoneNumber, String email, String password, String address,
-                                              String query){
-
-        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            preparedStatement.setString(1, phoneNumber);
-            preparedStatement.setString(2, email);
-            preparedStatement.setString(3, password);
-            preparedStatement.setString(4, address);
-            preparedStatement.setString(5, SSN);
-            // preparedStatement.setInt(8, customerId);
-            preparedStatement.executeUpdate();
-
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }*/
-
-
-
-
-
-
-
-
-    /*public int getLastCustomerId(){
-
-        try {
-            int lastCustomerID = -1;
-            resultSet = statement.executeQuery("select MAX(id) FROM customers");
-
-            while (resultSet.next()) {
-                lastCustomerID = resultSet.getInt("id");
-            }
-            return lastCustomerID;
-        } catch (SQLException m) {
-            System.out.println(m.getMessage());
-            return 0;
-        }
-    }*/
 }

@@ -9,16 +9,13 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class SceneSwitcher {
-    public static void switchScene(ActionEvent event, String path){
-        try {
-
+    public static void SwitchScene(ActionEvent event,String path){
+        try{
             ((Stage)(((Node)event.getSource()).getScene().getWindow())).setScene(
                     new Scene(FXMLLoader.load(SceneSwitcher.class.getResource(path)))
             );
         } catch (IOException e) {
-            System.err.println("Failed loading scene");
             e.printStackTrace();
         }
-
     }
 }

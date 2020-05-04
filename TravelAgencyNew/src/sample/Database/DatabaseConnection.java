@@ -27,3 +27,4 @@ public abstract class DatabaseConnection {
         return connection;
     }
 }
+

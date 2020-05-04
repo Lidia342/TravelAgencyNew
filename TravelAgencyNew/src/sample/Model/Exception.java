@@ -32,13 +32,7 @@ public class Exception {
         }
         return  passwordError;
     }
-    public boolean sizePassword1(String password){
-        boolean passwordError = false;
-        if (password.length() >16){
-            passwordError=true;
-        }
-        return passwordError;
-    }
+
 
     public void fieldsAreEmpty(TextField textFieldSSN, TextField textFieldFirstName, TextField  textFieldLastName,
                                TextField textFieldEmail, TextField passwordTextField, TextField textFieldPhoneNum,

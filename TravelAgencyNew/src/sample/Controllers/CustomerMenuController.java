@@ -11,6 +11,6 @@ public class CustomerMenuController {
 
     @FXML public void backButton(ActionEvent  ae){
 
-        SceneSwitcher.switchScene(ae, "../View/Login.fxml");
+        SceneSwitcher.SwitchScene(ae, "../View/Login.fxml");
     }
 }

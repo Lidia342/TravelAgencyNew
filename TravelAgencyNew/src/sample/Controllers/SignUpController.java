@@ -45,7 +45,7 @@ public class SignUpController implements Initializable {
         exception.onlyNumber(textFieldPhoneNum);
 
 
-        inputLimit(textFieldPhoneNum,13,10);
+        inputLimit(textFieldPhoneNum,13);
 
         exception.fieldsAreEmpty(textFieldSSN, textFieldFirstName, textFieldLastName, textFieldEmail,textFieldPhoneNum, textFieldAddress, passwordTextField, buttonCreate);
 
@@ -69,7 +69,7 @@ public class SignUpController implements Initializable {
                 }
             }
             if (save) {
-                if (exception.sizePassword(passwordTextField.getText())&& exception.sizePassword1(passwordTextField.getText())) {
+                if (exception.sizePassword(passwordTextField.getText())) {
                     save = false;
                     a.setTitle("Password");
                     a.setHeaderText("Password should be from 8 to 16 digits or letters");
@@ -86,7 +86,8 @@ public class SignUpController implements Initializable {
             }
             if (save){
                 personQueries.addPersonInformation(textFieldSSN.getText(),textFieldFirstName.getText(),textFieldLastName.getText(),
-                        textFieldPhoneNum.getText(),textFieldEmail.getText(),passwordTextField.getText(),textFieldAddress.getText(), "Customer");
+                        textFieldPhoneNum.getText(),textFieldEmail.getText(),passwordTextField.getText(),textFieldAddress.getText(),
+                        "Customer");
 
                 textFieldEmail.clear();
                 textFieldFirstName.clear();
@@ -108,22 +109,21 @@ public class SignUpController implements Initializable {
         }
     }
 
-    public void inputLimit ( final TextField txtFld, final int maxSize, final int minSize){
+    public void inputLimit ( final TextField txtFld, final int maxSize){
         txtFld.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(final ObservableValue<? extends String> ov, final String oldValue, final String newValue) {
-                if (txtFld.getText().length() > maxSize && txtFld.getText().length()< minSize) {
+                if (txtFld.getText().length() > maxSize) {
                     String  str = txtFld.getText().substring(0, maxSize);
-                    String str1 = txtFld.getText().substring(0, minSize);
                     txtFld.setText(str);
-                    txtFld.setText(str1);
+
                 }
             }
         });
     }
     @FXML public void ToAnotherScene(ActionEvent ae){
 
-        SceneSwitcher.switchScene(ae, "../View/Login.fxml");
+        SceneSwitcher.SwitchScene(ae, "../View/Login.fxml");
 
     }
 }
