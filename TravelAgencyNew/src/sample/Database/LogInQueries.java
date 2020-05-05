@@ -1,12 +1,17 @@
 package sample.Database;
 
-import java.sql.*;
+import sample.Model.Data;
+import sample.Model.User;
 
-public class LogInQueries extends DatabaseConnection{
+import java.sql.*;
+import java.util.ArrayList;
+
+public class LogInQueries extends DatabaseConnection {
 
     private Connection connection;
     private Statement statement;
     private ResultSet resultSet;
+
     public LogInQueries() {
         try {
 
@@ -20,46 +25,80 @@ public class LogInQueries extends DatabaseConnection{
     }
 
 
-    public boolean validate(String emailId, String password){
+    public boolean validate(String emailId, String password) {
 
         String select = "SELECT * FROM user WHERE email = ? and password = ? and SSN ='199205134561' ";
 
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(select);  {
+            PreparedStatement preparedStatement = connection.prepareStatement(select);
+            {
                 preparedStatement.setString(1, emailId);
                 preparedStatement.setString(2, password);
 
                 ResultSet rs = preparedStatement.executeQuery();
 
-                if (rs.next()){
+                if (rs.next()) {
                     return true;
                 }
 
 
             }
         } catch (SQLException e) {
-            System.out.println(e.getMessage());        }
+            System.out.println(e.getMessage());
+        }
         return false;
     }
-    public boolean customerLogin(String emailId, String password){
+
+    public boolean customerLogin(String emailId, String password) {
 
         String select = "SELECT * FROM user WHERE email = ? and password = ? and SSN !='199205134561' ";
 
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(select);  {
+            PreparedStatement preparedStatement = connection.prepareStatement(select);
+            {
                 preparedStatement.setString(1, emailId);
                 preparedStatement.setString(2, password);
 
                 ResultSet rs = preparedStatement.executeQuery();
 
-                if (rs.next()){
+                if (rs.next()) {
                     return true;
                 }
-
-
             }
         } catch (SQLException e) {
-            System.out.println(e.getMessage());        }
+            System.out.println(e.getMessage());
+        }
         return false;
+    }
+
+    public User getCurrentCustomer(String email, String password) {
+
+        ArrayList<String> paramters= new ArrayList<>();
+        String select = "SELECT * FROM user WHERE email = ? and password = ?";
+        try {
+
+            PreparedStatement preparedStatement = connection.prepareStatement(select);
+            preparedStatement.setString(1, email);
+            preparedStatement.setString(2, password);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            resultSet.first();
+
+            for(int x=1; x<9;x++) {
+                System.out.println(resultSet.getString(x));
+                paramters.add(resultSet.getString(x));
+            }
+
+            for(int x=0; x<8;x++) {
+                System.out.println(paramters.get(x));
+
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return new User(paramters.get(0),paramters.get(1),paramters.get(2),
+                paramters.get(3),paramters.get(4),paramters.get(5),paramters.get(6), paramters.get(7));
+
     }
 }

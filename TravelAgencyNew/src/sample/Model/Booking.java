@@ -5,7 +5,7 @@ import java.util.Date;
 public class Booking {
 
     private Date bookingDate;
-    private int customerID ;
+    private String customerID ;
     private double bookingTotalPrice;
     private boolean bookingIsPaid;
     public Flight flight;
@@ -17,9 +17,10 @@ public class Booking {
        //ArrayList of cars
 
 
-    public Booking(Date bookingDate, int customerID, double bookingTotalPrice, boolean bookingIsPaid, Flight flight, Hotel hotel, Car car) {
+    public Booking(Date bookingDate, String customerID, boolean bookingIsPaid, double bookingTotalPrice, Flight flight, Hotel hotel, Car car) {
         this.bookingDate = bookingDate;
         this.customerID = customerID;
+        this.bookingIsPaid=bookingIsPaid;
         this.bookingTotalPrice = bookingTotalPrice;
         this.flight=flight;
         this.hotel=hotel;
@@ -36,11 +37,11 @@ public class Booking {
         this.bookingDate = bookingDate;
     }
 
-    public int getCustomerID() {
+    public String getCustomerID() {
         return customerID;
     }
 
-    public void setCustomerID(int customerID) {
+    public void setCustomerID(String customerID) {
         this.customerID = customerID;
     }
 

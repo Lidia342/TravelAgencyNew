@@ -2,22 +2,25 @@ package sample.Model;
 
 //import Database.DatabaseConnection;
 
+import java.sql.Connection;
+
 public class Data {
 
     private static Data myData;
-    private DBconnection dBconnection;
+    private Connection connection;
     //private DatabaseConnection databaseConnection;
     private int userID;
+    private User user;
 
-    public void setUserID(int customerID) {
-        this.userID = customerID;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public int getUserID() {
-        return userID;
+    public User getUser() {
+        return user;
     }
 
-    private Data(){}
+    public Data(){}
 
     public static Data getInstance(){
 
@@ -28,9 +31,14 @@ public class Data {
         return myData;
     }
 
-    public DBconnection getDBConnection(){
-        return dBconnection;
+    public Connection getConnection(){
+        return connection;
     }
+
+    public void setConnection(){
+        this.connection=connection;
+    }
+
 
     /*
     public void setDatabaseConnection(DatabaseConnection databaseConnection) {

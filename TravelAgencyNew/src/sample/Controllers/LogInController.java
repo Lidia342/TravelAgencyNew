@@ -4,9 +4,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import sample.Database.LogInQueries;
+import sample.Model.Data;
 import sample.Model.SceneSwitcher;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class LogInController {
 
@@ -16,6 +18,7 @@ public class LogInController {
     @FXML
     private PasswordField TfPassword;
 
+    Data myData=new Data();
 
     Alert e = new Alert(Alert.AlertType.ERROR);
 
@@ -63,7 +66,7 @@ public class LogInController {
 
     }
 
-    @FXML public void loginCustomer(ActionEvent ae) throws IOException {
+    @FXML public void loginCustomer(ActionEvent ae) throws IOException, SQLException {
         loginException();
         String emailId = TfEmail.getText();
         String password = TfPassword.getText();
@@ -71,6 +74,7 @@ public class LogInController {
 
         LogInQueries lq = new LogInQueries();
         boolean flag = lq.customerLogin(emailId, password);
+        myData.setUser(lq.getCurrentCustomer(emailId, password));
 
         if (!flag) {
             e.setTitle("Incorrect");
@@ -97,7 +101,7 @@ public class LogInController {
 
     @FXML public void customerScene(ActionEvent ae) throws IOException {
 
-        SceneSwitcher.SwitchScene(ae,"../View/CustomerMenu.fxml");
+        SceneSwitcher.SwitchScene(ae,"../View/main_paige.fxml");
 
     }
 
