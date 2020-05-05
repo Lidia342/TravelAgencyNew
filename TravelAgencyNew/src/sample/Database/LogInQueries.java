@@ -22,7 +22,7 @@ public class LogInQueries extends DatabaseConnection{
 
     public boolean validate(String emailId, String password){
 
-        String select = "SELECT * FROM user WHERE email = ? and password = ? and SSN ='199205134561' ";
+        String select = "SELECT * FROM user WHERE email = ? and password = ? and SSN ='199205134562' ";
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(select);  {
@@ -43,7 +43,7 @@ public class LogInQueries extends DatabaseConnection{
     }
     public boolean customerLogin(String emailId, String password){
 
-        String select = "SELECT * FROM user WHERE email = ? and password = ? and SSN !='199205134561' ";
+        String select = "SELECT * FROM user WHERE email = ? and password = ? and SSN !='199205134562' ";
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(select);  {

@@ -142,7 +142,6 @@ public class Admin_updateController implements Initializable {
 
         @FXML
         public void update () throws SQLException {
-            connection = DriverManager.getConnection(url1, userName1, password1);
 
             personQueries.updatePersonTable(phoneTxtField.getText(), passwordTxtField.getText(), addressTxtField.getText(),
                     emailTxtField.getText(), ssnTxtField.getText());

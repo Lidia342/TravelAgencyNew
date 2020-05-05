@@ -44,8 +44,9 @@ public class SignUpController implements Initializable {
         exception.onlyLetters(textFieldLastName);
         exception.onlyNumber(textFieldPhoneNum);
 
-
+        inputLimit(textFieldSSN,12);
         inputLimit(textFieldPhoneNum,13);
+        inputLimit(passwordTextField,16);
 
         exception.fieldsAreEmpty(textFieldSSN, textFieldFirstName, textFieldLastName, textFieldEmail,textFieldPhoneNum, textFieldAddress, passwordTextField, buttonCreate);
 
