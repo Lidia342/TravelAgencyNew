@@ -89,15 +89,14 @@ public class Admin_deleteController {
             pt = connection.prepareStatement(updateQuery);
             pt.setString(1, deleteTextField.getText());
             pt.executeUpdate();
-            Alert a = new Alert(Alert.AlertType.CONFIRMATION);
-            a.setHeaderText("Information removed");
-            a.showAndWait();
             table.getItems().clear();
             select();
             deleteTextField.clear();
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+
         }
+
+
     }
     @FXML public void backButton(ActionEvent ae){
         SceneSwitcher.SwitchScene(ae,"../View/Admin_menu.fxml");
