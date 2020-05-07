@@ -7,9 +7,9 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="455.0" prefWidth="726.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Admin_updateController">
+<AnchorPane prefHeight="455.0" prefWidth="652.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Admin_updateController">
     <children>
-        <TableView fx:id="table" prefHeight="229.0" prefWidth="726.0">
+        <TableView fx:id="table" prefHeight="229.0" prefWidth="652.0">
             <columns>
                 <TableColumn fx:id="SSNColumn" prefWidth="108.0" text="SSN" />
                 <TableColumn fx:id="firstNameColumn" prefWidth="78.0" text="firstName" />
@@ -18,7 +18,6 @@
                 <TableColumn fx:id="emailColumn" prefWidth="78.0" text="email" />
                 <TableColumn fx:id="passwordColumn" prefWidth="89.0" text="password" />
                 <TableColumn fx:id="addressColumn" prefWidth="110.0" text="address" />
-            <TableColumn fx:id="typecoloum" prefWidth="75.0" text="Type" />
             </columns>
         </TableView>
         <Button layoutY="241.0" mnemonicParsing="false" onAction="#select" prefHeight="25.0" prefWidth="50.0" text="View" />
