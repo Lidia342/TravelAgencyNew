@@ -80,7 +80,8 @@ public class Admin_updateController implements Initializable {
         exception.onlyNumber(ssnTxtField);
         exception.onlyNumber(phoneTxtField);
 
-
+        inputLimit(passwordTxtField,16);
+        inputLimit(ssnTxtField,12);
         inputLimit(phoneTxtField,13);
 
         personQueries.personTableSelect();
