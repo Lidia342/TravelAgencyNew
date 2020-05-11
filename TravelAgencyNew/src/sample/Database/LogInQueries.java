@@ -9,11 +9,8 @@ public class LogInQueries extends DatabaseConnection{
     private ResultSet resultSet;
     public LogInQueries() {
         try {
-
             this.connection = getConnection();
             this.statement = connection.createStatement();
-
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -29,9 +26,9 @@ public class LogInQueries extends DatabaseConnection{
                 preparedStatement.setString(1, emailId);
                 preparedStatement.setString(2, password);
 
-                ResultSet rs = preparedStatement.executeQuery();
+                resultSet = preparedStatement.executeQuery();
 
-                if (rs.next()){
+                if (resultSet.next()){
                     return true;
                 }
 
@@ -50,12 +47,11 @@ public class LogInQueries extends DatabaseConnection{
                 preparedStatement.setString(1, emailId);
                 preparedStatement.setString(2, password);
 
-                ResultSet rs = preparedStatement.executeQuery();
+                resultSet = preparedStatement.executeQuery();
 
-                if (rs.next()){
+                if (resultSet.next()){
                     return true;
                 }
-
 
             }
         } catch (SQLException e) {

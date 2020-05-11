@@ -10,9 +10,9 @@ public abstract class Person {
     private String email;
     private String type;
 
-    public enum Type{
+    /*public enum Type{
         Admin,Customer
-    }
+    }*/
 
     public String getSSN() {
         return SSN;

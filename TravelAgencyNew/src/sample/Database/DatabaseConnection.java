@@ -9,7 +9,6 @@ public abstract class DatabaseConnection {
 
     public  DatabaseConnection(){
 
-
         String url = "jdbc:mysql://den1.mysql5.gear.host:3306/travelagency1";
         String userName = "travelagency1";
         String password = "Cw0Mr?!4KN2V";

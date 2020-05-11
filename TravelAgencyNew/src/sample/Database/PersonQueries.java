@@ -1,25 +1,22 @@
 package sample.Database;
 
-import sample.Model.User;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import sample.Model.UserTable;
 
 import java.sql.*;
-import java.util.ArrayList;
 
 public class PersonQueries extends DatabaseConnection {
     private Connection connection;
     private Statement statement;
-
     private ResultSet rst;
 
+    private ObservableList<Object> obsList = FXCollections.observableArrayList();
 
     public PersonQueries() {
         try {
-
             this.connection = getConnection();
             this.statement = connection.createStatement();
-
-
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -71,31 +68,27 @@ public class PersonQueries extends DatabaseConnection {
         }
     }
 
-    public void personTableSelect(){
-
-
+    public void personTableSelect() throws SQLException {
         String selectQuery = "SELECT * FROM user WHERE SSN != 199205134561";
 
-        try{
-            rst = statement.executeQuery(selectQuery);
+        ResultSet resultSet = connection.createStatement().executeQuery(selectQuery);
+        while (resultSet.next()) {
+            UserTable ut = new UserTable("SSN", "firstName", "lastName",
+                    "phoneNumber", "email", "password", "address", "type");
 
-            ArrayList<User> personData = new ArrayList<>();
 
-            while(rst.next()){
-                personData.add( new User(rst.getString("SSN"),
-                rst.getString("firstName"),
-                rst.getString("lastName"),
-                rst.getString("phoneNumber"),
-                rst.getString("email"),
-                rst.getString("password"),
-                rst.getString("address"),
-                rst.getString("type")));
+            ut.setSSN(resultSet.getString("SSN"));
+            ut.setFirstName(resultSet.getString("firstName"));
+            ut.setLastName(resultSet.getString("lastName"));
+            ut.setPhoneNumber(resultSet.getString("phoneNumber"));
+            ut.setEmail(resultSet.getString("email"));
+            ut.setPassword(resultSet.getString("password"));
+            ut.setAddress(resultSet.getString("address"));
+            ut.setType(resultSet.getString("type"));
+            obsList.add(ut);
 
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
+        setObsList(obsList);
     }
 
     private boolean existence(String attribute, String query) {
@@ -126,4 +119,11 @@ public class PersonQueries extends DatabaseConnection {
 
     }
 
+    public ObservableList<Object> getObsList() {
+        return obsList;
+    }
+
+    public void setObsList(ObservableList<Object> obsList) {
+        this.obsList = obsList;
+    }
 }

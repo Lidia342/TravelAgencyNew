@@ -3,8 +3,6 @@ package sample.Controllers;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -23,13 +21,9 @@ public class Admin_updateController implements Initializable {
 
    PersonQueries personQueries = new PersonQueries();
 
-    private String url1 = "jdbc:mysql://den1.mysql5.gear.host:3306/travelagency1";
-    private String userName1 = "travelagency1";
-    private String password1 = "Cw0Mr?!4KN2V";
-    private Connection connection;
-    private ObservableList<UserTable> obsList = FXCollections.observableArrayList();
+
     @FXML
-    private TableView<UserTable> table;
+    private TableView<Object> table;
 
     @FXML
     private TableColumn<UserTable, String> SSNColumn;
@@ -51,7 +45,7 @@ public class Admin_updateController implements Initializable {
 
     @FXML
     private TableColumn<UserTable, String> addressColumn;
-    @FXML private TableColumn<UserTable, String> typecoloum;
+
 
     @FXML
     private TextField passwordTxtField;
@@ -67,15 +61,13 @@ public class Admin_updateController implements Initializable {
     @FXML
     private TextField addressTxtField;
 
-    @FXML
-    private Button uppdatebutton;
-
 
     private Exception exception;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         exception = new Exception();
         exception.onlyNumber(ssnTxtField);
         exception.onlyNumber(phoneTxtField);
@@ -84,8 +76,6 @@ public class Admin_updateController implements Initializable {
         inputLimit(ssnTxtField,12);
         inputLimit(phoneTxtField,13);
 
-        personQueries.personTableSelect();
-
         SSNColumn.setCellValueFactory(new PropertyValueFactory<>("SSN"));
         firstNameColumn.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         lastNameColumn.setCellValueFactory(new PropertyValueFactory<>("lastName"));
@@ -93,9 +83,6 @@ public class Admin_updateController implements Initializable {
         emailColumn.setCellValueFactory(new PropertyValueFactory<>("Email"));
         passwordColumn.setCellValueFactory(new PropertyValueFactory<>("Password"));
         addressColumn.setCellValueFactory(new PropertyValueFactory<>("Address"));
-        typecoloum.setCellValueFactory(new PropertyValueFactory<>("type"));
-
-
     }
 
 
@@ -109,37 +96,10 @@ public class Admin_updateController implements Initializable {
             emailColumn.setCellValueFactory(new PropertyValueFactory<>("Email"));
             passwordColumn.setCellValueFactory(new PropertyValueFactory<>("Password"));
             addressColumn.setCellValueFactory(new PropertyValueFactory<>("Address"));
-            typecoloum.setCellValueFactory(new PropertyValueFactory<>("type"));
 
-        connection = DriverManager.getConnection(url1,
-                userName1, password1);
-
-        String selectQuery = "SELECT * FROM user WHERE SSN != 199205134561";
-
-        ResultSet resultSet = connection.createStatement().executeQuery(selectQuery);
-            while (resultSet.next()) {
-                UserTable ut = new UserTable("SSN", "firstName", "lastName",
-                        "phoneNumber", "email", "password", "address", "type");
-
-
-                ut.setSSN(resultSet.getString("SSN"));
-                ut.setFirstName(resultSet.getString("firstName"));
-                ut.setLastName(resultSet.getString("lastName"));
-                ut.setPhoneNumber(resultSet.getString("phoneNumber"));
-                ut.setEmail(resultSet.getString("email"));
-                ut.setPassword(resultSet.getString("password"));
-                ut.setAddress(resultSet.getString("address"));
-                ut.setType(resultSet.getString("type"));
-
-                obsList.add(ut);
-
-
-            }
-
-            table.setItems(obsList);
-
-        }
-
+        personQueries.personTableSelect();
+        table.setItems(personQueries.getObsList());
+    }
 
         @FXML
         public void update () throws SQLException {
