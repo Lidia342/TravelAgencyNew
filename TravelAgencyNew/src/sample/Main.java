@@ -20,4 +20,12 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
+    public static String getPath() {
+
+        String path = ClassLoader.getSystemClassLoader().getResource(".").getPath();
+        if (path.contains("zcinema/bin"))
+            path = path.split("zcinema")[0];
+        return path;
+    }
 }

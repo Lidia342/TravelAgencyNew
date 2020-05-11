@@ -2,11 +2,13 @@ package sample.Database;
 
 import javafx.scene.control.Alert;
 import sample.Model.*;
+import sample.Model.Package;
 
 import java.lang.Exception;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 
 public class BookingQueries extends DatabaseConnection {
 
@@ -14,10 +16,16 @@ public class BookingQueries extends DatabaseConnection {
     private Statement statement;
     private ResultSet resultSet;
     Data myData = Data.getInstance();
+    static HashSet packageList = new HashSet<>();
 
     public BookingQueries() throws SQLException {
         this.connection = getConnection();
         this.statement = connection.createStatement();
+    }
+
+    public static Package getPackage() {
+
+        return null;
     }
 
     public Booking createBooking(double totalPrice, Date bookingDate, String customerID, Flight flight, Hotel hotel, Car car) {
@@ -118,4 +126,14 @@ public class BookingQueries extends DatabaseConnection {
         }
             return null;
     }
+
+    public HashSet<Package> getPackagesList(){
+
+        return packageList;
+    }
+
+    public void deletePackage() {
+    }
+
+    //public Package getPackage
 }
