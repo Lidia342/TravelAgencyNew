@@ -18,6 +18,6 @@ public class CustomerMenuController {
 
     @FXML public void openBookingWindow(ActionEvent ae){
 
-        SceneSwitcher.SwitchScene(ae, "../View/flight_selection_scene.fxml");
+        SceneSwitcher.SwitchScene(ae, "../View/ViewPackagesScene.fxml");
     }
 }

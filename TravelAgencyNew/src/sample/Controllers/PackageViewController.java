@@ -48,7 +48,7 @@ public class PackageViewController implements Initializable{
 
             try {
                 // getting folder path
-                String path = URLDecoder.decode(Main.getPath() + "sample/Images/filmImages/", "UTF-8");
+                String path = URLDecoder.decode(Main.getPath() + "sample/Images/PackageImages/", "UTF-8");
                 // creating file object passing in the constructor the folder path
                 File folder = new File(path);
                 // pushing single path files in the array filelist1
@@ -87,9 +87,11 @@ public class PackageViewController implements Initializable{
 
         private void addImage(int index, int colIndex, int rowIndex) {
 
-            //String packageName = idToCut.substring(0, (idToCut.length() - 4));
+            String idToCut = fileList.get(index).getName();
+            String packageId = String.valueOf(idToCut.charAt(idToCut.length()-1));
             // System.out.println(id);
             // System.out.println(fileList.get(i).getName());
+
             image = new Image(fileList.get(index).toURI().toString());
             pic = new ImageView();
             pic.setFitWidth(160);
@@ -104,13 +106,9 @@ public class PackageViewController implements Initializable{
             pic.setOnMouseClicked(e -> {
                 // System.out.printf("Mouse clicked cell [%d, %d]%n", rowIndex, colIndex);
                 // System.out.println("Film Title: " + id);
-                try {
-                    // storing the selected film to customise the newly created scene
-                    String selectedPackageName = fileList.get(index).getName();
-                    SceneSwitcher.SwitchScene("/scenes/ViewSelectedPackageScene.fxml");
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                }
+                // storing the selected film to customise the newly created scene
+                String selectedPackageName = fileList.get(index).getName();
+                SceneSwitcher.SwitchMouseScene(e,"../View/ViewSelectedPackageScene.fxml");
             });
         }
 

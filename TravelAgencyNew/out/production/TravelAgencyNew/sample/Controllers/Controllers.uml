@@ -5,17 +5,15 @@
   <nodes>
     <node x="363.0" y="0.0">sample.Controllers.Admin_deleteController</node>
     <node x="0.0" y="0.0">sample.Controllers.Admin_updateController</node>
-    <node x="0.0" y="712.0">sample.Controllers.LogInController</node>
     <node x="752.0" y="0.0">sample.Controllers.SignUpController</node>
+    <node x="0.0" y="712.0">sample.Controllers.LogInController</node>
     <node x="269.0" y="712.0">sample.Controllers.Admin_menuController</node>
     <node x="547.0" y="712.0">sample.Controllers.CustomerMenuController</node>
   </nodes>
   <notes />
   <edges />
-  <settings layout="Hierarchic Group" zoom="1.5304087736789636" x="470.3488371528232" y="801.5746959497246" />
-  <SelectedNodes>
-    <node>sample.Controllers.Admin_deleteController</node>
-  </SelectedNodes>
+  <settings layout="Hierarchic Group" zoom="0.8190243902439023" x="396.9341926729986" y="655.9457259158752" />
+  <SelectedNodes />
   <Categories>
     <Category>Fields</Category>
     <Category>Constructors</Category>

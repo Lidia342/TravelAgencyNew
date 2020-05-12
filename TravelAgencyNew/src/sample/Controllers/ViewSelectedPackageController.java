@@ -71,7 +71,7 @@ public class ViewSelectedPackageController implements Initializable {
         selectedPackage = BookingQueries.getPackage();
         // System.out.println(Main.getSelectedFilmTitle());
         try {
-            String path = URLDecoder.decode(Main.getPath() + "src/sample/Images/", "UTF-8");
+            String path = URLDecoder.decode(Main.getPath() + "src/sample/Images/PackageImages", "UTF-8");
             imgFile = new File(path + selectedPackage.getName() + ".png");
             Image img = SwingFXUtils.toFXImage(ImageIO.read(imgFile), null);
             selectedPackageImg.setImage(img);

@@ -37,19 +37,20 @@ import java.util.logging.Logger;
      */
     public class PackageManageController {
 
+    /*
         private File selectedImage;
         public Admin_updateController aup;
 
         @FXML
         Button backButton;
         @FXML
-        Text newFilmTitle, newFilmDescription, newFilmStartDate, newFilmEndDate, newFilmTime1, newFilmTime2, newFilmTime3;
+        Text newPackageName, newPackageDescription, newPackageStartDate, newPackageEndDate, flightInfo, hotelInfo, carInfo;
         @FXML
-        TextArea filmDescription;
+        TextArea packageDescription;
         @FXML
-        DatePicker filmStartDate, filmEndDate;
+        DatePicker packageStartDate, packageEndDate;
         @FXML
-        TextField filmTitle, filmTrailer;
+        TextField packageName;
         @FXML
         ComboBox<String> filmTime1, filmTime2, filmTime3;
         @FXML
@@ -83,10 +84,11 @@ import java.util.logging.Logger;
             SceneSwitcher.SwitchScene(event, "/scenes/UserScene.fxml");
         }
 
-        /**
+
          * Method that gets called every time the user enters a date or select a time when adding a new movie
          * @param e Action Event, being the action of selecting an item from the ComboBox or DatePicker
-         */
+        */
+    /*
         @FXML
         public void updateDateAndTime(ActionEvent e) {
 
@@ -113,10 +115,12 @@ import java.util.logging.Logger;
             }
         }
 
-        /**
+
          * Method that gets called every time the user types in any TextField when adding a movie
          * @param e KeyEvent, being the action of typing a key in the TextField
          */
+
+    /*
         @FXML
         public void updateFilmText(KeyEvent e) {
 
@@ -148,10 +152,11 @@ import java.util.logging.Logger;
             }
         }
 
-        /**
+
          * Method that gets called when the user clicks on the Button
          * @param e KeyEvent, being the action of typing a key in the TextField
          */
+    /*
         @FXML
         public void uploadImageClick(ActionEvent event) throws IOException {
 
@@ -177,12 +182,13 @@ import java.util.logging.Logger;
             }
         }
 
-        /**
+
          * This method writes the film information into a designed JSON file and, saves the film poster
          * in a designed folder, and restore the main fields back to their default values
          * @param ActionEvent event
          * @throws ParseException
          */
+    /*
         @SuppressWarnings("unchecked")
         @FXML
         public void storeFilmInfo(ActionEvent event) throws ParseException {
@@ -258,7 +264,7 @@ import java.util.logging.Logger;
             }
         }
 
-        /**
+
          * Method that validates all fields before allowing the employee to add a new movie
          * @throws the method throws an exception when one of the fields is empty, and when the
          * initial and final screening dates and times are not set properly or overlap with those of
@@ -266,6 +272,7 @@ import java.util.logging.Logger;
          * @throws the second handled exception regards the Parser. Indeed, the initial and final screening
          * dates of movies already stored in the JSON files are converted from String to LocalDate.
          */
+    /*
         @SuppressWarnings("unlikely-arg-type")
         void validateFilmInput() throws InvalidFilmInputException, ParseException {
 
@@ -322,4 +329,7 @@ import java.util.logging.Logger;
         }
     }
 
+     */
 }
+
+
