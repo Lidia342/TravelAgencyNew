@@ -10,7 +10,7 @@
    <children>
       <AnchorPane layoutX="-1.0" layoutY="31.0" prefHeight="371.0" prefWidth="700.0">
          <children>
-            <ToggleButton layoutX="505.0" layoutY="313.0" mnemonicParsing="false" onAction="#launchViewFilms" prefHeight="44.0" prefWidth="186.0" style="-fx-background-color: #353238;" text="See All Films" textFill="WHITE">
+            <ToggleButton layoutX="505.0" layoutY="313.0" mnemonicParsing="false" onAction="#launchViewFilms" prefHeight="44.0" prefWidth="186.0" style="-fx-background-color: #353238;" text="See All Packages" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
@@ -27,8 +27,6 @@
             <Text fx:id="newFilmEndDate" layoutX="423.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" text="yyyy-mm-dd" />
             <Text layoutX="383.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time:" />
             <Text fx:id="newFilmTime1" layoutX="425.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="hh:mm" />
-            <Text fx:id="newFilmTime2" layoutX="425.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="hh:mm" />
-            <Text fx:id="newFilmTime3" layoutX="425.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="hh:mm" />
             <ImageView fx:id="uploadedFilmPoster" fitHeight="172.0" fitWidth="114.0" layoutX="381.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
             </ImageView>
          </children>
@@ -61,13 +59,10 @@
             <TextArea fx:id="filmDescription" layoutX="93.0" layoutY="129.0" onKeyPressed="#updateFilmText" onKeyReleased="#updateFilmText" prefHeight="58.0" prefWidth="259.0" promptText="Package description" />
             <Button layoutX="92.0" layoutY="15.0" mnemonicParsing="false" onAction="#uploadImageClick" prefHeight="30.0" prefWidth="260.0" style="-fx-background-color: #353238;" text="Upload Photo" textFill="WHITE">
             </Button>
-            <Button layoutX="252.0" layoutY="324.0" mnemonicParsing="false" onAction="#storeFilmInfo" prefHeight="30.0" prefWidth="101.0" style="-fx-background-color: #353238;" text="Add Film" textFill="WHITE">
+            <Button layoutX="252.0" layoutY="324.0" mnemonicParsing="false" onAction="#storeFilmInfo" prefHeight="30.0" prefWidth="101.0" style="-fx-background-color: #353238;" text="Add Package" textFill="WHITE">
             </Button>
             <Text layoutX="43.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Image:" />
             <DatePicker fx:id="filmEndDate" layoutX="220.0" layoutY="224.0" onAction="#updateDateAndTime" onKeyReleased="#updateFilmText" prefHeight="28.0" prefWidth="132.0" promptText="yyyy-mm-dd" />
-            <ComboBox fx:id="filmTime1" layoutX="89.0" layoutY="271.0" onAction="#updateDateAndTime" onKeyReleased="#updateFilmText" prefHeight="28.0" prefWidth="85.0" promptText="hh:mm" />
-            <ComboBox fx:id="filmTime2" layoutX="178.0" layoutY="271.0" onAction="#updateDateAndTime" onKeyReleased="#updateFilmText" prefHeight="28.0" prefWidth="85.0" promptText="hh:mm" />
-            <ComboBox fx:id="filmTime3" layoutX="267.0" layoutY="271.0" onAction="#updateDateAndTime" onKeyReleased="#updateFilmText" prefHeight="28.0" prefWidth="85.0" promptText="hh:mm" />
            </children>
       </AnchorPane>
    </children>

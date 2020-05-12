@@ -74,7 +74,6 @@ public class LogInController {
 
         LogInQueries lq = new LogInQueries();
         boolean flag = lq.customerLogin(emailId, password);
-        myData.setUser(lq.getCurrentCustomer(emailId, password));
 
         if (!flag) {
             e.setTitle("Incorrect");
@@ -82,6 +81,7 @@ public class LogInController {
             e.show();
 
         } else {
+            myData.setUser(lq.getCurrentCustomer(emailId, password));
             customerScene(ae);
         }
 

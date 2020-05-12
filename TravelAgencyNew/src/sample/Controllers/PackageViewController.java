@@ -49,9 +49,7 @@ public class PackageViewController implements Initializable{
             try {
                 // getting folder path
                 String path = URLDecoder.decode(Main.getPath() + "sample/Images/PackageImages/", "UTF-8");
-                // creating file object passing in the constructor the folder path
                 File folder = new File(path);
-                // pushing single path files in the array filelist1
                 for (File file : folder.listFiles()) {
                     if (!file.toString().contains("DS_Store"))
                         fileList.add(file);
@@ -60,10 +58,7 @@ public class PackageViewController implements Initializable{
                 scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
 
 
-                // gridpane settings
-                // setting exterior grid padding
                 grid.setPadding(new Insets(7,7,7,7));
-                // setting interior grid padding
                 grid.setHgap(10);
                 grid.setVgap(10);
                 // grid.setGridLinesVisible(true);

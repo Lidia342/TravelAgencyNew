@@ -3,6 +3,7 @@ package sample.Controllers;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -31,12 +32,6 @@ import sample.Model.Data;
 import sample.Model.Package;
 import sample.Model.SceneSwitcher;
 
-/**
- * The controller for the View Selected Film Scene.
- *
- * @author Team 3: Filippos Zofakis and Lucio D'Alessandro
- * @since 14.12.2017
- */
 public class ViewSelectedPackageController implements Initializable {
 
     Package selectedPackage = null;
@@ -69,16 +64,25 @@ public class ViewSelectedPackageController implements Initializable {
          */
 
         selectedPackage = BookingQueries.getPackage();
-        // System.out.println(Main.getSelectedFilmTitle());
         try {
-            String path = URLDecoder.decode(Main.getPath() + "src/sample/Images/PackageImages", "UTF-8");
-            imgFile = new File(path + selectedPackage.getName() + ".png");
+            String path = URLDecoder.decode(Main.getPath() + "sample/Images/PackageImages/", "UTF-8");
+
+            imgFile = new File(path + "Honeymoon1" + ".png");
             Image img = SwingFXUtils.toFXImage(ImageIO.read(imgFile), null);
             selectedPackageImg.setImage(img);
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException | NullPointerException e) {
+            try {
+                String path = URLDecoder.decode(Main.getPath() + "sample/Images/PackageImages/", "UTF-8");
+                imgFile = new File(path + "Honeymoon1" + ".jpg");
+                Image img = SwingFXUtils.toFXImage(ImageIO.read(imgFile), null);
+                //selectedPackageImg.setImage(img);
+            } catch (UnsupportedEncodingException ex) {
+                ex.printStackTrace();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
         }
-        title.setText(selectedPackage.getName());
+//        title.setText(selectedPackage.getName());
         /*
         description.setText(selectedPackage.getDescription());
         startDate.setText(selectedPackage.getStartDate());
@@ -107,9 +111,6 @@ public class ViewSelectedPackageController implements Initializable {
 
         if(alert.getResult() == ButtonType.YES) {
 
-
-            // if there are no future booking for the selected film
-            // the employee can safely delete it
             imgFile.delete();
             aup.deletePackage();
             backToPrevScene(event);
