@@ -25,8 +25,6 @@ public class SignUpController implements Initializable {
 
     Alert a = new Alert(Alert.AlertType.ERROR);
 
-
-
     @FXML
     private TextField textFieldSSN, textFieldFirstName, textFieldLastName, textFieldPhoneNum,
             textFieldEmail, textFieldAddress;
@@ -57,8 +55,6 @@ public class SignUpController implements Initializable {
             PersonQueries personQueries = new PersonQueries();
 
             boolean save = true;
-
-
 
            if (save) {
                 if (personQueries.emailExists(textFieldEmail.getText())) {

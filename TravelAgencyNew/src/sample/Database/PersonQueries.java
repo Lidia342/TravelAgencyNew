@@ -128,8 +128,68 @@ public class PersonQueries extends DatabaseConnection {
 
     }
 
+    public boolean editPassword(String password, String userID) throws SQLException {
+
+        String editQuery= "UPDATE Users SET password=? WHERE id=?";
+        PreparedStatement preparedStmt = connection.prepareStatement(editQuery);
+        preparedStmt.setString (1, password);
+        preparedStmt.setString (2, userID);
+
+        if(preparedStmt.execute()){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public boolean editFirstName(String newName, String userID) throws SQLException {
+
+        String editQuery= "UPDATE Users SET first_name=? WHERE id=?";
+        PreparedStatement preparedStmt = connection.prepareStatement(editQuery);
+        preparedStmt.setString (1, newName);
+        preparedStmt.setString (2, userID);
+
+        if(preparedStmt.execute()){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
     public ArrayList<User> getPersonInfo() {
         return personInfo;
     }
 
+    public boolean editLastName(String newName, String userID) throws SQLException {
+        String editQuery= "UPDATE Users SET last_name=? WHERE id=?";
+        PreparedStatement preparedStmt = connection.prepareStatement(editQuery);
+        preparedStmt.setString (1, newName);
+        preparedStmt.setString (2, userID);
+
+        if(preparedStmt.execute()){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public boolean editEmail(String newEmail, String userID) throws SQLException {
+
+        if(!emailExists(newEmail)){
+            String editQuery= "UPDATE Users SET email=? WHERE id=?";
+            PreparedStatement preparedStmt = connection.prepareStatement(editQuery);
+            preparedStmt.setString (1, newEmail);
+            preparedStmt.setString (2, userID);
+
+            if(!preparedStmt.execute()){
+                return false;
+            }
+
+            return true;
+        }
+        else return false;
+    }
 }

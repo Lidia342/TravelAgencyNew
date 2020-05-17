@@ -9,8 +9,8 @@ public class Data {
     private static Data myData;
     private Connection connection;
     //private DatabaseConnection databaseConnection;
-    private int userID;
     private User user;
+    private Package currentPackage;
 
     public void setUser(User user) {
         this.user = user;
@@ -31,14 +31,14 @@ public class Data {
         return myData;
     }
 
-    public Connection getConnection(){
-        return connection;
+    public void setCurrentPackage(Package currentPackage){
+
+        this.currentPackage=currentPackage;
     }
 
-    public void setConnection(){
-        this.connection=connection;
+    public Package getCurrentPackage() {
+        return currentPackage;
     }
-
 
     /*
     public void setDatabaseConnection(DatabaseConnection databaseConnection) {
