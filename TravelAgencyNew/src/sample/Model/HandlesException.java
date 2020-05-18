@@ -2,10 +2,12 @@ package sample.Model;
 
 
 import javafx.beans.binding.Bindings;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
-public class Exception {
+public class HandlesException {
     public void onlyLetters(TextField textField){
         textField.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue.matches("\\sa-zA-Z*")) {
@@ -24,6 +26,18 @@ public class Exception {
             phoneNumberChecker = true;
         return phoneNumberChecker;
     }
+    public void inputLimit ( final TextField txtFld, final int maxSize){
+        txtFld.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(final ObservableValue<? extends String> ov, final String oldValue, final String newValue) {
+                if (txtFld.getText().length() > maxSize) {
+                    String  str = txtFld.getText().substring(0, maxSize);
+                    txtFld.setText(str);
+
+                }
+            }
+        });
+    }
 
    public boolean sizePassword(String password){
         boolean passwordError = false;
@@ -32,15 +46,18 @@ public class Exception {
         }
         return  passwordError;
     }
-    public boolean sizePassword1(String password){
-        boolean passwordError = false;
-        if (password.length() >16){
-            passwordError=true;
-        }
-        return passwordError;
+    public void emptyTextFields(TextField ssnTxtField,TextField bookDateTxtField,Button bookingButton){
+        bookingButton.disableProperty().bind(Bindings.createBooleanBinding(()->ssnTxtField.getText().trim().isEmpty(),ssnTxtField.textProperty()
+        ).or(Bindings.createBooleanBinding(()->bookDateTxtField.getText().trim().isEmpty(),bookDateTxtField.textProperty())));
+    }
+    public void emptyTextFields1(TextField flightIdTxtField,TextField departureDateTxtField,TextField returnDateTxtField,Button updateButton){
+        updateButton.disableProperty().bind(Bindings.createBooleanBinding(()->flightIdTxtField.getText().trim().isEmpty(),flightIdTxtField.textProperty()
+        ).or(Bindings.createBooleanBinding(()->departureDateTxtField.getText().trim().isEmpty(),departureDateTxtField.textProperty())
+        ).or(Bindings.createBooleanBinding(()->returnDateTxtField.getText().trim().isEmpty(),returnDateTxtField.textProperty())));
     }
 
-    public void fieldsAreEmpty(TextField textFieldSSN, TextField textFieldFirstName, TextField  textFieldLastName,
+
+    public void emptyTxtFields(TextField textFieldSSN, TextField textFieldFirstName, TextField  textFieldLastName,
                                TextField textFieldEmail, TextField passwordTextField, TextField textFieldPhoneNum,
                                TextField textFieldAddress, Button buttonCreate){
 

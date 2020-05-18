@@ -8,9 +8,9 @@ import javax.swing.*;
 
 public class CustomerMenuController {
 
-
-
-
+    @FXML public void viewAndBookPackage(ActionEvent ae){
+        SceneSwitcher.SwitchScene(ae, "../View/ViewPackage.fxml");
+    }
     @FXML public void backButton(ActionEvent  ae){
 
         SceneSwitcher.SwitchScene(ae, "../View/Login.fxml");

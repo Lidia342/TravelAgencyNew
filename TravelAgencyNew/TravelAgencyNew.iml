@@ -16,6 +16,7 @@
         <SOURCES />
       </library>
     </orderEntry>
+<<<<<<< HEAD
     <orderEntry type="library" name="lib" level="project" />
     <orderEntry type="library" name="lib1" level="project" />
     <orderEntry type="module-library" exported="">
@@ -28,5 +29,8 @@
       </library>
     </orderEntry>
     <orderEntry type="library" exported="" name="dependencyLib" level="project" />
+=======
+    <orderEntry type="library" exported="" name="lib" level="project" />
+>>>>>>> master
   </component>
 </module>

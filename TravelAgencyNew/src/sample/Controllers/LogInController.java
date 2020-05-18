@@ -96,7 +96,7 @@ public class LogInController {
     }
 
     @FXML public void adminScene(ActionEvent ae) throws IOException {
-        SceneSwitcher.SwitchScene(ae,"../View/Admin_menu.fxml");
+        SceneSwitcher.SwitchScene(ae,"../View/AdminMenu.fxml");
     }
 
     @FXML public void customerScene(ActionEvent ae) throws IOException {
