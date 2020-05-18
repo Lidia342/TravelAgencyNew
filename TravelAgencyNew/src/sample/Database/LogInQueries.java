@@ -54,7 +54,8 @@ public class LogInQueries extends DatabaseConnection{
                 }
 
             }
-        } catch (SQLException e) {
+        }
+        catch (SQLException e) {
             System.out.println(e.getMessage());        }
         return false;
     }

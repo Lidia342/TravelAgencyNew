@@ -4,12 +4,18 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane layoutX="-1.0" layoutY="-1.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #00FFFF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.SignUpController">
+<AnchorPane layoutX="-1.0" layoutY="-1.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.SignUpController">
     <children>
+      <ImageView fitHeight="402.0" fitWidth="600.0" pickOnBounds="true">
+         <image>
+            <Image url="@../Images/sign.jpg" />
+         </image>
+      </ImageView>
         <Label layoutX="14.0" layoutY="14.0" prefHeight="47.0" prefWidth="235.0" text="Create Account" textFill="#400594">
             <font>
                 <Font size="32.0" />
@@ -19,51 +25,41 @@
             <font>
                 <Font size="15.0" />
             </font></TextField>
-        <Label layoutX="25.0" layoutY="69.0" prefHeight="29.0" prefWidth="163.0" text="Enter SSN:">
+        <Label layoutX="25.0" layoutY="69.0" prefHeight="29.0" prefWidth="163.0" text="Enter SSN:" textFill="#400594">
             <font>
                 <Font size="20.0" />
             </font>
         </Label>
-        <Label layoutX="23.0" layoutY="114.0" prefHeight="25.0" prefWidth="157.0" text="Enter First Name:">
+        <Label layoutX="23.0" layoutY="114.0" prefHeight="25.0" prefWidth="157.0" text="Enter First Name:" textFill="#400594">
             <font>
                 <Font size="20.0" />
             </font>
         </Label>
-        <Label layoutX="25.0" layoutY="152.0" prefHeight="33.0" prefWidth="170.0" text="Enter Last Name:">
+        <Label layoutX="25.0" layoutY="152.0" prefHeight="33.0" prefWidth="170.0" text="Enter Last Name:" textFill="#400594">
             <font>
                 <Font size="20.0" />
             </font>
         </Label>
-        <Label layoutX="24.0" layoutY="196.0" prefHeight="25.0" prefWidth="176.0" text="PhoneNumber:">
+        <Label layoutX="24.0" layoutY="196.0" prefHeight="25.0" prefWidth="176.0" text="PhoneNumber:" textFill="#400594">
             <font>
                 <Font size="20.0" />
             </font>
         </Label>
-        <Label layoutX="25.0" layoutY="275.0" prefHeight="33.0" prefWidth="166.0" text="Enter Email:">
+        <Label layoutX="25.0" layoutY="275.0" prefHeight="33.0" prefWidth="166.0" text="Enter Email:" textFill="#400594">
             <font>
                 <Font size="20.0" />
             </font>
         </Label>
-        <Label layoutX="23.0" layoutY="235.0" prefHeight="25.0" prefWidth="162.0" text="Enter Password:">
+        <Label layoutX="23.0" layoutY="235.0" prefHeight="25.0" prefWidth="162.0" text="Enter Password:" textFill="#400594">
             <font>
                 <Font size="20.0" />
             </font>
         </Label>
-        <Label layoutX="23.0" layoutY="319.0" prefHeight="33.0" prefWidth="166.0" text="Enter Address:">
+        <Label layoutX="23.0" layoutY="319.0" prefHeight="33.0" prefWidth="166.0" text="Enter Address:" textFill="#400594">
             <font>
                 <Font size="20.0" />
             </font>
         </Label>
-        <Line endX="420.0" layoutX="127.0" layoutY="63.0" startX="-111.0" />
-        <Line endX="-121.0" endY="283.0" layoutX="136.0" layoutY="73.0" startX="-121.0" startY="-10.0" />
-        <Line endX="-130.5" endY="24.0" layoutX="146.0" layoutY="81.0" startX="403.0" startY="24.0" />
-        <Line endX="-130.5" endY="24.0" layoutX="146.0" layoutY="126.0" startX="403.0" startY="24.0" />
-        <Line endX="-130.5" endY="24.0" layoutX="145.0" layoutY="166.0" startX="403.0" startY="24.0" />
-        <Line endX="-130.5" endY="24.0" layoutX="145.0" layoutY="204.0" startX="403.0" startY="24.0" />
-        <Line endX="-130.5" endY="24.0" layoutX="145.0" layoutY="246.0" startX="403.0" startY="24.0" />
-        <Line endX="-130.5" endY="24.0" layoutX="146.0" layoutY="289.0" startX="403.0" startY="24.0" />
-        <Line endX="-133.5" endY="22.5" layoutX="147.0" layoutY="332.0" startX="403.0" startY="24.0" />
-        <Line endX="393.70709228515625" endY="-283.0" layoutX="155.0" layoutY="346.0" startX="393.70709228515625" startY="14.70709228515625" />
         <TextField fx:id="textFieldFirstName" layoutX="233.0" layoutY="114.0" prefHeight="30.0" prefWidth="235.0" promptText="First Name">
             <font>
                 <Font size="15.0" />
@@ -79,23 +75,23 @@
                 <Font size="15.0" />
             </font>
         </TextField>
-        <TextField fx:id="textFieldEmail" layoutX="233.0" layoutY="277.0" prefHeight="30.0" prefWidth="235.0" />
+        <TextField fx:id="textFieldEmail" layoutX="233.0" layoutY="277.0" prefHeight="30.0" prefWidth="235.0" promptText="--------@----.com" />
         <TextField fx:id="textFieldAddress" layoutX="233.0" layoutY="321.0" prefHeight="30.0" prefWidth="235.0" promptText="Street, city, post code">
             <font>
                 <Font size="15.0" />
             </font>
         </TextField>
-        <Button fx:id="buttonCreate" layoutX="450.0" layoutY="358.0" mnemonicParsing="false" onAction="#create" prefHeight="25.0" prefWidth="100.0" text="Create">
+        <Button fx:id="buttonCreate" layoutX="450.0" layoutY="358.0" mnemonicParsing="false" onAction="#create" prefHeight="25.0" prefWidth="100.0" text="Create" textFill="#400594">
             <font>
                 <Font size="14.0" />
             </font>
         </Button>
-        <PasswordField fx:id="passwordTextField" layoutX="233.0" layoutY="235.0" prefHeight="25.0" prefWidth="235.0">
+        <PasswordField fx:id="passwordTextField" layoutX="233.0" layoutY="235.0" prefHeight="25.0" prefWidth="235.0" promptText="**************">
             <font>
                 <Font size="15.0" />
             </font>
         </PasswordField>
-        <Button fx:id="loginbutton" layoutX="54.0" layoutY="358.0" mnemonicParsing="false" onAction="#ToAnotherScene" prefHeight="25.0" prefWidth="100.0" text="To another Scene">
+        <Button fx:id="loginbutton" layoutX="54.0" layoutY="358.0" mnemonicParsing="false" onAction="#ToAnotherScene" prefHeight="30.0" prefWidth="147.0" text="To another Scene" textFill="#400594">
             <font>
                 <Font size="14.0" />
             </font>

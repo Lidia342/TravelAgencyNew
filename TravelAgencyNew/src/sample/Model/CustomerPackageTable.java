@@ -2,19 +2,20 @@ package sample.Model;
 
 import javafx.beans.property.SimpleStringProperty;
 
-public class packageTable {
+public class CustomerPackageTable {
 
-    private SimpleStringProperty packageName, flightDepartureDate, departing_city, arriving_city, flightName,
+    private SimpleStringProperty packageName, departureDate,returnDate, departureCity, arrivalCity, flightName,
             hotelName, numOfNights, typeOfRoom, carType, price;
 
-    public packageTable(String packageName, String flightDepartureDate, String departing_city, String arriving_city,
-                        String flightName, String hotelName,
-                        String numOfNights, String typeOfRoom,
-                        String carType, String price) {
+    public CustomerPackageTable(String packageName, String departureDate, String returnDate, String departureCity,
+                                String arrivalCity, String flightName, String hotelName,
+                                String numOfNights, String typeOfRoom,
+                                String carType, String price) {
         this.packageName = new SimpleStringProperty(packageName);
-        this.flightDepartureDate = new SimpleStringProperty(flightDepartureDate);
-        this.departing_city = new SimpleStringProperty(departing_city);
-        this.arriving_city = new SimpleStringProperty(arriving_city);
+        this.departureDate = new SimpleStringProperty(departureDate);
+        this.returnDate= new SimpleStringProperty(returnDate);
+        this.departureCity = new SimpleStringProperty(departureCity);
+        this.arrivalCity = new SimpleStringProperty(arrivalCity);
         this.flightName = new SimpleStringProperty(flightName);
         this.hotelName = new SimpleStringProperty(hotelName);
         this.numOfNights = new SimpleStringProperty(numOfNights);
@@ -35,40 +36,52 @@ public class packageTable {
         this.packageName.set(packageName);
     }
 
-    public String getFlightDepartureDate() {
-        return flightDepartureDate.get();
+    public String getDepartureDate() {
+        return departureDate.get();
     }
 
-    public SimpleStringProperty flightDepartureDateProperty() {
-        return flightDepartureDate;
+    public SimpleStringProperty departureDateProperty() {
+        return departureDate;
     }
 
-    public void setFlightDepartureDate(String flightDepartureDate) {
-        this.flightDepartureDate.set(flightDepartureDate);
+    public void setDepartureDate(String departureDate) {
+        this.departureDate.set(departureDate);
     }
 
-    public String getDeparting_city() {
-        return departing_city.get();
+    public String getReturnDate() {
+        return returnDate.get();
     }
 
-    public SimpleStringProperty departing_cityProperty() {
-        return departing_city;
+    public SimpleStringProperty returnDateProperty() {
+        return returnDate;
     }
 
-    public void setDeparting_city(String departing_city) {
-        this.departing_city.set(departing_city);
+    public void setReturnDate(String returnDate) {
+        this.returnDate.set(returnDate);
     }
 
-    public String getArriving_city() {
-        return arriving_city.get();
+    public String getDepartureCity() {
+        return departureCity.get();
     }
 
-    public SimpleStringProperty arriving_cityProperty() {
-        return arriving_city;
+    public SimpleStringProperty departureCityProperty() {
+        return departureCity;
     }
 
-    public void setArriving_city(String arriving_city) {
-        this.arriving_city.set(arriving_city);
+    public void setDepartureCity(String departureCity) {
+        this.departureCity.set(departureCity);
+    }
+
+    public String getArrivalCity() {
+        return arrivalCity.get();
+    }
+
+    public SimpleStringProperty arrivalCityProperty() {
+        return arrivalCity;
+    }
+
+    public void setArrivalCity(String arrivalCity) {
+        this.arrivalCity.set(arrivalCity);
     }
 
     public String getFlightName() {

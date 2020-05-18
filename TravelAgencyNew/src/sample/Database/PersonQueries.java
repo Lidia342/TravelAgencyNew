@@ -68,28 +68,48 @@ public class PersonQueries extends DatabaseConnection {
         }
     }
 
-    public void personTableSelect() throws SQLException {
+    public void personTableSelect() {
         String selectQuery = "SELECT * FROM user WHERE SSN != 199205134561";
 
-        ResultSet resultSet = connection.createStatement().executeQuery(selectQuery);
-        while (resultSet.next()) {
-            UserTable ut = new UserTable("SSN", "firstName", "lastName",
-                    "phoneNumber", "email", "password", "address", "type");
+        try{
+            ResultSet resultSet = connection.createStatement().executeQuery(selectQuery);
+            while (resultSet.next()) {
+                UserTable ut = new UserTable("SSN", "firstName", "lastName",
+                        "phoneNumber", "email", "password", "address", "type");
 
 
-            ut.setSSN(resultSet.getString("SSN"));
-            ut.setFirstName(resultSet.getString("firstName"));
-            ut.setLastName(resultSet.getString("lastName"));
-            ut.setPhoneNumber(resultSet.getString("phoneNumber"));
-            ut.setEmail(resultSet.getString("email"));
-            ut.setPassword(resultSet.getString("password"));
-            ut.setAddress(resultSet.getString("address"));
-            ut.setType(resultSet.getString("type"));
-            obsList.add(ut);
+                ut.setSSN(resultSet.getString("SSN"));
+                ut.setFirstName(resultSet.getString("firstName"));
+                ut.setLastName(resultSet.getString("lastName"));
+                ut.setPhoneNumber(resultSet.getString("phoneNumber"));
+                ut.setEmail(resultSet.getString("email"));
+                ut.setPassword(resultSet.getString("password"));
+                ut.setAddress(resultSet.getString("address"));
+                ut.setType(resultSet.getString("type"));
+                obsList.add(ut);
 
+            }
+            setObsList(obsList);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
         }
-        setObsList(obsList);
+
     }
+
+    public void removeCustomer(String ssn){
+        String removeQuery = "Delete From user Where SSN =?";
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(removeQuery);
+
+            preparedStatement.setString(1, ssn);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
+
+    }
+
 
     private boolean existence(String attribute, String query) {
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -115,6 +135,17 @@ public class PersonQueries extends DatabaseConnection {
             return true;
         } else {
             return false;
+        }
+
+    }
+
+    public boolean userNotExists(String SSN) {
+        String SSNQuery = "SELECT * FROM user WHERE SSN = ?";
+
+        if (existence(SSN, SSNQuery)) {
+            return false;
+        } else {
+            return true;
         }
 
     }
