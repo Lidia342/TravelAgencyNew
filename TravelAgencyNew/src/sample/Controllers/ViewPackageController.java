@@ -187,6 +187,31 @@ public class ViewPackageController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        Tooltip radioTool = new Tooltip();
+        radioTool.setText("press this package to view the details");
+        rb1.setTooltip(radioTool); rb2.setTooltip(radioTool);
+        rb3.setTooltip(radioTool); rb4.setTooltip(radioTool);
+        rb5.setTooltip(radioTool); rb6.setTooltip(radioTool);
+        rb7.setTooltip(radioTool); rb8.setTooltip(radioTool);
+        rb9.setTooltip(radioTool); rb10.setTooltip(radioTool);
+
+        Tooltip pressTool = new Tooltip();
+        pressTool.setText("press this button to book the selected package");
+        press.setTooltip(pressTool);
+
+        Tooltip bookingTool = new Tooltip();
+        bookingTool.setText("press this button to confirm the booking");
+        bookingButton.setTooltip(bookingTool);
+
+        Tooltip DateTextfieldTool = new Tooltip();
+        DateTextfieldTool.setText("Enter current date");
+        bookDateTxtField.setTooltip(DateTextfieldTool);
+
+        Tooltip ssnTool = new Tooltip();
+        ssnTool.setText("enter your social security number here, it shall be 12 numbers");
+        ssnTxtField.setTooltip(ssnTool);
+
+
         handlesException = new HandlesException();
         handlesException.onlyNumber(ssnTxtField);
         handlesException.inputLimit(ssnTxtField,12);
@@ -213,34 +238,44 @@ public class ViewPackageController implements Initializable {
         BookingQueries bq = new BookingQueries();
 
         if (rb1.isSelected()) {
-            bq.insertBookedPackageIntoBookingTable(bookDateTxtField.getText(), ssnTxtField.getText(),1);
+            bq.insertBookedPackageIntoBookingTable(bookDateTxtField.getText(), ssnTxtField.getText());
+            bq.insertBookedIntoBookingHasPackageTable(1, bq.getBookingId());
 
         }if (rb2.isSelected()) {
-            bq.insertBookedPackageIntoBookingTable(bookDateTxtField.getText(), ssnTxtField.getText(),2);
+            bq.insertBookedPackageIntoBookingTable(bookDateTxtField.getText(), ssnTxtField.getText());
+            bq.insertBookedIntoBookingHasPackageTable(2, bq.getBookingId());
 
         }if (rb3.isSelected()) {
-            bq.insertBookedPackageIntoBookingTable(bookDateTxtField.getText(), ssnTxtField.getText(),3);
+            bq.insertBookedPackageIntoBookingTable(bookDateTxtField.getText(), ssnTxtField.getText());
+            bq.insertBookedIntoBookingHasPackageTable(3, bq.getBookingId());
 
         }if (rb4.isSelected()) {
-            bq.insertBookedPackageIntoBookingTable(bookDateTxtField.getText(), ssnTxtField.getText(),4);
+            bq.insertBookedPackageIntoBookingTable(bookDateTxtField.getText(), ssnTxtField.getText());
+            bq.insertBookedIntoBookingHasPackageTable(4, bq.getBookingId());
 
         }if (rb5.isSelected()) {
-            bq.insertBookedPackageIntoBookingTable(bookDateTxtField.getText(), ssnTxtField.getText(),5);
+            bq.insertBookedPackageIntoBookingTable(bookDateTxtField.getText(), ssnTxtField.getText());
+            bq.insertBookedIntoBookingHasPackageTable(5, bq.getBookingId());
 
         }if (rb6.isSelected()) {
-            bq.insertBookedPackageIntoBookingTable(bookDateTxtField.getText(), ssnTxtField.getText(),6);
+            bq.insertBookedPackageIntoBookingTable(bookDateTxtField.getText(), ssnTxtField.getText());
+            bq.insertBookedIntoBookingHasPackageTable(6, bq.getBookingId());
 
         }if (rb7.isSelected()) {
-            bq.insertBookedPackageIntoBookingTable(bookDateTxtField.getText(), ssnTxtField.getText(),7);
+            bq.insertBookedPackageIntoBookingTable(bookDateTxtField.getText(), ssnTxtField.getText());
+            bq.insertBookedIntoBookingHasPackageTable(7, bq.getBookingId());
 
         }if (rb8.isSelected()) {
-            bq.insertBookedPackageIntoBookingTable(bookDateTxtField.getText(), ssnTxtField.getText(),8);
+            bq.insertBookedPackageIntoBookingTable(bookDateTxtField.getText(), ssnTxtField.getText());
+            bq.insertBookedIntoBookingHasPackageTable(8, bq.getBookingId());
 
         }if (rb9.isSelected()) {
-            bq.insertBookedPackageIntoBookingTable(bookDateTxtField.getText(), ssnTxtField.getText(),9);
+            bq.insertBookedPackageIntoBookingTable(bookDateTxtField.getText(), ssnTxtField.getText());
+            bq.insertBookedIntoBookingHasPackageTable(9, bq.getBookingId());
 
         }if (rb10.isSelected()) {
-            bq.insertBookedPackageIntoBookingTable(bookDateTxtField.getText(), ssnTxtField.getText(),10);
+            bq.insertBookedPackageIntoBookingTable(bookDateTxtField.getText(), ssnTxtField.getText());
+            bq.insertBookedIntoBookingHasPackageTable(10, bq.getBookingId());
 
         }
 

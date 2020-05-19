@@ -3,13 +3,11 @@ package sample.Controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import sample.Database.PersonQueries;
 import sample.Model.HandlesException;
 import sample.Model.SceneSwitcher;
+
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -27,10 +25,47 @@ public class SignUpController implements Initializable {
 
     @FXML private PasswordField passwordTextField;
     @FXML private Button buttonCreate;
+    @FXML private Button loginbutton;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        Tooltip ssntool = new Tooltip();
+        ssntool.setText("enter your social security number here, it shall be 12 numbers");
+        textFieldSSN.setTooltip(ssntool);
+
+        Tooltip firstNametool = new Tooltip();
+        firstNametool.setText("Enter your first name");
+        textFieldFirstName.setTooltip(firstNametool);
+
+        Tooltip lastnametool = new Tooltip();
+        lastnametool.setText("Enter your last name");
+        textFieldLastName.setTooltip(lastnametool);
+
+        Tooltip phoneTool = new Tooltip();
+        phoneTool.setText("Enter your phone number. It shall be 13 numbers totally");
+        textFieldPhoneNum.setTooltip(phoneTool);
+
+        Tooltip emailTool = new Tooltip();
+        emailTool.setText("Enter your email address here");
+        textFieldEmail.setTooltip(emailTool);
+
+        Tooltip addressTool = new Tooltip();
+        addressTool.setText("Type in your living address");
+        textFieldAddress.setTooltip(addressTool);
+
+        Tooltip passwordTool = new Tooltip();
+        passwordTool.setText("Enter your password, it shall contain max 16 characters");
+        passwordTextField.setTooltip(passwordTool);
+
+        Tooltip createTool = new Tooltip();
+        createTool.setText("Press this button to create the account");
+        buttonCreate.setTooltip(createTool);
+
+        Tooltip loginTool = new Tooltip();
+        loginTool.setText("Press this button to log in");
+        loginbutton.setTooltip(loginTool);
 
         handlesException = new HandlesException();
         handlesException.onlyNumber(textFieldSSN);

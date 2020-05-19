@@ -63,13 +63,41 @@ public class AdminUpdateController implements Initializable {
     @FXML
     private TextField addressTxtField;
 
+   @FXML private Button updateButton;
+
     private HandlesException handlesException;
 
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-            select();
+
+        Tooltip ssntool = new Tooltip();
+        ssntool.setText("enter your social security number here, it shall be 12 numbers");
+        ssnTxtField.setTooltip(ssntool);
+
+        Tooltip emailTool = new Tooltip();
+        emailTool.setText("Enter your email address here");
+        emailTxtField.setTooltip(emailTool);
+
+        Tooltip addressTool = new Tooltip();
+        addressTool.setText("Type in your living address");
+        addressTxtField.setTooltip(addressTool);
+
+        Tooltip passwordTool = new Tooltip();
+        passwordTool.setText("Enter your password, it shall contain max 16 characters");
+        passwordTxtField.setTooltip(passwordTool);
+
+        Tooltip phoneTool = new Tooltip();
+        phoneTool.setText("Enter your phone number. It shall be 13 numbers totally");
+        phoneTxtField.setTooltip(phoneTool);
+
+        Tooltip updateTool = new Tooltip();
+        updateTool.setText("Press this button after you filled up everything to update");
+        updateButton.setTooltip(updateTool);
+
+
+        select();
 
         handlesException = new HandlesException();
         handlesException.onlyNumber(ssnTxtField);

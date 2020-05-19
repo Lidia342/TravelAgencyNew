@@ -141,6 +141,23 @@ public class AdminPackageController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        Tooltip idTool = new Tooltip();
+        idTool.setText("Enter the id of the flight as you see from the table");
+        flightIdTxtField.setTooltip(idTool);
+
+        Tooltip departureToool = new Tooltip();
+        departureToool.setText("Enter the departure date");
+        departureDateTxtField.setTooltip(departureToool);
+
+        Tooltip returnTool = new Tooltip();
+        returnTool.setText("Enter the return date");
+        returnDateTxtField.setTooltip(returnTool);
+
+        Tooltip updateTool = new Tooltip();
+        updateTool.setText("Press this button to update");
+        updateButton.setTooltip(updateTool);
+
+
         display();
         handlesException= new HandlesException();
         handlesException.emptyTextFields1(flightIdTxtField,departureDateTxtField,returnDateTxtField,updateButton);
