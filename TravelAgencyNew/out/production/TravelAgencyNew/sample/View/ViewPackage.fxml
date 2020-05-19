@@ -15,10 +15,25 @@
 
 <AnchorPane maxHeight="784.0" maxWidth="1684.0" minHeight="452.0" minWidth="800.0" prefHeight="697.0" prefWidth="1637.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.ViewPackageController">
    <children>
-      <ScrollPane layoutY="14.0" prefHeight="558.0" prefWidth="1216.0">
+      <ScrollPane layoutY="14.0" prefHeight="558.0" prefWidth="1131.0">
          <content>
             <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="699.0" prefWidth="1636.0">
                <children>
+                  <TableView fx:id="packageTable1" layoutX="21.0" layoutY="492.0" prefHeight="63.0" prefWidth="1396.0">
+                    <columns>
+                      <TableColumn fx:id="packageName" prefWidth="138.66669273376465" text="PackageName" />
+                      <TableColumn fx:id="depDate" prefWidth="160.66664123535156" text="Departure date" />
+                        <TableColumn fx:id="returnDate" prefWidth="157.99993896484375" text="Return date" />
+                        <TableColumn fx:id="depCity" minWidth="0.0" prefWidth="146.00003051757812" text="Departing city" />
+                        <TableColumn fx:id="arrivalCity" prefWidth="133.3333740234375" text="Arrival city" />
+                        <TableColumn fx:id="flightName" prefWidth="150.66668701171875" text="Flight Name" />
+                        <TableColumn fx:id="hotelName" prefWidth="120.66668701171875" text="Hotel Name" />
+                        <TableColumn fx:id="nights" minWidth="0.0" prefWidth="54.666748046875" text="Nights" />
+                        <TableColumn fx:id="roomType" prefWidth="108.6666259765625" text="Room type" />
+                        <TableColumn fx:id="carType" prefWidth="106.666748046875" text="Car type" />
+                        <TableColumn fx:id="Price" minWidth="0.0" prefWidth="109.9998779296875" text="Price" />
+                    </columns>
+                  </TableView>
                   <Label fx:id="ssnLabel" layoutX="340.0" layoutY="579.0" text="SSN:">
                      <font>
                         <Font size="14.0" />
@@ -145,21 +160,6 @@
                      </font>
                   </Label>
                   <Button fx:id="bookingButton" layoutX="763.0" layoutY="651.0" mnemonicParsing="false" onAction="#confirmBooking" text="Confirm booking" />
-                  <TableView fx:id="packageTable1" layoutX="21.0" layoutY="492.0" prefHeight="63.0" prefWidth="1275.0">
-                    <columns>
-                      <TableColumn fx:id="packageName" prefWidth="138.66669273376465" text="PackageName" />
-                      <TableColumn fx:id="depDate" prefWidth="160.66664123535156" text="Departure date" />
-                        <TableColumn fx:id="returnDate" prefWidth="157.99993896484375" text="Return date" />
-                        <TableColumn fx:id="depCity" minWidth="0.0" prefWidth="146.00003051757812" text="Departing city" />
-                        <TableColumn fx:id="arrivalCity" prefWidth="133.3333740234375" text="Arrival city" />
-                        <TableColumn fx:id="flightName" prefWidth="150.66668701171875" text="Flight Name" />
-                        <TableColumn fx:id="hotelName" prefWidth="120.66668701171875" text="Hotel Name" />
-                        <TableColumn fx:id="nights" minWidth="0.0" prefWidth="54.666748046875" text="Nights" />
-                        <TableColumn fx:id="roomType" prefWidth="108.6666259765625" text="Room type" />
-                        <TableColumn fx:id="carType" prefWidth="108.666748046875" text="Car type" />
-                        <TableColumn fx:id="Price" prefWidth="70.666748046875" text="Price" />
-                    </columns>
-                  </TableView>
                   <Label layoutX="604.0" layoutY="558.0" prefHeight="36.0" prefWidth="265.0" text="Press here when you have selected your trip">
                      <font>
                         <Font size="13.0" />

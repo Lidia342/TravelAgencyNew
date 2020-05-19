@@ -117,24 +117,24 @@ public class LogInController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Tooltip emailtool = new Tooltip();
-        emailtool.setText("Enter your username. The username is the same us email");
-        TfEmail.setTooltip(emailtool);
+        Tooltip emailTool = new Tooltip();
+        emailTool.setText("Enter your username. The username is the same us email");
+        TfEmail.setTooltip(emailTool);
 
-        Tooltip passwordtool = new Tooltip();
-        passwordtool.setText("Enter your password here");
-        TfPassword.setTooltip(passwordtool);
+        Tooltip passwordTool = new Tooltip();
+        passwordTool.setText("Enter your password here");
+        TfPassword.setTooltip(passwordTool);
 
-        Tooltip admintool = new Tooltip();
-        admintool.setText("Press this button if you are admin to log in");
-        adminButton.setTooltip(admintool);
+        Tooltip adminTool = new Tooltip();
+        adminTool.setText("Press this button if you are admin to log in");
+        adminButton.setTooltip(adminTool);
 
-        Tooltip customertool = new Tooltip();
-        customertool.setText("Press this button to log in as customer");
-        customerButton.setTooltip(customertool);
+        Tooltip customerTool = new Tooltip();
+        customerTool.setText("Press this button to log in as customer");
+        customerButton.setTooltip(customerTool);
 
-        Tooltip createtool = new Tooltip();
-        createtool.setText("press here to create an account");
-        createLink.setTooltip(createtool);
+        Tooltip createTool = new Tooltip();
+        createTool.setText("press here to create an account");
+        createLink.setTooltip(createTool);
     }
 }
