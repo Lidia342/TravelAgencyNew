@@ -6,6 +6,7 @@ import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
+import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
@@ -14,7 +15,7 @@ public class Email {
 
     public static void sendEmail(String recipient, String type) {
 
-        Data myData=Data.getInstance();
+        Data myData = Data.getInstance();
 
         final String username = "something@gmail.com";
         final String password = "password";
@@ -31,23 +32,22 @@ public class Email {
                         return new PasswordAuthentication(username, password);
                     }
                 });
-
         try {
-            Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("@gmail.com"));
-            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipient));
 
-            message.setSubject("Booking Confirmation");
-           /*
+        Message message = new MimeMessage(session);
+        message.setFrom(new InternetAddress("@gmail.com"));
+        message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipient));
+
+        message.setSubject("Booking Confirmation");
+
             message.setText("Dear " + myData.getUser().getFirstName() + ",\n\n" +
                         "Your booking for package " + Main.getSelectedFilmTitle() + " has been confirmed. Please, keep this email as proof of your booking.\n\nYour departing flight is on " + myData. +
                         ", at " + Main.getSelectedTime() + "!\n\nStay Awesome!,\nCine UCL");
 
+        Transport.send(message);
 
-            */
-            Transport.send(message);
-        } catch (MessagingException e) {
-            throw new RuntimeException(e);
+    } catch (AddressException e) {
+                    throw new RuntimeException(e);
         }
     }
 }

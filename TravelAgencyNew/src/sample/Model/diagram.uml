@@ -3,39 +3,29 @@
   <ID>JAVA</ID>
   <OriginalElement>sample.Model</OriginalElement>
   <nodes>
-    <node x="994.5" y="0.0">sample.Model.Hotel</node>
-    <node x="0.0" y="1202.0">sample.Model.DBconnection</node>
-    <node x="597.0" y="686.0">sample.Model.Package</node>
-    <node x="395.0" y="686.0">sample.Model.Data</node>
-    <node x="481.5" y="299.0">sample.Model.Person.Type</node>
-    <node x="575.5" y="310.0">sample.Model.User</node>
-    <node x="944.0" y="686.0">sample.Model.Flight</node>
-    <node x="996.0" y="978.0">sample.Model.SceneSwitcher</node>
-    <node x="0.0" y="978.0">sample.Model.DataStorage</node>
-    <node x="230.0" y="978.0">sample.Model.Exception</node>
-    <node x="836.0" y="978.0">sample.Model.Car</node>
-    <node x="0.0" y="686.0">sample.Model.Booking</node>
+    <node x="719.0" y="980.0">sample.Model.DBconnection</node>
+    <node x="0.0" y="686.0">sample.Model.Hotel</node>
+    <node x="879.0" y="0.0">sample.Model.Package</node>
+    <node x="593.0" y="686.0">sample.Model.Data</node>
+    <node x="453.5" y="299.0">sample.Model.User</node>
+    <node x="808.0" y="686.0">sample.Model.Flight</node>
+    <node x="390.0" y="980.0">sample.Model.SceneSwitcher</node>
+    <node x="0.0" y="980.0">sample.Model.DataStorage</node>
+    <node x="230.0" y="980.0">sample.Model.Car</node>
+    <node x="198.0" y="686.0">sample.Model.Booking</node>
     <node x="0.0" y="0.0">sample.Model.UserTable</node>
     <node x="447.0" y="0.0">sample.Model.Person</node>
   </nodes>
   <notes />
   <edges>
-    <edge source="sample.Model.Person.Type" target="sample.Model.Person">
-      <point x="0.0" y="-37.5" />
-      <point x="518.5" y="274.0" />
-      <point x="543.75" y="274.0" />
-      <point x="-96.75" y="124.5" />
-    </edge>
     <edge source="sample.Model.User" target="sample.Model.Person">
       <point x="0.0" y="-26.5" />
-      <point x="762.5" y="274.0" />
-      <point x="737.25" y="274.0" />
-      <point x="96.75" y="124.5" />
+      <point x="0.0" y="124.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="1.1307692307692307" x="745.3982863460474" y="749.0597014925374" />
+  <settings layout="Hierarchic Group" zoom="0.752549019607843" x="719.505059797608" y="432.4328026878923" />
   <SelectedNodes>
-    <node>sample.Model.User</node>
+    <node>sample.Model.Person</node>
   </SelectedNodes>
   <Categories>
     <Category>Fields</Category>

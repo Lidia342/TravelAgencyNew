@@ -144,7 +144,7 @@ public class PersonQueries extends DatabaseConnection {
 
     public boolean editPassword(String password, String userID) throws SQLException {
 
-        String editQuery = "UPDATE Users SET password=? WHERE id=?";
+        String editQuery = "UPDATE user SET password=? WHERE SSN=?";
         PreparedStatement preparedStmt = connection.prepareStatement(editQuery);
         preparedStmt.setString(1, password);
         preparedStmt.setString(2, userID);
@@ -156,48 +156,44 @@ public class PersonQueries extends DatabaseConnection {
         }
     }
 
-    public boolean editFirstName(String newName, String userID) throws SQLException {
+    public void editFirstName(String newName, String userID) throws SQLException {
 
-        String editQuery = "UPDATE Users SET first_name=? WHERE id=?";
+        String editQuery = "UPDATE user SET firstName=? WHERE SSN=?";
         PreparedStatement preparedStmt = connection.prepareStatement(editQuery);
         preparedStmt.setString(1, newName);
         preparedStmt.setString(2, userID);
-
-        if (preparedStmt.execute()) {
-            return true;
-        } else {
-            return false;
+        preparedStatement.executeUpdate();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
         }
     }
 
 
-    public boolean editLastName(String newName, String userID) throws SQLException {
-        String editQuery = "UPDATE Users SET last_name=? WHERE id=?";
+    public void editLastName(String newName, String userID) throws SQLException {
+        String editQuery = "UPDATE user SET lastName=? WHERE SSN=?";
         PreparedStatement preparedStmt = connection.prepareStatement(editQuery);
         preparedStmt.setString(1, newName);
         preparedStmt.setString(2, userID);
-
-        if (preparedStmt.execute()) {
-            return true;
-        } else {
-            return false;
+        preparedStatement.executeUpdate();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
         }
     }
 
-    public boolean editEmail(String newEmail, String userID) throws SQLException {
+    public void editEmail(String newEmail, String userID) throws SQLException {
 
         if (!emailExists(newEmail)) {
-            String editQuery = "UPDATE Users SET email=? WHERE id=?";
+            String editQuery = "UPDATE user SET email=? WHERE SSN=?";
             PreparedStatement preparedStmt = connection.prepareStatement(editQuery);
             preparedStmt.setString(1, newEmail);
             preparedStmt.setString(2, userID);
-
-            if (!preparedStmt.execute()) {
-                return false;
+            preparedStatement.executeUpdate();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
             }
-
-            return true;
-        } else return false;
+        }
     }
         public void sendPassword (String password, String ssn){
 

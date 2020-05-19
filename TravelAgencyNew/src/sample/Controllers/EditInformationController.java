@@ -104,15 +104,14 @@ public class EditInformationController implements Initializable {
                 }
                 if (!updateLastName.getText().trim().isEmpty()) {
                     try {
-                        personQueries.editFirstName(updateLastName.getText(), myData.getUser().getSSN());
+                        personQueries.editLastName(updateLastName.getText(), myData.getUser().getSSN());
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
                 }
                 if (!updatePassword.getText().trim().isEmpty()) {
-                    String encryptedPassword = Encryption.encrypt(updatePassword.getText());
                     try {
-                        personQueries.editPassword(encryptedPassword, myData.getUser().getSSN());
+                        personQueries.editPassword(updatePassword.getText(), myData.getUser().getSSN());
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
