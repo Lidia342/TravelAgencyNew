@@ -150,6 +150,20 @@ public class PersonQueries extends DatabaseConnection {
 
     }
 
+    public void sendPassword(String password, String ssn){
+
+        try {
+          String update ="Update user set password = ? where SSN = ? ";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(update);
+            preparedStatement.setString(1, password);
+            preparedStatement.setString(2,ssn);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
+    }
+
     public ObservableList<Object> getObsList() {
         return obsList;
     }

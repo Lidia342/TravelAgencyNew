@@ -2,13 +2,17 @@ package sample.Controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import sample.Database.LogInQueries;
 import sample.Model.SceneSwitcher;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class LogInController implements Initializable {
@@ -30,6 +34,12 @@ public class LogInController implements Initializable {
 
     @FXML
     private PasswordField TfPassword;
+
+    @FXML
+    private Hyperlink forgotPassword;
+    @FXML
+    private AnchorPane
+            mainBorderPane;
 
     Alert e = new Alert(Alert.AlertType.ERROR);
 
@@ -114,6 +124,35 @@ public class LogInController implements Initializable {
         SceneSwitcher.SwitchScene(ae,"../View/CustomerMenu.fxml");
 
     }
+    @FXML public void showDialog(ActionEvent ae) throws IOException {
+        Dialog<ButtonType> dialog = new Dialog<>();
+        dialog.initOwner(mainBorderPane.getScene().getWindow());
+        try{
+            Parent root = FXMLLoader.load(getClass().getResource("../View/ResetPassword.fxml"));
+            dialog.getDialogPane().setContent(root);
+
+        } catch (IOException ex) {
+            System.out.println("Couldn't load the dialog");
+            ex.printStackTrace();
+            return;
+        }
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
+        Optional<ButtonType> result = dialog.showAndWait();
+
+      /*  if (result.isPresent() && result.get() == ButtonType.OK){
+            ResetPasswordController dc = new ResetPasswordController();
+            dc.send();
+            Alert a = new Alert(Alert.AlertType.CONFIRMATION);
+            a.setHeaderText("Sent");
+            a.show();
+        }
+        else {
+            System.out.println("not working");
+        }
+*/
+    }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
