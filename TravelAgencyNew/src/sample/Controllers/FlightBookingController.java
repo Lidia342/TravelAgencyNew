@@ -5,16 +5,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TextFormatter;
-import javafx.scene.text.Text;
 import sample.Database.BookingQueries;
 import sample.Model.Data;
-import sample.Model.Flight;
 import sample.Model.SceneSwitcher;
 
 import java.net.URL;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.time.Instant;
 import java.time.ZoneId;
 import java.util.Date;
@@ -34,11 +29,7 @@ public class FlightBookingController implements Initializable {
 
     BookingQueries bookingQueries;
     {
-        try {
-            bookingQueries = new BookingQueries();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        bookingQueries = new BookingQueries();
     }
 
     @Override

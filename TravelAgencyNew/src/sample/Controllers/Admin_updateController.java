@@ -12,7 +12,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import sample.Database.PersonQueries;
 import sample.Model.*;
-import sample.Model.Exception;
 
 import java.net.URL;
 import java.sql.*;
@@ -71,15 +70,15 @@ public class Admin_updateController implements Initializable {
     private Button uppdatebutton;
 
 
-    private Exception exception;
+    private HandlesException handlesException;
 
 UserTable ut;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        exception = new Exception();
-        exception.onlyNumber(ssnTxtField);
-        exception.onlyNumber(phoneTxtField);
+        handlesException = new HandlesException();
+        handlesException.onlyNumber(ssnTxtField);
+        handlesException.onlyNumber(phoneTxtField);
 
 
         inputLimit(phoneTxtField,13,10);

@@ -2,11 +2,9 @@ package sample.Database;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import sample.Model.User;
 import sample.Model.UserTable;
 
 import java.sql.*;
-import java.util.ArrayList;
 
 public class PersonQueries extends DatabaseConnection {
     private Connection connection;
@@ -172,9 +170,7 @@ public class PersonQueries extends DatabaseConnection {
         }
     }
 
-    public ArrayList<User> getPersonInfo() {
-        return personInfo;
-    }
+
 
     public boolean editLastName(String newName, String userID) throws SQLException {
         String editQuery = "UPDATE Users SET last_name=? WHERE id=?";

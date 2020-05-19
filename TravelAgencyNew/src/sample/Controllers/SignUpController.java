@@ -20,10 +20,7 @@ public class SignUpController implements Initializable {
 
     Alert a = new Alert(Alert.AlertType.ERROR);
 
-<<<<<<< HEAD
-=======
 
->>>>>>> master
     @FXML
     private TextField textFieldSSN, textFieldFirstName, textFieldLastName, textFieldPhoneNum,
             textFieldEmail, textFieldAddress;
