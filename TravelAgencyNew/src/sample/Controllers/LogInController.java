@@ -2,6 +2,7 @@ package sample.Controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import sample.Database.LogInQueries;
 import sample.Model.Data;
@@ -9,16 +10,29 @@ import sample.Model.SceneSwitcher;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class LogInController {
+public class LogInController implements Initializable {
+
+    @FXML
+    private Button adminButton;
 
     @FXML
     private TextField TfEmail;
 
     @FXML
-    private PasswordField TfPassword;
+    private Hyperlink createLink;
+
+    @FXML
+    private Button cancel;
+
+    @FXML
+    private Button customerButton;
 
     Data myData=new Data();
+    @FXML
+    private PasswordField TfPassword;
 
     Alert e = new Alert(Alert.AlertType.ERROR);
 
@@ -105,4 +119,26 @@ public class LogInController {
 
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        Tooltip emailtool = new Tooltip();
+        emailtool.setText("Enter your username. The username is the same us email");
+        TfEmail.setTooltip(emailtool);
+
+        Tooltip passwordtool = new Tooltip();
+        passwordtool.setText("Enter your password here");
+        TfPassword.setTooltip(passwordtool);
+
+        Tooltip admintool = new Tooltip();
+        admintool.setText("Press this button if you are admin to log in");
+        adminButton.setTooltip(admintool);
+
+        Tooltip customertool = new Tooltip();
+        customertool.setText("Press this button to log in as customer");
+        customerButton.setTooltip(customertool);
+
+        Tooltip createtool = new Tooltip();
+        createtool.setText("press here to create an account");
+        createLink.setTooltip(createtool);
+    }
 }

@@ -3,10 +3,7 @@ package sample.Controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -18,12 +15,16 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+
 public class ViewBookedAdminController implements Initializable {
 
     BookingQueries bookingQueries = new BookingQueries();
 
     @FXML
     private TableView<Object> table;
+
+    @FXML
+    private TableColumn<BookingTable, String > bookingIdColumn;
 
     @FXML
     private TableColumn<BookingTable, String> ssnColumn;
@@ -48,12 +49,18 @@ public class ViewBookedAdminController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        table.getSelectionModel().selectFirst();
         display();
+
+        table.getSelectionModel().selectFirst();
+
+        Tooltip deleteRow= new Tooltip();
+        deleteRow.setText("right Click and Press remove to delete the selected row");
+        table.setTooltip(deleteRow);
 
     }
     public void display(){
 
+        bookingIdColumn.setCellValueFactory(new PropertyValueFactory<>("bookingId"));
         ssnColumn.setCellValueFactory(new PropertyValueFactory<>("SSN"));
         firstNameColumn.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         lastNameColumn.setCellValueFactory(new PropertyValueFactory<>("lastName"));
@@ -76,7 +83,9 @@ public class ViewBookedAdminController implements Initializable {
             Optional<ButtonType> result = alert.showAndWait();
             if (result.isPresent() && (result.get() == ButtonType.OK)){
                 BookingTable bTable = (BookingTable) table.getSelectionModel().getSelectedItem();
-                bookingQueries.removeBooking(bTable.getSSN());
+                bookingQueries.removeBookingHasPackage(bTable.getBookingId());
+                bookingQueries.removeBooking(bTable.getBookingId());
+                table.getItems().clear();
                 display();
             }
         } catch (Exception e) {
@@ -95,7 +104,10 @@ public class ViewBookedAdminController implements Initializable {
                 Optional<ButtonType> result = alert.showAndWait();
                 if (result.isPresent() && (result.get() == ButtonType.OK)){
                     BookingTable bTable = (BookingTable) table.getSelectionModel().getSelectedItem();
-                    bookingQueries.removeBooking(bTable.getSSN());
+                    bookingQueries.removeBookingHasPackage(bTable.getBookingId());
+                    bookingQueries.removeBooking(bTable.getBookingId());
+
+                    table.getItems().clear();
                     display();
                 }
 

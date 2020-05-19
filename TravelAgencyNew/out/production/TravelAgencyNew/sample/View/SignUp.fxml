@@ -91,7 +91,7 @@
                 <Font size="15.0" />
             </font>
         </PasswordField>
-        <Button fx:id="loginbutton" layoutX="54.0" layoutY="358.0" mnemonicParsing="false" onAction="#ToAnotherScene" prefHeight="30.0" prefWidth="147.0" text="To another Scene" textFill="#400594">
+        <Button fx:id="loginbutton" layoutX="54.0" layoutY="358.0" mnemonicParsing="false" onAction="#ToAnotherScene" prefHeight="30.0" prefWidth="147.0" text="Log in" textFill="#400594">
             <font>
                 <Font size="14.0" />
             </font>

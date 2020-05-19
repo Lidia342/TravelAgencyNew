@@ -3,17 +3,30 @@ package sample.Model;
 import javafx.beans.property.SimpleStringProperty;
 
 public class BookingTable {
-    private SimpleStringProperty SSN, firstName, lastName, packageName, date, price;
+    private SimpleStringProperty bookingId,SSN, firstName, lastName, packageName, date, price;
 
 
-    public BookingTable(String ssn, String firstName, String lastName, String packageName,
+    public BookingTable(String bookingId,String ssn, String firstName, String lastName, String packageName,
                         String date, String price) {
+        this.bookingId = new SimpleStringProperty(bookingId);
         this.SSN = new SimpleStringProperty(ssn);
         this.firstName = new SimpleStringProperty(firstName);
         this.lastName = new SimpleStringProperty(lastName);
         this.packageName = new SimpleStringProperty(packageName);
         this.date = new SimpleStringProperty(date);
         this.price = new SimpleStringProperty(price);
+    }
+
+    public String getBookingId() {
+        return bookingId.get();
+    }
+
+    public SimpleStringProperty bookingIdProperty() {
+        return bookingId;
+    }
+
+    public void setBookingId(String bookingId) {
+        this.bookingId.set(bookingId);
     }
 
     public String getSSN() {

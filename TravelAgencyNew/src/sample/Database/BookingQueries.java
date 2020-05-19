@@ -1,11 +1,10 @@
 package sample.Database;
-import javafx.scene.control.Alert;
-import sample.Model.*;
-import sample.Model.Package;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import sample.Model.BookingTable;
-import java.lang.Exception;
+import javafx.scene.control.Alert;
+import sample.Model.Package;
+import sample.Model.*;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Date;
@@ -148,14 +147,29 @@ public class BookingQueries extends DatabaseConnection {
 
 
 
-    public void insertBookedPackageIntoBookingTable(String date, String user_SSN, int package_packageId){
 
-        String BookingQuery = "INSERT INTO booking (date, user_SSN, package_packageId) " +
-                "VALUES (?, ?, ?)";
+    public void insertBookedPackageIntoBookingTable(String date, String user_SSN){
+
+       // String BookingQuery = "INSERT INTO booking (date, user_SSN, package_packageId) " +
+         //       "VALUES (?, ?, ?)";
+        String BookingQuery = "INSERT INTO booking (date, user_SSN) " +
+                       "VALUES (?, ?)";
         try(PreparedStatement preparedStatement = connection.prepareStatement(BookingQuery)){
             preparedStatement.setString(1, date);
             preparedStatement.setString(2, user_SSN);
-            preparedStatement.setInt(3,package_packageId);
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());        }
+    }
+    public void insertBookedIntoBookingHasPackageTable(int package_packageId, int booking_bookingId){
+
+
+        String sQuery = "INSERT INTO booking_has_package (booking_bookingID, package_packageId)" +
+                "VALUES(?,?)";
+        try(PreparedStatement preparedStatement = connection.prepareStatement(sQuery)){
+            preparedStatement.setInt(1,booking_bookingId);
+            preparedStatement.setInt(2,package_packageId);
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
@@ -164,13 +178,15 @@ public class BookingQueries extends DatabaseConnection {
 
     public void viewBooked(){
         try{
-            String selectQuery = "select u.SSN, u.firstName, u.lastName, p.packageName, b.date, p.price from booking " +
-                    "b join package p On b.package_packageId = p.packageId join user u  on b.user_SSN = u.SSN;";
+            String selectQuery = "select b.bookingID, u.SSN, u.firstName, u.lastName, p.packageName, b.date, p.price from booking b " +
+                    "join booking_has_package bhp On bhp.booking_bookingID = b.bookingID join package p " +
+                    "On bhp.package_packageId = p.packageId join user u  on b.user_SSN = u.SSN;";
 
             ResultSet resultSet = connection.createStatement().executeQuery(selectQuery);
             while (resultSet.next()) {
-                BookingTable bookingTable = new BookingTable("SSN","firstName","lastName",
+                BookingTable bookingTable = new BookingTable("bookingID","SSN","firstName","lastName",
                         "packageName","date","price");
+                bookingTable.setBookingId(resultSet.getString("bookingID"));
                 bookingTable.setSSN(resultSet.getString("SSN"));
                 bookingTable.setFirstName(resultSet.getString("firstName"));
                 bookingTable.setLastName(resultSet.getString("lastName"));
@@ -188,15 +204,43 @@ public class BookingQueries extends DatabaseConnection {
     }
 
     public void removeBooking(String ssn){
-        String removeQuery = "Delete From booking Where user_SSN =?";
+        String removeQuery = "DELETE From booking WHERE bookingID = ?";
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(removeQuery);
 
-            preparedStatement.setString(1, ssn);
+            preparedStatement.setString(1,ssn);
             preparedStatement.executeUpdate();
         } catch (SQLException e){
             System.out.println(e.getMessage());
+        }
+    }
+    public void removeBookingHasPackage(String  id){
+        String deleteQuery= "DELETE From booking_has_package WHERE booking_bookingID = ?";
+
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement(deleteQuery);
+
+            preparedStatement.setString(1, id);
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    public int getBookingId(){
+        int lastBookingId = -1;
+        try{
+            resultSet= statement.executeQuery("Select Max(BookingID) from booking");
+
+            while (resultSet.next()){
+                lastBookingId = resultSet.getInt(1);
+
+            }
+            return lastBookingId;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return 0;
         }
     }
 
