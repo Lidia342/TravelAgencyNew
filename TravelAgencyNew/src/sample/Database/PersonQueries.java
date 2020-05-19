@@ -146,7 +146,7 @@ public class PersonQueries extends DatabaseConnection {
 
     public boolean editPassword(String password, String userID) throws SQLException {
 
-        String editQuery = "UPDATE Users SET password=? WHERE id=?";
+        String editQuery = "UPDATE user SET password=? WHERE SSN=?";
         PreparedStatement preparedStmt = connection.prepareStatement(editQuery);
         preparedStmt.setString(1, password);
         preparedStmt.setString(2, userID);
@@ -160,7 +160,7 @@ public class PersonQueries extends DatabaseConnection {
 
     public boolean editFirstName(String newName, String userID) throws SQLException {
 
-        String editQuery = "UPDATE Users SET first_name=? WHERE id=?";
+        String editQuery = "UPDATE user SET firstName=? WHERE SSN=?";
         PreparedStatement preparedStmt = connection.prepareStatement(editQuery);
         preparedStmt.setString(1, newName);
         preparedStmt.setString(2, userID);
@@ -172,12 +172,15 @@ public class PersonQueries extends DatabaseConnection {
         }
     }
 
+    /*
     public ArrayList<User> getPersonInfo() {
         return personInfo;
     }
 
+     */
+
     public boolean editLastName(String newName, String userID) throws SQLException {
-        String editQuery = "UPDATE Users SET last_name=? WHERE id=?";
+        String editQuery = "UPDATE user SET lastName=? WHERE SSN=?";
         PreparedStatement preparedStmt = connection.prepareStatement(editQuery);
         preparedStmt.setString(1, newName);
         preparedStmt.setString(2, userID);
@@ -192,7 +195,7 @@ public class PersonQueries extends DatabaseConnection {
     public boolean editEmail(String newEmail, String userID) throws SQLException {
 
         if (!emailExists(newEmail)) {
-            String editQuery = "UPDATE Users SET email=? WHERE id=?";
+            String editQuery = "UPDATE user SET email=? WHERE SSN=?";
             PreparedStatement preparedStmt = connection.prepareStatement(editQuery);
             preparedStmt.setString(1, newEmail);
             preparedStmt.setString(2, userID);

@@ -78,7 +78,7 @@ public abstract class Person {
         this.type = type;
     }
 
-    public Person(String SSN, String firstName, String lastName, String phoneNumber, String password, String address, String email, String type) {
+    public Person(String SSN, String firstName, String lastName, String phoneNumber, String email, String password, String address, String type) {
         this.SSN = SSN;
         this.firstName = firstName;
         this.lastName = lastName;

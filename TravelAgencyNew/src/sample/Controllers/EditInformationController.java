@@ -9,7 +9,6 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import sample.Database.PersonQueries;
 import sample.Model.Data;
-import sample.Model.Encryption;
 import sample.Model.SceneSwitcher;
 
 import java.io.IOException;
@@ -37,7 +36,7 @@ public class EditInformationController implements Initializable {
         public void initialize(URL location, ResourceBundle resources) {
 
             try {
-                personaliseScene();
+                personalizeScene();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -104,15 +103,14 @@ public class EditInformationController implements Initializable {
                 }
                 if (!updateLastName.getText().trim().isEmpty()) {
                     try {
-                        personQueries.editFirstName(updateLastName.getText(), myData.getUser().getSSN());
+                        personQueries.editLastName(updateLastName.getText(), myData.getUser().getSSN());
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
                 }
                 if (!updatePassword.getText().trim().isEmpty()) {
-                    String encryptedPassword = Encryption.encrypt(updatePassword.getText());
                     try {
-                        personQueries.editPassword(encryptedPassword, myData.getUser().getSSN());
+                        personQueries.editPassword(updatePassword.getText(), myData.getUser().getSSN());
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
@@ -128,7 +126,7 @@ public class EditInformationController implements Initializable {
             SceneSwitcher.SwitchScene(event, "/scenes/UserScene.fxml");
         }
 
-        protected void personaliseScene() throws IOException {
+        protected void personalizeScene() throws IOException {
 
             firstNameLabel.setText(myData.getUser().getFirstName());
             lastNameLabel.setText(myData.getUser().getLastName());

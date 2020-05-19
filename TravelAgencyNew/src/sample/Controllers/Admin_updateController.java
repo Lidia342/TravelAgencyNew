@@ -12,7 +12,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import sample.Database.PersonQueries;
 import sample.Model.*;
-import sample.Model.Exception;
 
 import java.net.URL;
 import java.sql.*;
@@ -78,8 +77,8 @@ UserTable ut;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         exception = new Exception();
-        exception.onlyNumber(ssnTxtField);
-        exception.onlyNumber(phoneTxtField);
+        //exception.onlyNumber(ssnTxtField);
+        //exception.onlyNumber(phoneTxtField);
 
 
         inputLimit(phoneTxtField,13,10);

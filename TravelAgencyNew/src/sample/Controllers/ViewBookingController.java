@@ -31,11 +31,11 @@ public class ViewBookingController implements Initializable {
         packageName.setText(myData.getCurrentPackage().getName());
         destinationName.setText(myData.getCurrentPackage().getArrivingCity());
         flightDepDate.setText(String.valueOf(myData.getCurrentPackage().getFlight().getDeparture_time()));
-        //flightRetDate.setText(myData.getCurrentPackage().getFlight().ge);
-        //hotelName.setText(myData.getCurrentPackage().getHotel().getName);
+        flightRetDate.setText(String.valueOf(myData.getCurrentPackage().getFlight().getReturnDate()));
+        hotelName.setText(myData.getCurrentPackage().getHotel().getName());
         hotelNights.setText(String.valueOf(myData.getCurrentPackage().getHotelNights()));
         carModel.setText(myData.getCurrentPackage().getCar().getType_car());
-        //carRentDays.setText(myData.getCurrentPackage().getCarRentalDays);
+        carRentDays.setText(myData.getCurrentPackage().getCarRentalDays());
     }
 
     @FXML
