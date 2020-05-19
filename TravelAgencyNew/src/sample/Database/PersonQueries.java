@@ -171,7 +171,6 @@ public class PersonQueries extends DatabaseConnection {
     }
 
 
-
     public boolean editLastName(String newName, String userID) throws SQLException {
         String editQuery = "UPDATE Users SET last_name=? WHERE id=?";
         PreparedStatement preparedStmt = connection.prepareStatement(editQuery);
@@ -200,6 +199,21 @@ public class PersonQueries extends DatabaseConnection {
             return true;
         } else return false;
     }
+        public void sendPassword (String password, String ssn){
+
+            try {
+                String update = "Update user set password = ? where SSN = ? ";
+
+                PreparedStatement preparedStatement = connection.prepareStatement(update);
+                preparedStatement.setString(1, password);
+                preparedStatement.setString(2, ssn);
+                preparedStatement.executeUpdate();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
+
 
         public boolean userNotExists (String SSN){
             String SSNQuery = "SELECT * FROM user WHERE SSN = ?";
@@ -216,7 +230,7 @@ public class PersonQueries extends DatabaseConnection {
             return obsList;
         }
 
-        public void setObsList(ObservableList<Object> obsList) {
+        public void setObsList (ObservableList < Object > obsList) {
             this.obsList = obsList;
         }
     }

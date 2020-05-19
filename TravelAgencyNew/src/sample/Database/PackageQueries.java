@@ -76,7 +76,10 @@ public class PackageQueries extends DatabaseConnection {
 
     public void adminPackage(){
         try {
-            String selectQuery = "select f.flightID, p.packageName, f.departureDate, f.returnDate, f.departureCity, f.arrivalCity, f.flightName, h.hotelName, h.numOfNights, h.typeOfRoom, c.carType, p.price from package p Join flight f On p.flight_flightID = f.flightID join hotel h on p.hotel_hotelID = h.hotelID join car c on p.car_carID =  c.carID order by f.departureDate asc";
+            String selectQuery = "select f.flightID, p.packageName, f.departureDate, f.returnDate, f.departureCity, f.arrivalCity, " +
+                    "f.flightName, h.hotelName, h.numOfNights, h.typeOfRoom, c.carType, p.price from package p Join flight f " +
+                    "On p.flight_flightID = f.flightID join hotel h on p.hotel_hotelID = h.hotelID join car c on p.car_carID =  c.carID " +
+                    "order by f.departureDate asc";
 
 
             ResultSet resultSet = connection.createStatement().executeQuery(selectQuery);
