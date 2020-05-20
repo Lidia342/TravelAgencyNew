@@ -20,18 +20,17 @@
         <AnchorPane layoutX="95.0" layoutY="45.0" prefHeight="319.0" prefWidth="399.0" style="-fx-background-color: #ffffff; -fx-border-color: black; -fx-border-radius: 30;">
             <children>
             <ImageView fitHeight="319.0" fitWidth="406.0" pickOnBounds="true" preserveRatio="true" />
-                <Button fx:id="adminButton" layoutX="230.0" layoutY="134.0" mnemonicParsing="false" onAction="#loginAdmin" prefHeight="25.0" prefWidth="118.0" text="Login as Admin" />
-                <TextField fx:id="TfEmail" layoutX="82.0" layoutY="30.0" prefHeight="25.0" prefWidth="149.0" promptText="Please enter your email" />
+                <Button fx:id="logInButton" layoutX="118.0" layoutY="134.0" mnemonicParsing="false" onAction="#login" prefHeight="25.0" prefWidth="118.0" text="Log in" />
+                <TextField fx:id="TfEmail" layoutX="82.0" layoutY="30.0" prefHeight="25.0" prefWidth="195.0" promptText="Please enter your email" />
                 <Text layoutX="51.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Don't have an Account?" />
                 <Hyperlink fx:id="createLink" layoutX="222.0" layoutY="181.0" onAction="#createOneHere" prefHeight="27.0" prefWidth="125.0" text="Create one here">
                <font>
                   <Font size="13.0" />
                </font></Hyperlink>
-                <Button fx:id="cancel" layoutX="35.0" layoutY="271.0" mnemonicParsing="false" onAction="#cancel" prefHeight="34.0" prefWidth="65.0" text="Cancel" />
-                <Button fx:id="customerButton" layoutX="51.0" layoutY="134.0" mnemonicParsing="false" onAction="#loginCustomer" prefHeight="25.0" prefWidth="118.0" text="Log in as Customer" />
+                <Button fx:id="cancel" layoutX="35.0" layoutY="271.0" mnemonicParsing="false" onAction="#cancel" prefHeight="17.0" prefWidth="63.0" text="Cancel" />
             <Text layoutX="65.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forgot Password ?" />
             <Hyperlink fx:id="forgotPassword" layoutX="231.0" layoutY="218.0" onAction="#showDialog" prefHeight="23.0" prefWidth="76.0" text="Click Here" />
-            <PasswordField fx:id="TfPassword" layoutX="82.0" layoutY="83.0" promptText="*****" />
+            <PasswordField fx:id="TfPassword" layoutX="82.0" layoutY="83.0" prefHeight="25.0" prefWidth="195.0" promptText="*****" />
             </children>
         </AnchorPane>
     </children>

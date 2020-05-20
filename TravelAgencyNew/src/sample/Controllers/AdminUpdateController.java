@@ -8,6 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import sample.Database.PersonQueries;
 import sample.Model.HandlesException;
 import sample.Model.SceneSwitcher;
@@ -65,6 +66,7 @@ public class AdminUpdateController implements Initializable {
 
    @FXML private Button updateButton;
 
+   int index = -1;
     private HandlesException handlesException;
 
 
@@ -72,9 +74,9 @@ public class AdminUpdateController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        Tooltip ssntool = new Tooltip();
-        ssntool.setText("enter your social security number here, it shall be 12 numbers");
-        ssnTxtField.setTooltip(ssntool);
+        Tooltip ssnTool = new Tooltip();
+        ssnTool.setText("enter your social security number here, it shall be 12 numbers");
+        ssnTxtField.setTooltip(ssnTool);
 
         Tooltip emailTool = new Tooltip();
         emailTool.setText("Enter your email address here");
@@ -129,10 +131,24 @@ public class AdminUpdateController implements Initializable {
         table.setItems(personQueries.getObsList());
     }
 
+    @FXML
+    public void getSelected(MouseEvent event){
+        index = table.getSelectionModel().getSelectedIndex();
+        if (index <= -1){
+            return;
+        }
+        ssnTxtField.setText(SSNColumn.getCellData(index).toString());
+        emailTxtField.setText(emailColumn.getCellData(index).toString());
+        addressTxtField.setText(addressColumn.getCellData(index).toString());
+        passwordTxtField.setText(passwordColumn.getCellData(index).toString());
+        phoneTxtField.setText(phoNumColumn.getCellData(index).toString());
+    }
+
         @FXML
         public void update () {
 
         try{
+            select();
             personQueries.updatePersonTable(phoneTxtField.getText(), passwordTxtField.getText(), addressTxtField.getText(),
                     emailTxtField.getText(), ssnTxtField.getText());
 

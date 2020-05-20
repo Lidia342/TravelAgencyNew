@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import sample.Database.LogInQueries;
+import sample.Model.HandlesException;
 import sample.Model.SceneSwitcher;
 
 import java.io.IOException;
@@ -16,9 +17,10 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class LogInController implements Initializable {
+    private HandlesException handlesException;
 
     @FXML
-    private Button adminButton;
+    private Button logInButton;
 
     @FXML
     private TextField TfEmail;
@@ -28,9 +30,6 @@ public class LogInController implements Initializable {
 
     @FXML
     private Button cancel;
-
-    @FXML
-    private Button customerButton;
 
     @FXML
     private PasswordField TfPassword;
@@ -43,7 +42,7 @@ public class LogInController implements Initializable {
 
     Alert e = new Alert(Alert.AlertType.ERROR);
 
-
+/*
     public void loginException(){
         TfEmail.getText();
         TfPassword.getText();
@@ -66,46 +65,34 @@ public class LogInController implements Initializable {
     }
 
 
-    @FXML void loginAdmin(ActionEvent ae) throws IOException {
-        loginException();
+ */
+
+    @FXML void login(ActionEvent ae) throws IOException {
+        //loginException();
         String emailId = TfEmail.getText();
         String password = TfPassword.getText();
 
+        LogInQueries logInQueries = new LogInQueries();
+        boolean flag = logInQueries.validate(emailId, password);
+        boolean hello = logInQueries.customerLogin(emailId, password);
 
-        LogInQueries lq = new LogInQueries();
-        boolean flag = lq.validate(emailId, password);
+        if (!hello && !flag){
+            Alert f = new Alert(Alert.AlertType.ERROR);
+            f.setTitle("Incorrect");
+            f.setHeaderText("Enter correct password");
+            f.show();
+            TfPassword.clear();
+            TfEmail.clear();
 
-        if (!flag) {
-            e.setTitle("Incorrect");
-            e.setHeaderText("Enter correct password & press correct button");
-            e.show();
-
-        } else {
-            adminScene(ae);
         }
-
-
-    }
-
-    @FXML public void loginCustomer(ActionEvent ae) throws IOException {
-        loginException();
-        String emailId = TfEmail.getText();
-        String password = TfPassword.getText();
-
-
-        LogInQueries lq = new LogInQueries();
-        boolean flag = lq.customerLogin(emailId, password);
-
-        if (!flag) {
-            e.setTitle("Incorrect");
-            e.setHeaderText("Enter correct password & press correct button");
-            e.show();
-
-        } else {
+        else if(hello) {
             customerScene(ae);
         }
-
+        else {
+            adminScene(ae);
+        }
     }
+
     @FXML public void cancel(){
         System.exit(0);
     }
@@ -140,24 +127,18 @@ public class LogInController implements Initializable {
         dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
         Optional<ButtonType> result = dialog.showAndWait();
 
-      /*  if (result.isPresent() && result.get() == ButtonType.OK){
-            ResetPasswordController dc = new ResetPasswordController();
-            dc.send();
-            Alert a = new Alert(Alert.AlertType.CONFIRMATION);
-            a.setHeaderText("Sent");
-            a.show();
-        }
-        else {
-            System.out.println("not working");
-        }
-*/
+
     }
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        handlesException = new HandlesException();
+        handlesException.emptyTxtFields1(TfEmail,TfPassword,logInButton);
+
         Tooltip emailTool = new Tooltip();
-        emailTool.setText("Enter your username. The username is the same us email");
+        emailTool.setText("Enter your email here");
         TfEmail.setTooltip(emailTool);
 
         Tooltip passwordTool = new Tooltip();
@@ -165,12 +146,9 @@ public class LogInController implements Initializable {
         TfPassword.setTooltip(passwordTool);
 
         Tooltip adminTool = new Tooltip();
-        adminTool.setText("Press this button if you are admin to log in");
-        adminButton.setTooltip(adminTool);
+        adminTool.setText("Press this button if you want to log in");
+        logInButton.setTooltip(adminTool);
 
-        Tooltip customerTool = new Tooltip();
-        customerTool.setText("Press this button to log in as customer");
-        customerButton.setTooltip(customerTool);
 
         Tooltip createTool = new Tooltip();
         createTool.setText("press here to create an account");

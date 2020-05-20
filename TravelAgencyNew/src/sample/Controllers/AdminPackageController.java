@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import sample.Database.PackageQueries;
 import sample.Model.AdminPackageTable;
 import sample.Model.HandlesException;
@@ -16,7 +17,9 @@ import java.util.ResourceBundle;
 public class AdminPackageController implements Initializable {
 
     private HandlesException handlesException;
+
     Alert e = new Alert(Alert.AlertType.ERROR);
+
     PackageQueries pq = new PackageQueries();
 
     @FXML
@@ -70,6 +73,8 @@ public class AdminPackageController implements Initializable {
     @FXML
     private Button updateButton;
 
+    int index = -1;
+
     public void display(){
         flightIdColumn.setCellValueFactory(new PropertyValueFactory<>("FlightID"));
         packageNameColumn.setCellValueFactory(new PropertyValueFactory<>("packageName"));
@@ -87,8 +92,20 @@ public class AdminPackageController implements Initializable {
         pq.adminPackage();
         table.setItems(pq.getOList());
     }
+
+    @FXML
+    public void getSelected(MouseEvent event){
+        index = table.getSelectionModel().getSelectedIndex();
+        if (index <= -1){
+            return;
+        }
+        flightIdTxtField.setText(flightIdColumn.getCellData(index).toString());
+        departureDateTxtField.setText(departureDateColumn.getCellData(index).toString());
+        returnDateTxtField.setText(returnDateColumn.getCellData(index).toString());
+    }
     public void update(){
 
+        display();
         pq.updateDate(departureDateTxtField.getText(), returnDateTxtField.getText(),flightIdTxtField.getText());
         table.getItems().clear();
         display();
@@ -96,12 +113,14 @@ public class AdminPackageController implements Initializable {
         returnDateTxtField.clear();
         flightIdTxtField.clear();
 
-        /*String dateTime = departureDateTxtField.getText();
+
+/*
+        String dateTime = departureDateTxtField.getText();
         String dateTime1 = returnDateTxtField.getText();
 
         java.util.Date date = new java.util.Date();
-        java.text.SimpleDateFormat format = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String time = format.format(date);
+        java.text.SimpleDateFormat model = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String time = model.format(date);
 
         try{
             if (!dateTime.equals(time) ||  !dateTime1.equals(time)) {
@@ -109,6 +128,7 @@ public class AdminPackageController implements Initializable {
                 e.setHeaderText(" check your SSN or date format please");
                 e.show();
             } else {
+                display();
                 pq.updateDate(departureDateTxtField.getText(), returnDateTxtField.getText(),flightIdTxtField.getText());
                 table.getItems().clear();
                 display();
@@ -118,7 +138,9 @@ public class AdminPackageController implements Initializable {
             }
         } catch (Exception ex) {
             ex.printStackTrace();
-        }*/
+        }
+
+ */
 
 
     }
@@ -145,9 +167,9 @@ public class AdminPackageController implements Initializable {
         idTool.setText("Enter the id of the flight as you see from the table");
         flightIdTxtField.setTooltip(idTool);
 
-        Tooltip departureToool = new Tooltip();
-        departureToool.setText("Enter the departure date");
-        departureDateTxtField.setTooltip(departureToool);
+        Tooltip departureTool = new Tooltip();
+        departureTool.setText("Enter the departure date");
+        departureDateTxtField.setTooltip(departureTool);
 
         Tooltip returnTool = new Tooltip();
         returnTool.setText("Enter the return date");

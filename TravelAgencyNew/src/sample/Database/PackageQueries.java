@@ -2,6 +2,7 @@ package sample.Database;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
 import sample.Model.AdminPackageTable;
 import sample.Model.CustomerPackageTable;
 
@@ -71,6 +72,10 @@ public class PackageQueries extends DatabaseConnection {
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+            Alert er = new Alert(Alert.AlertType.ERROR);
+            er.setTitle("Invalid Input!");
+            er.setHeaderText("Write Date and time in correct format ");
+            er.show();
         }
     }
 

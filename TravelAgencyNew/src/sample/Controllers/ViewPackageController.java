@@ -74,6 +74,7 @@ public class ViewPackageController implements Initializable {
     @FXML private Label typeIn;
 
 
+
     PackageQueries pq = new PackageQueries();
     PersonQueries personQueries = new PersonQueries();
 
@@ -281,7 +282,7 @@ public class ViewPackageController implements Initializable {
 
     }
 
-  @FXML  public void confirmBooking() {
+  @FXML  public void confirmBooking(ActionEvent ae) {
 
       String currTime = bookDateTxtField.getText();
 
@@ -300,6 +301,7 @@ public class ViewPackageController implements Initializable {
               alertSuccess();
               ssnTxtField.clear();
               bookDateTxtField.clear();
+              SceneSwitcher.SwitchScene(ae, "../View/CustomerMenu.fxml");
           }
 
       }
@@ -319,4 +321,3 @@ public class ViewPackageController implements Initializable {
     }
 
 }
-
