@@ -36,10 +36,11 @@ public class Email {
 
         message.setSubject("Booking Confirmation");
 
-           /* message.setText("Dear " + myData.getUser().getFirstName() + ",\n\n" +
-                        "Your booking for package " + Main.getSelectedFilmTitle() + " has been confirmed. Please, keep this email as proof of your booking.\n\nYour departing flight is on " + myData. +
-                        ", at " + Main.getSelectedTime() + "!\n\nStay Awesome!,\nCine UCL");
-*/
+
+            message.setText("Dear " + myData.getUser().getFirstName() + ",\n\n" +
+                        "Your booking for package " + myData.getCurrentPackage().getName() + " has been confirmed. Please, keep this email as proof of your booking.\n\nYour departing flight is on " +
+                    ", at " +  ". Thanks for booking!\n!,\n");
+
         Transport.send(message);
 
     } catch (AddressException e) {
