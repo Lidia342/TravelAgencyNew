@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import sample.Database.PersonQueries;
+import sample.Model.HandlesException;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
@@ -14,6 +15,8 @@ import java.util.Random;
 import java.util.ResourceBundle;
 
 public class ResetPasswordController implements Initializable {
+
+    private HandlesException handlesException;
 
 
     @FXML
@@ -36,6 +39,8 @@ public class ResetPasswordController implements Initializable {
 
     @FXML
     private Label newPassLabel;
+    @FXML
+    private Button sendButton;
 
 
     public void clear(){
@@ -105,13 +110,13 @@ public class ResetPasswordController implements Initializable {
         } catch (MessagingException e) {
             System.out.println(e.getMessage());
             Alert b = new Alert(Alert.AlertType.ERROR);
-            b.setHeaderText("Could not send code, try again..");
+            b.setHeaderText("Enter correct SSN and your email Address");
             b.show();
         }
 
     }
         @FXML public void updatePassword(){
-             int reset = Integer.parseInt(codeTxtFiled.getText());
+        int reset = Integer.parseInt(codeTxtFiled.getText());
 
         if (reset == randomNumber){
             PersonQueries pq = new PersonQueries();
@@ -135,6 +140,12 @@ public class ResetPasswordController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        handlesException = new HandlesException();
+        handlesException.emptyTxtFields1(emailTxtFiled,ssnTextField,sendButton);
+        handlesException.emptyTxtFields1(codeTxtFiled,passwordTxtField,con);
+        handlesException.onlyNumber(codeTxtFiled);
+        handlesException.inputLimit(passwordTxtField,16);
 
         setInvisible();
 

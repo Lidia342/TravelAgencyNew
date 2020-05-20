@@ -46,6 +46,7 @@ public class HandlesException {
         }
         return  passwordError;
     }
+
     public void emptyTextFields(TextField ssnTxtField,TextField bookDateTxtField,Button bookingButton){
         bookingButton.disableProperty().bind(Bindings.createBooleanBinding(()->ssnTxtField.getText().trim().isEmpty(),ssnTxtField.textProperty()
         ).or(Bindings.createBooleanBinding(()->bookDateTxtField.getText().trim().isEmpty(),bookDateTxtField.textProperty())));
@@ -55,6 +56,11 @@ public class HandlesException {
         ).or(Bindings.createBooleanBinding(()->departureDateTxtField.getText().trim().isEmpty(),departureDateTxtField.textProperty())
         ).or(Bindings.createBooleanBinding(()->returnDateTxtField.getText().trim().isEmpty(),returnDateTxtField.textProperty())));
     }
+    public void emptyTxtFields1(TextField TfEmail,TextField TfPassword,Button logInButton){
+        logInButton.disableProperty().bind(Bindings.createBooleanBinding(()->TfEmail.getText().trim().isEmpty(),TfEmail.textProperty()
+        ).or(Bindings.createBooleanBinding(()->TfPassword.getText().trim().isEmpty(),TfPassword.textProperty())));
+    }
+
 
 
     public void emptyTxtFields(TextField textFieldSSN, TextField textFieldFirstName, TextField  textFieldLastName,

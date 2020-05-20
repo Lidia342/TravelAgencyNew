@@ -11,7 +11,7 @@
 
 <AnchorPane prefHeight="455.0" prefWidth="652.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.AdminUpdateController">
     <children>
-        <TableView fx:id="table" onKeyPressed="#handleKeyPressed" prefHeight="229.0" prefWidth="652.0">
+        <TableView fx:id="table" onKeyPressed="#handleKeyPressed" onMouseClicked="#getSelected" prefHeight="229.0" prefWidth="652.0">
             <columns>
                 <TableColumn fx:id="SSNColumn" prefWidth="108.0" text="SSN" />
                 <TableColumn fx:id="firstNameColumn" prefWidth="78.0" text="firstName" />
