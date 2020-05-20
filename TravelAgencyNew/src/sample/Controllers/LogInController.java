@@ -13,7 +13,6 @@ import sample.Model.HandlesException;
 import sample.Model.SceneSwitcher;
 
 import java.io.IOException;
-import java.sql.SQLException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -89,7 +88,7 @@ public class LogInController implements Initializable {
 
     @FXML public void customerScene(ActionEvent ae) throws IOException {
 
-        SceneSwitcher.SwitchScene(ae,"../View/main_paige.fxml");
+        SceneSwitcher.SwitchScene(ae,"../View/CustomerMenu.fxml");
 
     }
     @FXML public void showDialog(ActionEvent ae) throws IOException {

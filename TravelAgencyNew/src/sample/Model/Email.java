@@ -1,14 +1,10 @@
 package sample.Model;
 
-import java.util.Properties;
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Transport;
+import javax.mail.*;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.util.Properties;
 
 
 public class Email {
@@ -40,14 +36,16 @@ public class Email {
 
         message.setSubject("Booking Confirmation");
 
-            message.setText("Dear " + myData.getUser().getFirstName() + ",\n\n" +
+           /* message.setText("Dear " + myData.getUser().getFirstName() + ",\n\n" +
                         "Your booking for package " + Main.getSelectedFilmTitle() + " has been confirmed. Please, keep this email as proof of your booking.\n\nYour departing flight is on " + myData. +
                         ", at " + Main.getSelectedTime() + "!\n\nStay Awesome!,\nCine UCL");
-
+*/
         Transport.send(message);
 
     } catch (AddressException e) {
                     throw new RuntimeException(e);
+        } catch (MessagingException e) {
+            e.printStackTrace();
         }
     }
 }

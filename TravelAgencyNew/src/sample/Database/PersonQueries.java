@@ -158,29 +158,34 @@ public class PersonQueries extends DatabaseConnection {
 
     public void editFirstName(String newName, String userID) throws SQLException {
 
-        String editQuery = "UPDATE user SET firstName=? WHERE SSN=?";
-        PreparedStatement preparedStmt = connection.prepareStatement(editQuery);
-        preparedStmt.setString(1, newName);
-        preparedStmt.setString(2, userID);
-        preparedStatement.executeUpdate();
-            } catch (SQLException e) {
-                System.out.println(e.getMessage());
-            }
+        try {
+
+
+            String editQuery = "UPDATE user SET firstName=? WHERE SSN=?";
+            PreparedStatement preparedStmt = connection.prepareStatement(editQuery);
+            preparedStmt.setString(1, newName);
+            preparedStmt.setString(2, userID);
+            preparedStmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+
         }
     }
 
 
     public void editLastName(String newName, String userID) throws SQLException {
-        String editQuery = "UPDATE user SET lastName=? WHERE SSN=?";
-        PreparedStatement preparedStmt = connection.prepareStatement(editQuery);
-        preparedStmt.setString(1, newName);
-        preparedStmt.setString(2, userID);
-        preparedStatement.executeUpdate();
-            } catch (SQLException e) {
-                System.out.println(e.getMessage());
-            }
+
+        try {
+            String editQuery = "UPDATE user SET lastName=? WHERE SSN=?";
+            PreparedStatement preparedStmt = connection.prepareStatement(editQuery);
+            preparedStmt.setString(1, newName);
+            preparedStmt.setString(2, userID);
+            preparedStmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
         }
     }
+
 
     public void editEmail(String newEmail, String userID) throws SQLException {
 
@@ -189,44 +194,42 @@ public class PersonQueries extends DatabaseConnection {
             PreparedStatement preparedStmt = connection.prepareStatement(editQuery);
             preparedStmt.setString(1, newEmail);
             preparedStmt.setString(2, userID);
+            preparedStmt.executeUpdate();
+        }
+    }
+
+
+    public void sendPassword(String password, String ssn) {
+
+        try {
+            String update = "Update user set password = ? where SSN = ? ";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(update);
+            preparedStatement.setString(1, password);
+            preparedStatement.setString(2, ssn);
             preparedStatement.executeUpdate();
-            } catch (SQLException e) {
-                System.out.println(e.getMessage());
-            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
         }
     }
-        public void sendPassword (String password, String ssn){
 
-            try {
-                String update = "Update user set password = ? where SSN = ? ";
 
-                PreparedStatement preparedStatement = connection.prepareStatement(update);
-                preparedStatement.setString(1, password);
-                preparedStatement.setString(2, ssn);
-                preparedStatement.executeUpdate();
-            } catch (SQLException e) {
-                System.out.println(e.getMessage());
-            }
+    public boolean userNotExists(String SSN) {
+        String SSNQuery = "SELECT * FROM user WHERE SSN = ?";
+
+        if (existence(SSN, SSNQuery)) {
+            return false;
+        } else {
+            return true;
         }
 
-
-
-        public boolean userNotExists (String SSN){
-            String SSNQuery = "SELECT * FROM user WHERE SSN = ?";
-
-            if (existence(SSN, SSNQuery)) {
-                return false;
-            } else {
-                return true;
-            }
-
-        }
-
-        public ObservableList<Object> getObsList () {
-            return obsList;
-        }
-
-        public void setObsList (ObservableList < Object > obsList) {
-            this.obsList = obsList;
-        }
     }
+
+    public ObservableList<Object> getObsList() {
+        return obsList;
+    }
+
+    public void setObsList(ObservableList<Object> obsList) {
+        this.obsList = obsList;
+    }
+}

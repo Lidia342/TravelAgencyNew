@@ -27,8 +27,10 @@
       <point x="0.0" y="47.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.6155309033280507" x="639.0" y="261.0" />
-  <SelectedNodes />
+  <settings layout="Hierarchic Group" zoom="0.4938650306748466" x="625.0" y="316.0" />
+  <SelectedNodes>
+    <node>sample.Database.LogInQueries</node>
+  </SelectedNodes>
   <Categories>
     <Category>Fields</Category>
     <Category>Constructors</Category>
