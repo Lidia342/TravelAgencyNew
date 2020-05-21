@@ -10,8 +10,9 @@ public class Package {
     public String departingCity;
     public String arrivingCity;
     public String name;
+    public int carRentalDays;
 
-    public Package(int packageID, Flight flight, Car car, Hotel hotel, int hotelNights, String departingCity, String arrivingCity) {
+    public Package(int packageID, Flight flight, Car car, Hotel hotel, int hotelNights, String departingCity, String arrivingCity, int carRentalDays) {
         this.packageID = packageID;
         this.flight = flight;
         this.car = car;
@@ -19,6 +20,7 @@ public class Package {
         this.hotelNights = hotelNights;
         this.departingCity = departingCity;
         this.arrivingCity = arrivingCity;
+        this.carRentalDays = carRentalDays;
     }
 
     public void setPackageID(int packageID) {
@@ -79,5 +81,9 @@ public class Package {
 
     public String getName() {
         return name;
+    }
+
+    public int getCarRentalDays() {
+        return carRentalDays;
     }
 }

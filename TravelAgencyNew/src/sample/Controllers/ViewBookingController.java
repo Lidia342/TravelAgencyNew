@@ -11,7 +11,6 @@ import sample.Model.Data;
 import sample.Model.Email;
 import sample.Model.SceneSwitcher;
 
-import javax.crypto.Mac;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -31,11 +30,11 @@ public class ViewBookingController implements Initializable {
         packageName.setText(myData.getCurrentPackage().getName());
         destinationName.setText(myData.getCurrentPackage().getArrivingCity());
         flightDepDate.setText(String.valueOf(myData.getCurrentPackage().getFlight().getDeparture_time()));
-        //flightRetDate.setText(myData.getCurrentPackage().getFlight().ge);
-        //hotelName.setText(myData.getCurrentPackage().getHotel().getName);
+        flightRetDate.setText(String.valueOf(myData.getCurrentPackage().getFlight().getReturn_date()));
+        hotelName.setText(myData.getCurrentPackage().getHotel().getHotelName());
         hotelNights.setText(String.valueOf(myData.getCurrentPackage().getHotelNights()));
         carModel.setText(myData.getCurrentPackage().getCar().getType_car());
-        //carRentDays.setText(myData.getCurrentPackage().getCarRentalDays);
+        carRentDays.setText(String.valueOf(myData.getCurrentPackage().getCarRentalDays()));
     }
 
     @FXML
