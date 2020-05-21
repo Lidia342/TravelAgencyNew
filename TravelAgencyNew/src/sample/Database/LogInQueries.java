@@ -1,6 +1,5 @@
 package sample.Database;
 
-import sample.Model.Data;
 import sample.Model.User;
 
 import java.sql.*;
@@ -68,7 +67,7 @@ public class LogInQueries extends DatabaseConnection {
         return false;
     }
 
-    public User getCurrentCustomer(String email, String password) {
+    public User establishCurrentCustomer(String email, String password) {
 
         ArrayList<String> paramters= new ArrayList<>();
         String select = "SELECT * FROM user WHERE email = ? and password = ?";

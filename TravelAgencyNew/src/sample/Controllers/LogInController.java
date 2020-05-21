@@ -11,6 +11,7 @@ import sample.Database.LogInQueries;
 import sample.Model.Data;
 import sample.Model.HandlesException;
 import sample.Model.SceneSwitcher;
+import sample.Model.User;
 
 import java.io.IOException;
 import java.net.URL;
@@ -19,6 +20,7 @@ import java.util.ResourceBundle;
 
 public class LogInController implements Initializable {
     private HandlesException handlesException;
+    Data myDate = new Data();
 
     @FXML
     private Button logInButton;
@@ -35,10 +37,7 @@ public class LogInController implements Initializable {
     @FXML
     private Button customerButton;
 
-    Data myData=new Data();
-    @FXML
-
-    private PasswordField TfPassword;
+    @FXML private PasswordField TfPassword;
 
     @FXML
     private Hyperlink forgotPassword;
@@ -68,6 +67,8 @@ public class LogInController implements Initializable {
 
             } else if (hello) {
                 customerScene(ae);
+                User currentUser = logInQueries.establishCurrentCustomer(emailId, password);
+                myDate.setUser(currentUser);
             } else {
                 adminScene(ae);
             }
