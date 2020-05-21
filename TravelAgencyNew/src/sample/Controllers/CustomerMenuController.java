@@ -48,15 +48,18 @@ public class CustomerMenuController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-     /*   if(myData.getUser()!=null){
+/*
+        try {
+            if (myData.getUser() != null) {
 
-            editInfoButton.setVisible(true);
-            loginButton.setVisible(false);
+                editInfoButton.setVisible(true);
+                loginButton.setVisible(false);
+            } else {
+                editInfoButton.setVisible(false);
+                loginButton.setVisible(true);
+            }
         }
-        else{
-            editInfoButton.setVisible(false);
-            loginButton.setVisible(true);
-        }
+        catch (NullPointerException e){}
     }
 */}
 }
