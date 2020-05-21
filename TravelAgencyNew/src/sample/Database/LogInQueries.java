@@ -81,14 +81,10 @@ public class LogInQueries extends DatabaseConnection {
             resultSet.first();
 
             for(int x=1; x<9;x++) {
-                System.out.println(resultSet.getString(x));
+                //System.out.println(resultSet.getString(x));
                 paramters.add(resultSet.getString(x));
             }
 
-            for(int x=0; x<8;x++) {
-                System.out.println(paramters.get(x));
-
-            }
 
         } catch (SQLException e) {
             e.printStackTrace();

@@ -20,7 +20,7 @@ import java.util.ResourceBundle;
 
 public class LogInController implements Initializable {
     private HandlesException handlesException;
-    Data myDate = new Data();
+    Data myDate = Data.getInstance();
 
     @FXML
     private Button logInButton;
@@ -68,6 +68,7 @@ public class LogInController implements Initializable {
             } else if (hello) {
                 customerScene(ae);
                 User currentUser = logInQueries.establishCurrentCustomer(emailId, password);
+                currentUser.toString();
                 myDate.setUser(currentUser);
             } else {
                 adminScene(ae);

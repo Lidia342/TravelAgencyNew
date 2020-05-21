@@ -9,8 +9,8 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import sample.Database.PersonQueries;
 import sample.Model.Data;
-import sample.Model.Encryption;
 import sample.Model.SceneSwitcher;
+import sample.Model.User;
 
 import java.io.IOException;
 import java.net.URL;
@@ -37,7 +37,7 @@ public class EditInformationController implements Initializable {
         public void initialize(URL location, ResourceBundle resources) {
 
             try {
-                personaliseScene();
+                  personaliseScene();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -129,9 +129,11 @@ public class EditInformationController implements Initializable {
 
         protected void personaliseScene() throws IOException {
 
-            firstNameLabel.setText(myData.getUser().getFirstName());
-            lastNameLabel.setText(myData.getUser().getLastName());
-            emailLabel.setText(myData.getUser().getEmail());
+            User currentUser=myData.getUser();
+
+            firstNameLabel.setText(currentUser.getFirstName());
+            lastNameLabel.setText(currentUser.getLastName());
+            emailLabel.setText(currentUser.getEmail());
 
             firstNameLabelNew.setText(firstNameLabel.getText());
             lastNameLabelNew.setText(lastNameLabel.getText());

@@ -89,4 +89,17 @@ public abstract class Person {
         this.type = type;
     }
 
+    @Override
+    public String toString() {
+        return "Person{" +
+                "SSN='" + SSN + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", password='" + password + '\'' +
+                ", address='" + address + '\'' +
+                ", email='" + email + '\'' +
+                ", type='" + type + '\'' +
+                '}';
+    }
 }

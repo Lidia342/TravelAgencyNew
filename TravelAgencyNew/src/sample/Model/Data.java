@@ -2,13 +2,9 @@ package sample.Model;
 
 //import Database.DatabaseConnection;
 
-import java.sql.Connection;
-
 public class Data {
 
-    private static Data myData;
-    private Connection connection;
-    //private DatabaseConnection databaseConnection;
+    private static Data myData = new Data();
     private User user;
     private Package currentPackage;
 
@@ -24,10 +20,6 @@ public class Data {
 
     public static Data getInstance(){
 
-        if (myData==null){
-
-            Data myData = new Data();
-        }
         return myData;
     }
 
