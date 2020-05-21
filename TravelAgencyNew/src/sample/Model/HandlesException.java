@@ -47,9 +47,9 @@ public class HandlesException {
         return  passwordError;
     }
 
-    public void emptyTextFields(TextField ssnTxtField,TextField bookDateTxtField,Button bookingButton){
+    public void emptyTextFields(TextField ssnTxtField,Button bookingButton){
         bookingButton.disableProperty().bind(Bindings.createBooleanBinding(()->ssnTxtField.getText().trim().isEmpty(),ssnTxtField.textProperty()
-        ).or(Bindings.createBooleanBinding(()->bookDateTxtField.getText().trim().isEmpty(),bookDateTxtField.textProperty())));
+        ));
     }
     public void emptyTextFields1(TextField flightIdTxtField,TextField departureDateTxtField,TextField returnDateTxtField,Button updateButton){
         updateButton.disableProperty().bind(Bindings.createBooleanBinding(()->flightIdTxtField.getText().trim().isEmpty(),flightIdTxtField.textProperty()

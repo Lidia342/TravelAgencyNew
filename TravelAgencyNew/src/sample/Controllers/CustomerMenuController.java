@@ -38,11 +38,17 @@ public class CustomerMenuController implements Initializable {
     @FXML public void loginAction(ActionEvent ae){
         SceneSwitcher.SwitchScene(ae, "../View/Login.fxml");
     }
+    @FXML public void ViewBooking(ActionEvent ae){
+        SceneSwitcher.SwitchScene(ae, "../View/ViewBookingScene.fxml");
+    }
 
+    @FXML public void editCustomer(ActionEvent ae){
+        SceneSwitcher.SwitchScene(ae, "../View/EditInfoScene.fxml");
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        if(myData.getUser()!=null){
+     /*   if(myData.getUser()!=null){
 
             editInfoButton.setVisible(true);
             loginButton.setVisible(false);
@@ -52,5 +58,5 @@ public class CustomerMenuController implements Initializable {
             loginButton.setVisible(true);
         }
     }
-
+*/}
 }
