@@ -13,32 +13,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="784.0" maxWidth="1684.0" minHeight="452.0" minWidth="800.0" prefHeight="697.0" prefWidth="1637.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.ViewPackageController">
+<AnchorPane maxHeight="784.0" maxWidth="1684.0" minHeight="452.0" minWidth="800.0" prefHeight="697.0" prefWidth="1629.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.ViewPackageController">
    <children>
-      <ScrollPane layoutY="14.0" prefHeight="558.0" prefWidth="1131.0">
+      <ScrollPane layoutX="19.0" layoutY="8.0" prefHeight="551.0" prefWidth="1325.0">
          <content>
-            <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="699.0" prefWidth="1636.0">
+            <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="682.0" prefWidth="1615.0">
                <children>
-                  <TableView fx:id="packageTable1" layoutX="21.0" layoutY="492.0" prefHeight="63.0" prefWidth="1396.0">
-                    <columns>
-                      <TableColumn fx:id="packageName" prefWidth="138.66669273376465" text="PackageName" />
-                      <TableColumn fx:id="depDate" prefWidth="160.66664123535156" text="Departure date" />
-                        <TableColumn fx:id="returnDate" prefWidth="157.99993896484375" text="Return date" />
-                        <TableColumn fx:id="depCity" minWidth="0.0" prefWidth="146.00003051757812" text="Departing city" />
-                        <TableColumn fx:id="arrivalCity" prefWidth="133.3333740234375" text="Arrival city" />
-                        <TableColumn fx:id="flightName" prefWidth="150.66668701171875" text="Flight Name" />
-                        <TableColumn fx:id="hotelName" prefWidth="120.66668701171875" text="Hotel Name" />
-                        <TableColumn fx:id="nights" minWidth="0.0" prefWidth="54.666748046875" text="Nights" />
-                        <TableColumn fx:id="roomType" prefWidth="108.6666259765625" text="Room type" />
-                        <TableColumn fx:id="carType" prefWidth="106.666748046875" text="Car type" />
-                        <TableColumn fx:id="Price" minWidth="0.0" prefWidth="109.9998779296875" text="Price" />
-                    </columns>
-                  </TableView>
-                  <Label fx:id="ssnLabel" layoutX="340.0" layoutY="579.0" text="SSN:">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
                   <ImageView fitHeight="163.0" fitWidth="283.0" layoutX="16.0" layoutY="12.0" pickOnBounds="true">
                      <image>
                         <Image url="@../Images/Madrid.jpeg" />
@@ -147,14 +127,13 @@
                         <Font name="System Bold Italic" size="24.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="ssnTxtField" layoutX="387.0" layoutY="576.0" promptText="yyyymmdd****" />
-                  <Label fx:id="typeIn" layoutX="25.0" layoutY="574.0" prefHeight="29.0" prefWidth="255.0" text="Type in your information to make order:">
+                  <Label fx:id="ssnLabel" layoutX="340.0" layoutY="579.0" text="SSN:">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="bookDateTxtField" layoutX="572.0" layoutY="614.0" promptText="yyyy-mm-dd" />
-                  <Label fx:id="bookingDateLabel" layoutX="297.0" layoutY="617.0" text="Booking date:">
+                  <TextField fx:id="ssnTxtField" layoutX="387.0" layoutY="576.0" promptText="yyyymmdd****" />
+                  <Label fx:id="typeIn" layoutX="25.0" layoutY="574.0" prefHeight="29.0" prefWidth="255.0" text="Type in your information to make order:">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -168,6 +147,21 @@
                   <Button fx:id="press" layoutX="792.0" layoutY="590.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="73.0" text="press" />
                   <Button layoutX="49.0" layoutY="639.0" mnemonicParsing="false" onAction="#back" text="Back" />
                   <Button layoutX="1357.0" layoutY="604.0" mnemonicParsing="false" onAction="#cancel" prefWidth="74.0" text="Cancel" />
+                  <TableView fx:id="packageTable1" layoutY="484.0" prefHeight="63.0" prefWidth="1376.0">
+                    <columns>
+                      <TableColumn fx:id="packageName" prefWidth="138.66669273376465" text="PackageName" />
+                      <TableColumn fx:id="depDate" prefWidth="160.66664123535156" text="Departure date" />
+                        <TableColumn fx:id="returnDate" prefWidth="157.99993896484375" text="Return date" />
+                        <TableColumn fx:id="depCity" minWidth="0.0" prefWidth="146.00003051757812" text="Departing city" />
+                        <TableColumn fx:id="arrivalCity" prefWidth="133.3333740234375" text="Arrival city" />
+                        <TableColumn fx:id="flightName" prefWidth="150.66668701171875" text="Flight Name" />
+                        <TableColumn fx:id="hotelName" prefWidth="120.66668701171875" text="Hotel Name" />
+                        <TableColumn fx:id="nights" minWidth="0.0" prefWidth="54.666748046875" text="Nights" />
+                        <TableColumn fx:id="roomType" prefWidth="108.6666259765625" text="Room type" />
+                        <TableColumn fx:id="carType" prefWidth="106.666748046875" text="Car type" />
+                        <TableColumn fx:id="Price" minWidth="0.0" prefWidth="90.0" text="Price" />
+                    </columns>
+                  </TableView>
                </children>
             </AnchorPane>
          </content>

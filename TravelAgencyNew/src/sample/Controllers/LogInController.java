@@ -42,31 +42,6 @@ public class LogInController implements Initializable {
 
     Alert e = new Alert(Alert.AlertType.ERROR);
 
-/*
-    public void loginException(){
-        TfEmail.getText();
-        TfPassword.getText();
-
-
-        if (TfEmail.getText().trim().isEmpty()) {
-            e.setTitle("IS empty");
-            e.setHeaderText("Empty");
-            e.show();
-            return;
-        }
-        if (TfPassword.getText().trim().isEmpty()) {
-            e.setTitle("IS empty");
-            e.setHeaderText("enter password");
-            e.show();
-            return;
-        }
-
-
-    }
-
-
- */
-
     @FXML void login(ActionEvent ae) throws IOException {
         //loginException();
         String emailId = TfEmail.getText();
@@ -123,7 +98,7 @@ public class LogInController implements Initializable {
             ex.printStackTrace();
             return;
         }
-        dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+        //dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
         dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
         Optional<ButtonType> result = dialog.showAndWait();
 

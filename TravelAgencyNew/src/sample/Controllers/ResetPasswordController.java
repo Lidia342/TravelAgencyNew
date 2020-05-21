@@ -143,6 +143,7 @@ public class ResetPasswordController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         handlesException = new HandlesException();
+        handlesException.onlyNumber(ssnTextField);
         handlesException.emptyTxtFields1(emailTxtFiled,ssnTextField,sendButton);
         handlesException.emptyTxtFields1(codeTxtFiled,passwordTxtField,con);
         handlesException.onlyNumber(codeTxtFiled);

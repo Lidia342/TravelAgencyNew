@@ -28,7 +28,7 @@ public class ViewPackageController implements Initializable {
     private ToggleGroup RadioGroup;
 
     @FXML
-    private Label ssnLabel, bookingDateLabel;
+    private Label ssnLabel;
 
 
     @FXML
@@ -68,7 +68,6 @@ public class ViewPackageController implements Initializable {
     private TableColumn<CustomerPackageTable, String> returnDate;
 
     @FXML private TextField ssnTxtField;
-    @FXML private TextField bookDateTxtField;
     @FXML private Button bookingButton;
     @FXML private Button press;
     @FXML private Label typeIn;
@@ -80,18 +79,14 @@ public class ViewPackageController implements Initializable {
 
     public void setInvisible(){
         ssnTxtField.setVisible(false);
-        bookDateTxtField.setVisible(false);
         ssnLabel.setVisible(false);
-        bookingDateLabel.setVisible(false);
         typeIn.setVisible(false);
 
     }
 
     public void setVisible(){
         ssnTxtField.setVisible(true);
-        bookDateTxtField.setVisible(true);
         ssnLabel.setVisible(true);
-        bookingDateLabel.setVisible(true);
         typeIn.setVisible(true);
 
     }
@@ -204,9 +199,6 @@ public class ViewPackageController implements Initializable {
         bookingTool.setText("press this button to confirm the booking");
         bookingButton.setTooltip(bookingTool);
 
-        Tooltip DateTextfieldTool = new Tooltip();
-        DateTextfieldTool.setText("Enter current date");
-        bookDateTxtField.setTooltip(DateTextfieldTool);
 
         Tooltip ssnTool = new Tooltip();
         ssnTool.setText("enter your social security number here, it shall be 12 numbers");
@@ -217,7 +209,7 @@ public class ViewPackageController implements Initializable {
         handlesException.onlyNumber(ssnTxtField);
         handlesException.inputLimit(ssnTxtField,12);
 
-        handlesException.emptyTextFields(ssnTxtField,bookDateTxtField,bookingButton);
+        handlesException.emptyTextFields(ssnTxtField,bookingButton);
 
 
         setInvisible();
@@ -238,44 +230,48 @@ public class ViewPackageController implements Initializable {
 
         BookingQueries bq = new BookingQueries();
 
+        java.util.Date date = new java.util.Date();
+        java.text.SimpleDateFormat format = new java.text.SimpleDateFormat("yyyy-MM-dd");
+        String time = format.format(date);
+
         if (rb1.isSelected()) {
-            bq.insertBookedPackageIntoBookingTable(bookDateTxtField.getText(), ssnTxtField.getText());
+            bq.insertBookedPackageIntoBookingTable(time, ssnTxtField.getText());
             bq.insertBookedIntoBookingHasPackageTable(1, bq.getBookingId());
 
         }if (rb2.isSelected()) {
-            bq.insertBookedPackageIntoBookingTable(bookDateTxtField.getText(), ssnTxtField.getText());
+            bq.insertBookedPackageIntoBookingTable(time, ssnTxtField.getText());
             bq.insertBookedIntoBookingHasPackageTable(2, bq.getBookingId());
 
         }if (rb3.isSelected()) {
-            bq.insertBookedPackageIntoBookingTable(bookDateTxtField.getText(), ssnTxtField.getText());
+            bq.insertBookedPackageIntoBookingTable(time, ssnTxtField.getText());
             bq.insertBookedIntoBookingHasPackageTable(3, bq.getBookingId());
 
         }if (rb4.isSelected()) {
-            bq.insertBookedPackageIntoBookingTable(bookDateTxtField.getText(), ssnTxtField.getText());
+            bq.insertBookedPackageIntoBookingTable(time, ssnTxtField.getText());
             bq.insertBookedIntoBookingHasPackageTable(4, bq.getBookingId());
 
         }if (rb5.isSelected()) {
-            bq.insertBookedPackageIntoBookingTable(bookDateTxtField.getText(), ssnTxtField.getText());
+            bq.insertBookedPackageIntoBookingTable(time, ssnTxtField.getText());
             bq.insertBookedIntoBookingHasPackageTable(5, bq.getBookingId());
 
         }if (rb6.isSelected()) {
-            bq.insertBookedPackageIntoBookingTable(bookDateTxtField.getText(), ssnTxtField.getText());
+            bq.insertBookedPackageIntoBookingTable(time, ssnTxtField.getText());
             bq.insertBookedIntoBookingHasPackageTable(6, bq.getBookingId());
 
         }if (rb7.isSelected()) {
-            bq.insertBookedPackageIntoBookingTable(bookDateTxtField.getText(), ssnTxtField.getText());
+            bq.insertBookedPackageIntoBookingTable(time, ssnTxtField.getText());
             bq.insertBookedIntoBookingHasPackageTable(7, bq.getBookingId());
 
         }if (rb8.isSelected()) {
-            bq.insertBookedPackageIntoBookingTable(bookDateTxtField.getText(), ssnTxtField.getText());
+            bq.insertBookedPackageIntoBookingTable(time, ssnTxtField.getText());
             bq.insertBookedIntoBookingHasPackageTable(8, bq.getBookingId());
 
         }if (rb9.isSelected()) {
-            bq.insertBookedPackageIntoBookingTable(bookDateTxtField.getText(), ssnTxtField.getText());
+            bq.insertBookedPackageIntoBookingTable(time, ssnTxtField.getText());
             bq.insertBookedIntoBookingHasPackageTable(9, bq.getBookingId());
 
         }if (rb10.isSelected()) {
-            bq.insertBookedPackageIntoBookingTable(bookDateTxtField.getText(), ssnTxtField.getText());
+            bq.insertBookedPackageIntoBookingTable(time, ssnTxtField.getText());
             bq.insertBookedIntoBookingHasPackageTable(10, bq.getBookingId());
 
         }
@@ -284,23 +280,21 @@ public class ViewPackageController implements Initializable {
 
   @FXML  public void confirmBooking(ActionEvent ae) {
 
-      String currTime = bookDateTxtField.getText();
-
-      java.util.Date date = new java.util.Date();
-      java.text.SimpleDateFormat format = new java.text.SimpleDateFormat("yyyy-MM-dd");
-      String time = format.format(date);
+      //String currTime = bookDateTxtField.getText();
 
 
 
-          if (personQueries.userNotExists(ssnTxtField.getText()) ||  !currTime.equals(time)) {
+
+
+          if (personQueries.userNotExists(ssnTxtField.getText())) {
               e.setTitle("Invalid Input!");
-              e.setHeaderText(" check your SSN or date format please");
+              e.setHeaderText(" check your SSN");
               e.show();
           } else {
               saveToTable();
               alertSuccess();
               ssnTxtField.clear();
-              bookDateTxtField.clear();
+              //bookDateTxtField.clear();
               SceneSwitcher.SwitchScene(ae, "../View/CustomerMenu.fxml");
           }
 
