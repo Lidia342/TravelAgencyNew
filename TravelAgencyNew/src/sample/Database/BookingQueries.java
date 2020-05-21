@@ -126,8 +126,8 @@ public class BookingQueries extends DatabaseConnection {
             resultSet4.first();
 
 
-            Flight flight = new Flight(Integer.parseInt(resultSet4.getString(1)), departureDate, location, destination, 80.0);
-            return flight;
+            //Flight flight = new Flight(Integer.parseInt(resultSet4.getString(1)), departureDate, location, destination, 80.0);
+            return null;
         } catch (SQLException e) {
             e.printStackTrace();
         }
