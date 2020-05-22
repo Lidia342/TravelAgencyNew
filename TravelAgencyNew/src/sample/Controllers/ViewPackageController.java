@@ -107,12 +107,12 @@ public class ViewPackageController implements Initializable {
 
         if (rb1.isSelected()) {
             packageTable1.getItems().clear();
-            pq.getPackageInfo("Honey Moon");
+            pq.getPackageInfo("Amsterdam Trip");
             packageTable1.setItems(pq.getObList());
         }
         if (rb2.isSelected()) {
             packageTable1.getItems().clear();
-            pq.getPackageInfo("Family Trip");
+            pq.getPackageInfo("Rome Trip");
             packageTable1.setItems(pq.getObList());
         }
         if (rb3.isSelected()) {
@@ -123,37 +123,37 @@ public class ViewPackageController implements Initializable {
         }
         if (rb4.isSelected()) {
             packageTable1.getItems().clear();
-            pq.getPackageInfo("Berlin Trip");
+            pq.getPackageInfo("Los Angeles Trip");
             packageTable1.setItems(pq.getObList());
 
         }
         if (rb5.isSelected()) {
             packageTable1.getItems().clear();
-            pq.getPackageInfo("Amsterdam Trip");
+            pq.getPackageInfo("Rio Trip");
             packageTable1.setItems(pq.getObList());
 
         }
         if (rb6.isSelected()) {
             packageTable1.getItems().clear();
-            pq.getPackageInfo("Sahara Trip");
+            pq.getPackageInfo("Maimi Trip");
             packageTable1.setItems(pq.getObList());
 
         }
         if (rb7.isSelected()) {
             packageTable1.getItems().clear();
-            pq.getPackageInfo("Azmarino Trip");
+            pq.getPackageInfo("Launda Trip");
             packageTable1.setItems(pq.getObList());
 
         }
         if (rb8.isSelected()) {
             packageTable1.getItems().clear();
-            pq.getPackageInfo("Campya Trip");
+            pq.getPackageInfo("Kampala Trip");
             packageTable1.setItems(pq.getObList());
 
         }
         if (rb9.isSelected()) {
             packageTable1.getItems().clear();
-            pq.getPackageInfo("Shabi Trip");
+            pq.getPackageInfo("Khartoum Trip");
             packageTable1.setItems(pq.getObList());
 
         }
@@ -294,7 +294,6 @@ public class ViewPackageController implements Initializable {
               saveToTable();
               alertSuccess();
               ssnTxtField.clear();
-              //bookDateTxtField.clear();
               SceneSwitcher.SwitchScene(ae, "../View/CustomerMenu.fxml");
           }
 

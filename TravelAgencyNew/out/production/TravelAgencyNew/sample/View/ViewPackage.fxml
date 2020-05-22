@@ -21,10 +21,10 @@
                <children>
                   <ImageView fitHeight="163.0" fitWidth="283.0" layoutX="16.0" layoutY="12.0" pickOnBounds="true">
                      <image>
-                        <Image url="@../Images/Madrid.jpeg" />
+                        <Image url="@../Images/amsterdam.jpg" />
                      </image>
                   </ImageView>
-                  <RadioButton fx:id="rb1" layoutX="19.0" layoutY="198.0" mnemonicParsing="false" onAction="#radioSelect1" prefHeight="27.0" prefWidth="267.0" text="Honey Moon Trip" textFill="#420d3b">
+                  <RadioButton fx:id="rb1" layoutX="19.0" layoutY="198.0" mnemonicParsing="false" onAction="#radioSelect1" prefHeight="27.0" prefWidth="267.0" text="Amsterdam Trip" textFill="#420d3b">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -34,10 +34,10 @@
                   </RadioButton>
                   <ImageView fitHeight="166.0" fitWidth="288.0" layoutX="20.0" layoutY="235.0" pickOnBounds="true">
                      <image>
-                        <Image url="@../Images/amsterdam.jpg" />
+                        <Image url="@../Images/rio.jpg" />
                      </image>
                   </ImageView>
-                  <RadioButton fx:id="rb5" layoutX="30.0" layoutY="414.0" mnemonicParsing="false" onAction="#radioSelect1" prefHeight="27.0" prefWidth="267.0" text="Amsterdam Trip" textFill="#420d3b" toggleGroup="$RadioGroup">
+                  <RadioButton fx:id="rb5" layoutX="30.0" layoutY="414.0" mnemonicParsing="false" onAction="#radioSelect1" prefHeight="27.0" prefWidth="267.0" text="Rio Trip" textFill="#420d3b" toggleGroup="$RadioGroup">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -47,27 +47,27 @@
                         <Image url="@../Images/rome.jpg" />
                      </image>
                   </ImageView>
-                  <RadioButton fx:id="rb2" layoutX="328.0" layoutY="198.0" mnemonicParsing="false" onAction="#radioSelect1" prefHeight="27.0" prefWidth="267.0" text="FamilyTrip" textFill="#420d3b" toggleGroup="$RadioGroup">
+                  <RadioButton fx:id="rb2" layoutX="328.0" layoutY="198.0" mnemonicParsing="false" onAction="#radioSelect1" prefHeight="27.0" prefWidth="267.0" text="Rome Trip" textFill="#420d3b" toggleGroup="$RadioGroup">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </RadioButton>
                   <ImageView fitHeight="163.0" fitWidth="287.0" layoutX="318.0" layoutY="237.0" pickOnBounds="true">
                      <image>
-                        <Image url="@../Images/Sahara.jpg" />
+                        <Image url="@../Images/maimi.jpg" />
                      </image>
                   </ImageView>
-                  <RadioButton fx:id="rb6" layoutX="327.0" layoutY="414.0" mnemonicParsing="false" onAction="#radioSelect1" prefHeight="27.0" prefWidth="267.0" text="Sahara Trip" textFill="#420d3b" toggleGroup="$RadioGroup">
+                  <RadioButton fx:id="rb6" layoutX="327.0" layoutY="414.0" mnemonicParsing="false" onAction="#radioSelect1" prefHeight="27.0" prefWidth="267.0" text="Maimi Trip" textFill="#420d3b" toggleGroup="$RadioGroup">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </RadioButton>
                   <ImageView fitHeight="166.0" fitWidth="288.0" layoutX="1212.0" layoutY="235.0" pickOnBounds="true">
                      <image>
-                        <Image url="@../Images/berlin.jpg" />
+                        <Image url="@../Images/LA.jpg" />
                      </image>
                   </ImageView>
-                  <RadioButton fx:id="rb4" layoutX="1232.0" layoutY="408.0" mnemonicParsing="false" onAction="#radioSelect1" prefHeight="27.0" prefWidth="267.0" text="Berlin Trip" textFill="#420d3b" toggleGroup="$RadioGroup">
+                  <RadioButton fx:id="rb4" layoutX="1232.0" layoutY="408.0" mnemonicParsing="false" onAction="#radioSelect1" prefHeight="27.0" prefWidth="267.0" text="Los Angeles Trip" textFill="#420d3b" toggleGroup="$RadioGroup">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -87,7 +87,7 @@
                         <Image url="@../Images/launda.jpg" />
                      </image>
                   </ImageView>
-                  <RadioButton fx:id="rb7" layoutX="616.0" layoutY="408.0" mnemonicParsing="false" onAction="#radioSelect1" prefHeight="27.0" prefWidth="267.0" text="Azmarino Trip" textFill="#420d3b" toggleGroup="$RadioGroup">
+                  <RadioButton fx:id="rb7" layoutX="616.0" layoutY="408.0" mnemonicParsing="false" onAction="#radioSelect1" prefHeight="27.0" prefWidth="267.0" text="Launda Trip" textFill="#420d3b" toggleGroup="$RadioGroup">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -97,17 +97,17 @@
                         <Image url="@../Images/kampala.jpg" />
                      </image>
                   </ImageView>
-                  <RadioButton fx:id="rb8" layoutX="1222.0" layoutY="197.0" mnemonicParsing="false" onAction="#radioSelect1" prefHeight="27.0" prefWidth="267.0" text="Campya Trip" textFill="#420d3b" toggleGroup="$RadioGroup">
+                  <RadioButton fx:id="rb8" layoutX="1222.0" layoutY="197.0" mnemonicParsing="false" onAction="#radioSelect1" prefHeight="27.0" prefWidth="267.0" text="Kampala Trip" textFill="#420d3b" toggleGroup="$RadioGroup">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </RadioButton>
                   <ImageView fitHeight="163.0" fitWidth="287.0" layoutX="915.0" layoutY="13.0" pickOnBounds="true">
                      <image>
-                        <Image url="@../Images/Khartoum.jpg" />
+                        <Image url="@../Images/Sahara.jpg" />
                      </image>
                   </ImageView>
-                  <RadioButton fx:id="rb9" layoutX="912.0" layoutY="198.0" mnemonicParsing="false" onAction="#radioSelect1" prefHeight="27.0" prefWidth="267.0" text="Shabi Trip" textFill="#420d3b" toggleGroup="$RadioGroup">
+                  <RadioButton fx:id="rb9" layoutX="912.0" layoutY="198.0" mnemonicParsing="false" onAction="#radioSelect1" prefHeight="27.0" prefWidth="267.0" text="Khartoum Trip" textFill="#420d3b" toggleGroup="$RadioGroup">
                      <font>
                         <Font size="18.0" />
                      </font>
