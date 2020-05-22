@@ -21,12 +21,16 @@
             </font>
         </Label>
         <Button fx:id="buttonBack" layoutX="37.0" layoutY="320.0" mnemonicParsing="false" onAction="#backButton" text="Back" />
+<<<<<<< HEAD
       <Hyperlink onAction="#editInfoAction" fx:id="hyperlink3" layoutX="26.0" layoutY="188.0" prefHeight="32.0" prefWidth="161.0" text="Edit Your Information" textFill="#171717">
+=======
+      <Hyperlink fx:id="hyperlink3" layoutX="26.0" layoutY="188.0" prefHeight="32.0" onAction="#editCustomer" prefWidth="161.0" text="Edit Your Information" textFill="#171717">
+>>>>>>> 2254382a9a00b5431e50cbe182c413083a5b9752
          <font>
             <Font size="15.0" />
          </font>
       </Hyperlink>
-      <Hyperlink fx:id="hyperlink2" layoutX="26.0" layoutY="138.0" prefHeight="32.0" prefWidth="161.0" text="View Booking" textFill="#171717">
+      <Hyperlink fx:id="hyperlink2" layoutX="26.0" layoutY="138.0" prefHeight="32.0" onAction="#ViewBooking" prefWidth="161.0" text="View Booking" textFill="#171717">
          <font>
             <Font size="15.0" />
          </font>

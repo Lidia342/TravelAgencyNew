@@ -36,10 +36,14 @@ public class CustomerMenuController {
     public void loginAction(ActionEvent ae) {
         SceneSwitcher.SwitchScene(ae, "../View/Login.fxml");
     }
+    @FXML public void ViewBooking(ActionEvent ae){
+        SceneSwitcher.SwitchScene(ae, "../View/ViewBookingScene.fxml");
+    }
 
     @FXML
     public void editInfoAction(ActionEvent ae){
         SceneSwitcher.SwitchScene(ae,"../View/EditInfoScene.fxml" );
     }
+
 }
 

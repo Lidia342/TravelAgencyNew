@@ -46,7 +46,7 @@ public class LogInController implements Initializable {
             mainBorderPane;
 
     Alert e = new Alert(Alert.AlertType.ERROR);
-    
+
 
 
         @FXML void login (ActionEvent ae) throws IOException {
@@ -105,7 +105,7 @@ public class LogInController implements Initializable {
             ex.printStackTrace();
             return;
         }
-        dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+        //dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
         dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
         Optional<ButtonType> result = dialog.showAndWait();
 

@@ -1,5 +1,7 @@
 package sample.Controllers;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -44,12 +46,20 @@ public class ViewBookedAdminController implements Initializable {
     @FXML
     private TableColumn<BookingTable, String> priceColumn;
 
+    @FXML
+    private ComboBox<String> searchComboBox;
+
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        show();
+        ObservableList<String> packageName = FXCollections.observableArrayList();
+        packageName.addAll("Honey Moon","Family Trip","Barcelona Trip","Berlin Trip","Amsterdam Trip",
+                "Sahara Trip","Azmarino Trip", "Campya Trip","Shabi Trip","Massawa Trip");
 
-        display();
+        searchComboBox.setItems(packageName);
+
 
         table.getSelectionModel().selectFirst();
 
@@ -57,9 +67,9 @@ public class ViewBookedAdminController implements Initializable {
         deleteRow.setText("right Click and Press remove to delete the selected row");
         table.setTooltip(deleteRow);
 
-    }
-    public void display(){
 
+    }
+    public void tableView (){
         bookingIdColumn.setCellValueFactory(new PropertyValueFactory<>("bookingId"));
         ssnColumn.setCellValueFactory(new PropertyValueFactory<>("SSN"));
         firstNameColumn.setCellValueFactory(new PropertyValueFactory<>("firstName"));
@@ -67,11 +77,22 @@ public class ViewBookedAdminController implements Initializable {
         packageNameColumn.setCellValueFactory(new PropertyValueFactory<>("packageName"));
         dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
         priceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
-
-        bookingQueries.viewBooked();
-        table.setItems(bookingQueries.getObList());
     }
 
+    public void show(){
+        tableView();
+        table.getItems().clear();
+        bookingQueries.displayBooked();
+        table.setItems(bookingQueries.getViewList());
+    }
+
+   @FXML public void display(){
+
+        tableView();
+        table.getItems().clear();
+        bookingQueries.viewBooked(searchComboBox.getValue());
+        table.setItems(bookingQueries.getObList());
+    }
 
     public void clicked(ActionEvent event) {
 

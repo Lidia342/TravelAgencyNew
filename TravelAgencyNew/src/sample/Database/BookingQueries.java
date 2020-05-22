@@ -12,10 +12,13 @@ import java.util.HashSet;
 
 public class BookingQueries extends DatabaseConnection {
 
+
+    private ObservableList<Object> obList = FXCollections.observableArrayList();
+    private ObservableList<Object> viewList = FXCollections.observableArrayList();
+
     private Connection connection;
     private Statement statement;
     private ResultSet resultSet;
-    private ObservableList<Object> obList = FXCollections.observableArrayList();
 
     Data myData = Data.getInstance();
     static HashSet packageList = new HashSet<>();
@@ -150,8 +153,6 @@ public class BookingQueries extends DatabaseConnection {
 
     public void insertBookedPackageIntoBookingTable(String date, String user_SSN){
 
-       // String BookingQuery = "INSERT INTO booking (date, user_SSN, package_packageId) " +
-         //       "VALUES (?, ?, ?)";
         String BookingQuery = "INSERT INTO booking (date, user_SSN) " +
                        "VALUES (?, ?)";
         try(PreparedStatement preparedStatement = connection.prepareStatement(BookingQuery)){
@@ -175,12 +176,37 @@ public class BookingQueries extends DatabaseConnection {
         } catch (SQLException e) {
             System.out.println(e.getMessage());        }
     }
-
-    public void viewBooked(){
+    public void displayBooked(){
         try{
             String selectQuery = "select b.bookingID, u.SSN, u.firstName, u.lastName, p.packageName, b.date, p.price from booking b " +
                     "join booking_has_package bhp On bhp.booking_bookingID = b.bookingID join package p " +
-                    "On bhp.package_packageId = p.packageId join user u  on b.user_SSN = u.SSN;";
+                    "On bhp.package_packageId = p.packageId join user u  on b.user_SSN = u.SSN";
+
+            ResultSet resultSet = connection.createStatement().executeQuery(selectQuery);
+            while (resultSet.next()) {
+                BookingTable bookingTable = new BookingTable("bookingID","SSN","firstName","lastName",
+                        "packageName","date","price");
+                bookingTable.setBookingId(resultSet.getString("bookingID"));
+                bookingTable.setSSN(resultSet.getString("SSN"));
+                bookingTable.setFirstName(resultSet.getString("firstName"));
+                bookingTable.setLastName(resultSet.getString("lastName"));
+                bookingTable.setPackageName(resultSet.getString("packageName"));
+                bookingTable.setDate(resultSet.getString("date"));
+                bookingTable.setPrice(resultSet.getString("price"));
+
+                viewList.add(bookingTable);
+
+            }
+            setViewList(viewList);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    public void viewBooked(String name){
+        try{
+            String selectQuery = "select b.bookingID, u.SSN, u.firstName, u.lastName, p.packageName, b.date, p.price from booking b " +
+                    "join booking_has_package bhp On bhp.booking_bookingID = b.bookingID join package p " +
+                    "On bhp.package_packageId = p.packageId join user u  on b.user_SSN = u.SSN where p.packageName =  " + "\'" + name + "\'";
 
             ResultSet resultSet = connection.createStatement().executeQuery(selectQuery);
             while (resultSet.next()) {
@@ -244,29 +270,19 @@ public class BookingQueries extends DatabaseConnection {
         }
     }
 
-
-
-    /*public int getPackageId(String name){
-        int packageId = 0;
-        String query = "select packageId" +
-                "from package where packageName = " + "\'" + name + "\'";
-        try{
-            resultSet = statement.executeQuery(query);
-            while (resultSet.next()){
-                packageId = resultSet.getInt("id");
-            } return packageId;
-        } catch (SQLException e) {
-            //e.printStackTrace();
-            System.out.println( e.getMessage());
-            return 0;
-        }
-    }*/
-
     public ObservableList<Object> getObList() {
         return obList;
     }
 
     public void setObList(ObservableList<Object> obList) {
         this.obList = obList;
+    }
+
+    public ObservableList<Object> getViewList() {
+        return viewList;
+    }
+
+    public void setViewList(ObservableList<Object> viewList) {
+        this.viewList = viewList;
     }
 }
