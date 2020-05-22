@@ -88,7 +88,7 @@ public class EditInformationController implements Initializable {
                         }
                     }
                     else {
-                        Alert alert = new Alert(Alert.AlertType.WARNING, "The email must be of this format: \"example01@ucl.com\"!", ButtonType.OK);
+                        Alert alert = new Alert(Alert.AlertType.WARNING, "The email must be of this format: \"example01@gmail.com\"!", ButtonType.OK);
                         alert.showAndWait();
                         if(alert.getResult() == ButtonType.OK){
                             return;
@@ -117,14 +117,14 @@ public class EditInformationController implements Initializable {
                     }
                 }
                 alertConf.close();
-                SceneSwitcher.SwitchScene(event,"/scenes/UserScene.fxml");
+                SceneSwitcher.SwitchScene(event,"../View/CustomerMenu.fxml");
             }
         }
 
         @FXML
         public void backToPrevScene(ActionEvent event) throws IOException {
 
-            SceneSwitcher.SwitchScene(event, "/scenes/UserScene.fxml");
+            SceneSwitcher.SwitchScene(event, "../View/CustomerMenu.fxml");
         }
 
         protected void personaliseScene() throws IOException {
