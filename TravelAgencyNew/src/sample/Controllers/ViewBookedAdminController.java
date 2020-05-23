@@ -60,7 +60,6 @@ public class ViewBookedAdminController implements Initializable {
 
         searchComboBox.setItems(packageName);
 
-
         table.getSelectionModel().selectFirst();
 
         Tooltip deleteRow= new Tooltip();
@@ -107,7 +106,7 @@ public class ViewBookedAdminController implements Initializable {
                 bookingQueries.removeBookingHasPackage(bTable.getBookingId());
                 bookingQueries.removeBooking(bTable.getBookingId());
                 table.getItems().clear();
-                display();
+                show();
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -129,7 +128,7 @@ public class ViewBookedAdminController implements Initializable {
                     bookingQueries.removeBooking(bTable.getBookingId());
 
                     table.getItems().clear();
-                    display();
+                    show();
                 }
 
             }

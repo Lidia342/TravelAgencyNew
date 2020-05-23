@@ -1,159 +1,120 @@
 package sample.Model;
 
-import javafx.beans.property.SimpleStringProperty;
-
 public class CustomerPackageTable {
+    private String packageName;
+    private String departureDate;
+    private String returnDate;
+    private String departureCity;
+    private String arrivalCity;
+    private String flightName;
+    private String hotelName;
+    private String roomType;
+    private String nights;
+    private String carType;
+    private String price;
 
-    private SimpleStringProperty packageName, departureDate,returnDate, departureCity, arrivalCity, flightName,
-            hotelName, numOfNights, typeOfRoom, carType, price;
 
-    public CustomerPackageTable(String packageName, String departureDate, String returnDate, String departureCity,
-                                String arrivalCity, String flightName, String hotelName,
-                                String numOfNights, String typeOfRoom,
-                                String carType, String price) {
-        this.packageName = new SimpleStringProperty(packageName);
-        this.departureDate = new SimpleStringProperty(departureDate);
-        this.returnDate= new SimpleStringProperty(returnDate);
-        this.departureCity = new SimpleStringProperty(departureCity);
-        this.arrivalCity = new SimpleStringProperty(arrivalCity);
-        this.flightName = new SimpleStringProperty(flightName);
-        this.hotelName = new SimpleStringProperty(hotelName);
-        this.numOfNights = new SimpleStringProperty(numOfNights);
-        this.typeOfRoom = new SimpleStringProperty(typeOfRoom);
-        this.carType = new SimpleStringProperty(carType);
-        this.price = new SimpleStringProperty(price);
+    public CustomerPackageTable(String packageName, String departureDate, String returnDate, String departureCity, String arrivalCity,
+                                String flightName, String hotelName, String roomType, String nights, String carType, String price) {
+        this.packageName = packageName;
+        this.departureDate = departureDate;
+        this.returnDate = returnDate;
+        this.departureCity = departureCity;
+        this.arrivalCity = arrivalCity;
+        this.flightName = flightName;
+        this.hotelName = hotelName;
+        this.roomType = roomType;
+        this.nights = nights;
+        this.carType = carType;
+        this.price = price;
     }
 
     public String getPackageName() {
-        return packageName.get();
-    }
-
-    public SimpleStringProperty packageNameProperty() {
         return packageName;
     }
 
     public void setPackageName(String packageName) {
-        this.packageName.set(packageName);
+        this.packageName = packageName;
     }
 
     public String getDepartureDate() {
-        return departureDate.get();
-    }
-
-    public SimpleStringProperty departureDateProperty() {
         return departureDate;
     }
 
     public void setDepartureDate(String departureDate) {
-        this.departureDate.set(departureDate);
+        this.departureDate = departureDate;
     }
 
     public String getReturnDate() {
-        return returnDate.get();
-    }
-
-    public SimpleStringProperty returnDateProperty() {
         return returnDate;
     }
 
     public void setReturnDate(String returnDate) {
-        this.returnDate.set(returnDate);
+        this.returnDate = returnDate;
     }
 
     public String getDepartureCity() {
-        return departureCity.get();
-    }
-
-    public SimpleStringProperty departureCityProperty() {
         return departureCity;
     }
 
     public void setDepartureCity(String departureCity) {
-        this.departureCity.set(departureCity);
+        this.departureCity = departureCity;
     }
 
     public String getArrivalCity() {
-        return arrivalCity.get();
-    }
-
-    public SimpleStringProperty arrivalCityProperty() {
         return arrivalCity;
     }
 
     public void setArrivalCity(String arrivalCity) {
-        this.arrivalCity.set(arrivalCity);
+        this.arrivalCity = arrivalCity;
     }
 
     public String getFlightName() {
-        return flightName.get();
-    }
-
-    public SimpleStringProperty flightNameProperty() {
         return flightName;
     }
 
     public void setFlightName(String flightName) {
-        this.flightName.set(flightName);
+        this.flightName = flightName;
     }
 
     public String getHotelName() {
-        return hotelName.get();
-    }
-
-    public SimpleStringProperty hotelNameProperty() {
         return hotelName;
     }
 
     public void setHotelName(String hotelName) {
-        this.hotelName.set(hotelName);
+        this.hotelName = hotelName;
     }
 
-    public String getNumOfNights() {
-        return numOfNights.get();
+    public String getRoomType() {
+        return roomType;
     }
 
-    public SimpleStringProperty numOfNightsProperty() {
-        return numOfNights;
+    public void setRoomType(String roomType) {
+        this.roomType = roomType;
     }
 
-    public void setNumOfNights(String numOfNights) {
-        this.numOfNights.set(numOfNights);
+    public String getNights() {
+        return nights;
     }
 
-    public String getTypeOfRoom() {
-        return typeOfRoom.get();
-    }
-
-    public SimpleStringProperty typeOfRoomProperty() {
-        return typeOfRoom;
-    }
-
-    public void setTypeOfRoom(String typeOfRoom) {
-        this.typeOfRoom.set(typeOfRoom);
+    public void setNights(String nights) {
+        this.nights = nights;
     }
 
     public String getCarType() {
-        return carType.get();
-    }
-
-    public SimpleStringProperty carTypeProperty() {
         return carType;
     }
 
     public void setCarType(String carType) {
-        this.carType.set(carType);
+        this.carType = carType;
     }
 
     public String getPrice() {
-        return price.get();
-    }
-
-    public SimpleStringProperty priceProperty() {
         return price;
     }
 
     public void setPrice(String price) {
-        this.price.set(price);
+        this.price = price;
     }
 }
 

@@ -7,30 +7,34 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="365.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.AdminMenuController">
+<AnchorPane prefHeight="454.0" prefWidth="534.0" style="-fx-background-color: #4c3d4c;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.AdminMenuController">
     <children>
-        <ImageView fitHeight="393.0" fitWidth="600.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../Images/Airplane-Images-with-Beautiful-Picture-of-Flight-in-Sunset-500x313.jpg" />
-            </image>
-        </ImageView>
-        <Button fx:id="editCustomerButton" layoutX="44.0" layoutY="72.0" mnemonicParsing="false" onAction="#updateCustomer" prefHeight="41.0" prefWidth="249.0" text="Update Customer Information">
-         <font>
-            <Font size="14.0" />
-         </font></Button>
-        <Button fx:id="viewPackageButton" layoutX="44.0" layoutY="145.0" mnemonicParsing="false" onAction="#editPackage" prefHeight="41.0" prefWidth="249.0" text=" View And Update Packages">
-         <font>
-            <Font size="14.0" />
-         </font></Button>
-        <Button fx:id="ViewBookedButton" layoutX="44.0" layoutY="216.0" mnemonicParsing="false" onAction="#editBookings" prefHeight="41.0" prefWidth="249.0" text=" View Booked And Remove Booking">
-         <font>
-            <Font size="14.0" />
-         </font></Button>
-        <Label layoutX="287.0" layoutY="-1.0" prefHeight="73.0" prefWidth="269.0" text="Admin options">
+      <AnchorPane layoutX="79.0" layoutY="87.0" prefHeight="328.0" prefWidth="388.0" style="-fx-background-color: #4c3d4c; -fx-border-color: white; -fx-border-radius: 30;">
+         <children>
+              <Button fx:id="backButton" layoutX="28.0" layoutY="243.0" mnemonicParsing="false" onAction="#back" prefHeight="15.0" prefWidth="51.0" style="-fx-background-color: white;" text="Back">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+              <Button fx:id="buttonCancel" layoutX="300.0" layoutY="243.0" mnemonicParsing="false" onAction="#cancel" prefHeight="16.0" prefWidth="63.0" style="-fx-background-color: white;" text="Cancel">
+               <font>
+                  <Font size="10.0" />
+               </font>
+              </Button>
+              <Button fx:id="ViewBookedButton" layoutX="54.0" layoutY="172.0" mnemonicParsing="false" onAction="#editBookings" prefHeight="29.0" prefWidth="246.0" style="-fx-background-color: white;" text=" View &amp; Remove Booked Reservation" />
+              <Button fx:id="viewPackageButton" layoutX="78.0" layoutY="113.0" mnemonicParsing="false" onAction="#editPackage" prefHeight="29.0" prefWidth="172.0" style="-fx-background-color: white;" text=" View &amp; Update Packages" />
+              <Button fx:id="editCustomerButton" layoutX="93.0" layoutY="52.0" mnemonicParsing="false" onAction="#updateCustomer" prefHeight="29.0" prefWidth="139.0" style="-fx-background-color: white;" text="Edit Customer's Info" />
+         </children>
+      </AnchorPane>
+        <Label layoutX="197.0" layoutY="6.0" prefHeight="73.0" prefWidth="269.0" text="Admin options" textFill="WHITE">
             <font>
-                <Font size="26.0" />
+                <Font name="Lucida Handwriting Italic" size="26.0" />
             </font>
         </Label>
-        <Button fx:id="backButton" layoutX="14.0" layoutY="328.0" mnemonicParsing="false" onAction="#back" text="Back" />
+      <ImageView fitHeight="73.0" fitWidth="168.0" layoutX="3.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/newLogo.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>
