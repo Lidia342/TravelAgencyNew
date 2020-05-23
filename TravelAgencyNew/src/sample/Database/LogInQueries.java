@@ -8,13 +8,12 @@ import java.util.ArrayList;
 public class LogInQueries extends DatabaseConnection {
 
     private Connection connection;
-    private Statement statement;
     private ResultSet resultSet;
 
     public LogInQueries() {
         try {
             this.connection = getConnection();
-            this.statement = connection.createStatement();
+            Statement statement = connection.createStatement();
         } catch (SQLException e) {
             e.printStackTrace();
         }

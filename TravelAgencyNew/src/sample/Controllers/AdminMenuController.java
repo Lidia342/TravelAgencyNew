@@ -26,4 +26,8 @@ public class AdminMenuController {
         SceneSwitcher.SwitchScene(ae,"../View/Login.fxml");
 
     }
+
+    public void cancel(ActionEvent event) {
+        System.exit(0);
+    }
 }
