@@ -7,12 +7,12 @@ import sample.Model.SceneSwitcher;
 
 public class CustomerMenuController {
 
-
     Data myData = Data.getInstance();
 
-    @FXML
-    public void viewAndBookPackage(ActionEvent ae) {
-        SceneSwitcher.SwitchScene(ae, "../View/ViewPackage.fxml");
+
+    @FXML public void viewAndBookPackage(ActionEvent ae){
+        SceneSwitcher.SwitchScene(ae, "../View/ViewPack.fxml");
+
     }
 
     @FXML
@@ -36,6 +36,7 @@ public class CustomerMenuController {
     public void loginAction(ActionEvent ae) {
         SceneSwitcher.SwitchScene(ae, "../View/Login.fxml");
     }
+
     @FXML public void ViewBooking(ActionEvent ae){
         SceneSwitcher.SwitchScene(ae, "../View/ViewBookingScene.fxml");
     }
@@ -43,6 +44,10 @@ public class CustomerMenuController {
     @FXML
     public void editInfoAction(ActionEvent ae){
         SceneSwitcher.SwitchScene(ae,"../View/EditInfoScene.fxml" );
+    }
+
+    public void cancel(ActionEvent event) {
+        System.exit(0);
     }
 
 }

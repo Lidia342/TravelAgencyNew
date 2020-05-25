@@ -42,8 +42,7 @@ public class LogInController implements Initializable {
     @FXML
     private Hyperlink forgotPassword;
     @FXML
-    private AnchorPane
-            mainBorderPane;
+    private AnchorPane mainBorderPane;
 
     Alert e = new Alert(Alert.AlertType.ERROR);
 
@@ -93,9 +92,14 @@ public class LogInController implements Initializable {
         SceneSwitcher.SwitchScene(ae,"../View/CustomerMenu.fxml");
 
     }
+    @FXML public void backButton(ActionEvent  ae){
+
+        SceneSwitcher.SwitchScene(ae, "../View/MainPage.fxml");
+    }
     @FXML public void showDialog(ActionEvent ae) throws IOException {
         Dialog<ButtonType> dialog = new Dialog<>();
         dialog.initOwner(mainBorderPane.getScene().getWindow());
+
         try{
             Parent root = FXMLLoader.load(getClass().getResource("../View/ResetPassword.fxml"));
             dialog.getDialogPane().setContent(root);

@@ -5,34 +5,51 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="1184.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.AdminPackageController">
+<AnchorPane prefHeight="534.0" prefWidth="1266.0" style="-fx-background-color: #4c3d4c;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.AdminPackageController">
     <children>
-        <TableView fx:id="table" layoutX="-1.0" layoutY="-2.0" onMouseClicked="#getSelected" prefHeight="229.0" prefWidth="1185.0">
-            <columns>
-                <TableColumn fx:id="flightIdColumn" prefWidth="55.33334481716156" text="FlightId" />
-                <TableColumn fx:id="packageNameColumn" prefWidth="108.00003433227539" text="PackageName" />
-                <TableColumn fx:id="departureDateColumn" prefWidth="143.33326721191406" text="Departure Date" />
-                <TableColumn fx:id="returnDateColumn" prefWidth="143.99993896484375" text="Return Date" />
-                <TableColumn fx:id="departureCityColumn" prefWidth="91.99996948242188" text="departure City" />
-                <TableColumn fx:id="arrivalCityColumn" minWidth="0.0" prefWidth="81.33331298828125" text="Arrival City" />
-                <TableColumn fx:id="flightNameColumn" minWidth="0.0" prefWidth="87.33331298828125" text="Flight Name" />
-            <TableColumn fx:id="hotelNameColumn" prefWidth="106.0" text="Hotel Name" />
-            <TableColumn fx:id="numOfNights" prefWidth="94.6666259765625" text="Number Nights" />
-            <TableColumn fx:id="typeOfRoomColumn" prefWidth="116.00006103515625" text="Type of room" />
-            <TableColumn fx:id="carTypeColumn" prefWidth="86.0" text="Car Type" />
-            <TableColumn fx:id="priceColumn" prefWidth="66.66650390625" text="Price" />
-            </columns>
-        </TableView>
-        <Button fx:id="updateButton" layoutX="416.0" layoutY="318.0" mnemonicParsing="false" onAction="#update" text="Update" />
-        <TextField fx:id="flightIdTxtField" layoutX="20.0" layoutY="274.0" prefHeight="25.0" prefWidth="77.0" />
-        <Button fx:id="backButton" layoutX="36.0" layoutY="343.0" mnemonicParsing="false" onAction="#backButton" text="Back" />
-        <Label layoutX="20.0" layoutY="245.0" prefHeight="17.0" prefWidth="84.0" text="Enter Flight Id " />
-      <TextField fx:id="departureDateTxtField" layoutX="138.0" layoutY="274.0" promptText="yyyy-MM-dd HH:MM:SS" />
-      <TextField fx:id="returnDateTxtField" layoutX="323.0" layoutY="274.0" promptText="yyyy-MM-dd HH:MM:SS" />
-      <Label layoutX="145.0" layoutY="245.0" prefHeight="17.0" prefWidth="119.0" text="Departure Date" />
-      <Label layoutX="330.0" layoutY="245.0" prefHeight="17.0" prefWidth="136.0" text="Return Date" />
-      <Button fx:id="cancelButton" layoutX="1076.0" layoutY="343.0" mnemonicParsing="false" onAction="#cancel" text="Cancel" />
+      <AnchorPane layoutX="48.0" layoutY="98.0" prefHeight="421.0" prefWidth="1175.0" style="-fx-border-color: white; -fx-background-color: #4c3d4c; -fx-border-radius: 30;">
+         <children>
+              <TableView fx:id="table" layoutX="14.0" layoutY="29.0" onMouseClicked="#getSelected" prefHeight="229.0" prefWidth="1125.0">
+                  <columns>
+                      <TableColumn fx:id="flightIdColumn" minWidth="0.0" prefWidth="0.0" text="FlightId" />
+                      <TableColumn fx:id="packageNameColumn" prefWidth="107.33333587646484" text="PackageName" />
+                      <TableColumn fx:id="departureDateColumn" prefWidth="120.66670227050781" text="Departure Date" />
+                      <TableColumn fx:id="returnDateColumn" prefWidth="111.3333740234375" text="Return Date" />
+                      <TableColumn fx:id="departureCityColumn" prefWidth="108.66665649414062" text="departure City" />
+                      <TableColumn fx:id="arrivalCityColumn" minWidth="0.0" prefWidth="111.3333740234375" text="Arrival City" />
+                      <TableColumn fx:id="flightNameColumn" minWidth="0.0" prefWidth="112.0" text="Flight Name" />
+                  <TableColumn fx:id="hotelNameColumn" prefWidth="106.66668701171875" text="Hotel Name" />
+                  <TableColumn fx:id="numOfNights" prefWidth="64.0" text="Nights" />
+                  <TableColumn fx:id="typeOfRoomColumn" prefWidth="104.66656494140625" text="Type of room" />
+                  <TableColumn fx:id="carTypeColumn" prefWidth="89.33349609375" text="Car Type" />
+                  <TableColumn fx:id="priceColumn" prefWidth="83.333251953125" text="Price" />
+                  </columns>
+              </TableView>
+              <Button fx:id="updateButton" layoutX="531.0" layoutY="311.0" mnemonicParsing="false" onAction="#update" prefHeight="17.0" prefWidth="77.0" style="-fx-background-color: white;" text="Update" />
+              <TextField fx:id="flightIdTxtField" layoutX="31.0" layoutY="311.0" prefHeight="25.0" prefWidth="77.0" />
+              <Button fx:id="backButton" layoutX="31.0" layoutY="358.0" mnemonicParsing="false" onAction="#backButton" prefHeight="25.0" prefWidth="50.0" style="-fx-background-color: white;" text="Back" />
+            <TextField fx:id="departureDateTxtField" layoutX="142.0" layoutY="311.0" promptText="yyyy-MM-dd HH:MM:SS" />
+            <TextField fx:id="returnDateTxtField" layoutX="322.0" layoutY="311.0" promptText="yyyy-MM-dd HH:MM:SS" />
+            <Button fx:id="cancelButton" layoutX="1076.0" layoutY="358.0" mnemonicParsing="false" onAction="#cancel" style="-fx-background-color: white;" text="Cancel" />
+            <Label layoutX="38.0" layoutY="282.0" prefHeight="17.0" prefWidth="63.0" text="Flight Id" textFill="WHITE" />
+            <Label layoutX="142.0" layoutY="282.0" prefHeight="17.0" prefWidth="113.0" text="Departure Date" textFill="WHITE" />
+            <Label layoutX="339.0" layoutY="282.0" prefHeight="17.0" prefWidth="113.0" text="Return Date" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="84.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/newLogo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="505.0" layoutY="19.0" prefHeight="43.0" prefWidth="263.0" text="Update Packages" textFill="WHITE">
+         <font>
+            <Font name="Lucida Handwriting Italic" size="26.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>

@@ -9,26 +9,37 @@ import sample.Model.Data;
 import sample.Model.Package;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class PackageQueries extends DatabaseConnection {
 
-    private ObservableList<Object> obList = FXCollections.observableArrayList();
     private ObservableList<Object> oList = FXCollections.observableArrayList();
 
     private Connection connection;
-    private Statement statement;
+
+    private ArrayList<CustomerPackageTable> list = new ArrayList<>();
+
+    public ArrayList<CustomerPackageTable> getList() {
+        return list;
+    }
+
+    public void setList(ArrayList<CustomerPackageTable> list) {
+        this.list = list;
+    }
+
 
     Data myData = Data.getInstance();
 
     public PackageQueries() {
         try{
             this.connection = getConnection();
-            this.statement = connection.createStatement();
+            Statement statement = connection.createStatement();
         } catch (Exception e) {
             e.printStackTrace();
         }
 
     }
+<<<<<<< HEAD
     public void getPackageInfo(String name) throws SQLException {
         try {
             String selectQuery = "select p.packageName, f.departureDate, f.returnDate, f.departureCity, f.arrivalCity," +
@@ -78,6 +89,45 @@ public class PackageQueries extends DatabaseConnection {
     }
 
     public void updateDate(String departureDate, String returnDate, String flightID){
+=======
+
+   public void viewPackage(String name){
+
+       try {
+           String selectQuery = "select p.packageName, f.departureDate, f.returnDate, f.departureCity, f.arrivalCity," +
+                   " f.flightName, h.hotelName, h.numOfNights, h.typeOfRoom, c.carType," +
+                   " p.price from package p Join flight f On p.flight_flightID = f.flightID join hotel h " +
+                   "on p.hotel_hotelID = h.hotelID join car c on p.car_carID =  c.carID where packageName =  " + "\'" + name + "\'";
+
+
+           ResultSet resultSet = connection.createStatement().executeQuery(selectQuery);
+
+           while (resultSet.next()){
+               CustomerPackageTable customerPackageTable = new CustomerPackageTable("","","",
+                       "","","","","","","","");
+               customerPackageTable.setPackageName(resultSet.getString("packageName"));
+               customerPackageTable.setDepartureDate(resultSet.getString("departureDate"));
+               customerPackageTable.setReturnDate(resultSet.getString("returnDate"));
+               customerPackageTable.setDepartureCity(resultSet.getString("departureCity"));
+               customerPackageTable.setArrivalCity(resultSet.getString("arrivalCity"));
+               customerPackageTable.setFlightName(resultSet.getString("flightName"));
+               customerPackageTable.setHotelName(resultSet.getString("hotelName"));
+               customerPackageTable.setNights(resultSet.getString("numOfNights"));
+               customerPackageTable.setRoomType(resultSet.getString("typeOfRoom"));
+               customerPackageTable.setCarType(resultSet.getString("carType"));
+               customerPackageTable.setPrice(resultSet.getString("price"));
+               list.add(customerPackageTable);
+
+               setList(list);
+
+           }
+       } catch (SQLException ex) {
+           ex.printStackTrace();
+       }
+
+   }
+       public void updateDate(String departureDate, String returnDate, String flightID){
+>>>>>>> 4a3e242822fa2deed6eeb7b47b67d54d34431f9a
         String updateQuery = "UPDATE flight SET departureDate = ?, returnDate = ?  WHERE flightId = ?";
 
 
@@ -141,12 +191,4 @@ public class PackageQueries extends DatabaseConnection {
         this.oList = oList;
     }
 
-    public ObservableList<Object> getObList() {
-        return obList;
-    }
-
-
-    public void setObList(ObservableList<Object> obList) {
-        this.obList = obList;
-    }
 }

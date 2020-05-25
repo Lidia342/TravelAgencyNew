@@ -4,19 +4,18 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import sample.Database.BookingQueries;
 import sample.Database.PackageQueries;
 import sample.Database.PersonQueries;
 import sample.Model.HandlesException;
-import sample.Model.CustomerPackageTable;
 import sample.Model.SceneSwitcher;
+
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class ViewPackageController implements Initializable {
+public class ViewPackController implements Initializable {
 
     private HandlesException handlesException;
     Alert e = new Alert(Alert.AlertType.ERROR);
@@ -31,41 +30,39 @@ public class ViewPackageController implements Initializable {
     private Label ssnLabel;
 
 
-    @FXML
-    private TableView<Object> packageTable1;
 
     @FXML
-    private TableColumn<CustomerPackageTable, String> packageName;
+    private TextField departureDate;
 
     @FXML
-    private TableColumn<CustomerPackageTable, String> depDate;
+    private TextField returnDate;
 
     @FXML
-    private TableColumn<CustomerPackageTable, String> depCity;
+    private TextField departingCity;
 
     @FXML
-    private TableColumn<CustomerPackageTable, String> arrivalCity;
+    private TextField arrivalCity;
 
     @FXML
-    private TableColumn<CustomerPackageTable, String> flightName;
+    private TextField flightName;
 
     @FXML
-    private TableColumn<CustomerPackageTable, String> hotelName;
+    private TextField hotelName;
 
     @FXML
-    private TableColumn<CustomerPackageTable, String> nights;
+    private TextField roomType;
 
     @FXML
-    private TableColumn<CustomerPackageTable, String> roomType;
+    private TextField nights;
 
     @FXML
-    private TableColumn<CustomerPackageTable, String> carType;
+    private TextField carType;
 
     @FXML
-    private TableColumn<CustomerPackageTable, String> Price;
+    private TextField packageName;
 
     @FXML
-    private TableColumn<CustomerPackageTable, String> returnDate;
+    private TextField price;
 
     @FXML private TextField ssnTxtField;
     @FXML private Button bookingButton;
@@ -90,77 +87,70 @@ public class ViewPackageController implements Initializable {
         typeIn.setVisible(true);
 
     }
+
+    public void setFields(){
+
+        for (int i = 0; i < pq.getList().size() ; i++) {
+            packageName.setText(String.valueOf(pq.getList().get(i).getPackageName()));
+            departureDate.setText(String.valueOf(pq.getList().get(i).getDepartureDate()));
+            returnDate.setText(String.valueOf(pq.getList().get(i).getReturnDate()));
+            departingCity.setText(String.valueOf(pq.getList().get(i).getDepartureCity()));
+            arrivalCity.setText(String.valueOf(pq.getList().get(i).getArrivalCity()));
+            flightName.setText(String.valueOf(pq.getList().get(i).getFlightName()));
+            hotelName.setText(String.valueOf(pq.getList().get(i).getHotelName()));
+            roomType.setText(String.valueOf(pq.getList().get(i).getRoomType()));
+            nights.setText(String.valueOf(pq.getList().get(i).getNights()));
+            carType.setText(String.valueOf(pq.getList().get(i).getCarType()));
+            price.setText(String.valueOf(pq.getList().get(i).getPrice()));
+        }
+
+    }
+
     @FXML public void radioSelect1(ActionEvent ae) throws SQLException {
 
 
-        packageName.setCellValueFactory(new PropertyValueFactory<>("packageName"));
-        depDate.setCellValueFactory(new PropertyValueFactory<>("departureDate"));
-        returnDate.setCellValueFactory(new PropertyValueFactory<>("returnDate"));
-        depCity.setCellValueFactory(new PropertyValueFactory<>("departureCity"));
-        arrivalCity.setCellValueFactory(new PropertyValueFactory<>("arrivalCity"));
-        flightName.setCellValueFactory(new PropertyValueFactory<>("flightName"));
-        hotelName.setCellValueFactory(new PropertyValueFactory<>("hotelName"));
-        nights.setCellValueFactory(new PropertyValueFactory<>("numOfNights"));
-        roomType.setCellValueFactory(new PropertyValueFactory<>("typeOfRoom"));
-        carType.setCellValueFactory(new PropertyValueFactory<>("carType"));
-        Price.setCellValueFactory(new PropertyValueFactory<>("price"));
-
         if (rb1.isSelected()) {
-            packageTable1.getItems().clear();
-            pq.getPackageInfo("Honey Moon");
-            packageTable1.setItems(pq.getObList());
+           pq.viewPackage("Amsterdam Trip");
+          setFields();
+
         }
         if (rb2.isSelected()) {
-            packageTable1.getItems().clear();
-            pq.getPackageInfo("Family Trip");
-            packageTable1.setItems(pq.getObList());
+            pq.viewPackage("Rome Trip");
+            setFields();
         }
         if (rb3.isSelected()) {
-            packageTable1.getItems().clear();
-            pq.getPackageInfo("Barcelona Trip");
-            packageTable1.setItems(pq.getObList());
-
+            pq.viewPackage("Barcelona Trip");
+           setFields();
         }
         if (rb4.isSelected()) {
-            packageTable1.getItems().clear();
-            pq.getPackageInfo("Berlin Trip");
-            packageTable1.setItems(pq.getObList());
-
+            pq.viewPackage("Los Angeles Trip");
+            setFields();
         }
         if (rb5.isSelected()) {
-            packageTable1.getItems().clear();
-            pq.getPackageInfo("Amsterdam Trip");
-            packageTable1.setItems(pq.getObList());
+            pq.viewPackage("Rio Trip");
+            setFields();
 
         }
         if (rb6.isSelected()) {
-            packageTable1.getItems().clear();
-            pq.getPackageInfo("Sahara Trip");
-            packageTable1.setItems(pq.getObList());
-
+            pq.viewPackage("Maimi Trip");
+            setFields();
         }
         if (rb7.isSelected()) {
-            packageTable1.getItems().clear();
-            pq.getPackageInfo("Azmarino Trip");
-            packageTable1.setItems(pq.getObList());
+            pq.viewPackage("Launda Trip");
+            setFields();
 
         }
         if (rb8.isSelected()) {
-            packageTable1.getItems().clear();
-            pq.getPackageInfo("Campya Trip");
-            packageTable1.setItems(pq.getObList());
-
+            pq.viewPackage("Kampala Trip");
+            setFields();
         }
         if (rb9.isSelected()) {
-            packageTable1.getItems().clear();
-            pq.getPackageInfo("Shabi Trip");
-            packageTable1.setItems(pq.getObList());
-
+            pq.viewPackage("Khartoum Trip");
+            setFields();
         }
         if (rb10.isSelected()) {
-            packageTable1.getItems().clear();
-            pq.getPackageInfo("Massawa Trip");
-            packageTable1.setItems(pq.getObList());
+            pq.viewPackage("Massawa Trip");
+            setFields();
         }
 
         //SceneSwitcher.SwitchScene(ae, "../View/ViewBookingScene.fxml");
@@ -224,6 +214,18 @@ public class ViewPackageController implements Initializable {
             }
         });
 
+        packageName.setEditable(false);
+        departureDate.setEditable(false);
+        returnDate.setEditable(false);
+        departingCity.setEditable(false);
+        arrivalCity.setEditable(false);
+        flightName.setEditable(false);
+        hotelName.setEditable(false);
+        nights.setEditable(false);
+        roomType.setEditable(false);
+        carType.setEditable(false);
+        price.setEditable(false);
+
 
     }
 
@@ -279,6 +281,7 @@ public class ViewPackageController implements Initializable {
 
     }
 
+<<<<<<< HEAD:TravelAgencyNew/src/sample/Controllers/ViewPackageController.java
   @FXML  public void confirmBooking(ActionEvent ae) {
 
       //String currTime = bookDateTxtField.getText();
@@ -298,8 +301,22 @@ public class ViewPackageController implements Initializable {
               //bookDateTxtField.clear();
               SceneSwitcher.SwitchScene(ae, "../View/ViewBookingScene.fxml");
           }
+=======
+    @FXML  public void confirmBooking(ActionEvent ae) {
 
-      }
+        if (personQueries.userNotExists(ssnTxtField.getText())) {
+            e.setTitle("Invalid Input!");
+            e.setHeaderText(" check your SSN");
+            e.show();
+        } else {
+            saveToTable();
+            alertSuccess();
+            ssnTxtField.clear();
+            SceneSwitcher.SwitchScene(ae, "../View/CustomerMenu.fxml");
+        }
+>>>>>>> 4a3e242822fa2deed6eeb7b47b67d54d34431f9a:TravelAgencyNew/src/sample/Controllers/ViewPackController.java
+
+    }
 
     public void alertSuccess(){
         Alert success = new Alert(Alert.AlertType.CONFIRMATION);
@@ -307,12 +324,14 @@ public class ViewPackageController implements Initializable {
         success.setHeaderText("you have made your booking Successfully! Thank you");
         success.show();
     }
-    @FXML public void back(ActionEvent ae) throws IOException {
+    @FXML
+    public void back(ActionEvent ae) throws IOException {
         SceneSwitcher.SwitchScene(ae,"../View/CustomerMenu.fxml");
 
     }
     @FXML public void cancel(){
         System.exit(0);
     }
+
 
 }

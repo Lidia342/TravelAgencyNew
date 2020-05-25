@@ -8,72 +8,66 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="804.0" prefWidth="843.0" style="-fx-background-color: #e0e0e0;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.CustomerMenuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="719.0" prefWidth="647.0" style="-fx-background-color: #4c3d4c;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.MainPageController">
    <children>
-      <AnchorPane prefHeight="83.0" prefWidth="842.0" style="-fx-background-color: white;">
+      <AnchorPane layoutX="-2.0" layoutY="4.0" prefHeight="99.0" prefWidth="641.0" style="-fx-background-color: #4c3d4c;">
          <children>
-            <Text layoutX="56.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="logo" />
-            <Text layoutX="495.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home" />
-            <Text layoutX="591.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="About us" />
-            <Button onAction="#loginAction" fx:id="loginButton" layoutX="729.0" layoutY="15.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="76.0" style="-fx-background-radius: 15; -fx-background-color: white; -fx-border-color: grey; -fx-border-radius: 15;" text="Log in" />
-            <Hyperlink fx:id="signUpLink" layoutX="739.0" layoutY="58.0" onAction="#signUpAction" text="Sign up" />
-            <Button fx:id="editInfoButton" layoutX="729.0" layoutY="15.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="76.0" style="-fx-background-radius: 15; -fx-background-color: white; -fx-border-color: grey; -fx-border-radius: 15;" text="Edit Info" />
+            <Text layoutX="56.0" layoutY="8.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="32.162109375" />
+            <Text fill="WHITE" layoutX="366.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home" wrappingWidth="52.99999999999994">
+               <font>
+                  <Font size="14.0" />
+               </font></Text>
+            <Text fill="WHITE" layoutX="454.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="About us">
+               <font>
+                  <Font size="14.0" />
+               </font></Text>
+            <Button fx:id="loginButton" layoutX="565.0" layoutY="15.0" mnemonicParsing="false" onAction="#login" prefHeight="38.0" prefWidth="76.0" style="-fx-background-radius: 15; -fx-background-color: white; -fx-border-color: grey; -fx-border-radius: 15;" text="Log in" />
+            <Hyperlink fx:id="signupHyper" layoutX="579.0" layoutY="57.0" onAction="#signUp" text="Sign up" />
+            <ImageView fitHeight="99.0" fitWidth="123.0" layoutX="5.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/newLogo.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
-      <ImageView fitHeight="399.0" fitWidth="693.0" layoutX="150.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="359.0" fitWidth="647.0" layoutX="4.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Images/185289.jpg" />
          </image>
       </ImageView>
-      <AnchorPane layoutY="84.0" prefHeight="720.0" prefWidth="152.0" style="-fx-background-color: white;">
+      <AnchorPane layoutX="-2.0" layoutY="476.0" prefHeight="243.0" prefWidth="641.0" style="-fx-background-color: #4c3d4c;">
          <children>
-            <ImageView fitHeight="47.0" fitWidth="142.0" layoutX="11.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../Pictures/Screenshots/Screenshot%20(10).png" />
-               </image>
-            </ImageView>
-            <Button layoutX="18.0" layoutY="84.0" mnemonicParsing="false" onAction="#openBookingWindow" prefHeight="24.0" prefWidth="115.0" style="-fx-background-radius: 15; -fx-background-color: white; -fx-border-color: grey; -fx-border-radius: 15;" text="Book with us" />
-            <Button layoutX="3.0" layoutY="210.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="142.0" style="-fx-background-radius: 15; -fx-background-color: white; -fx-border-color: grey; -fx-border-radius: 15;" text="Discover our packages" />
-            <ImageView fitHeight="53.0" fitWidth="64.0" layoutX="52.0" layoutY="157.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Images/package.jpg" />
-               </image>
-            </ImageView>
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="153.0" layoutY="469.0" prefHeight="334.0" prefWidth="687.0" style="-fx-background-color: white;">
-         <children>
-            <Text layoutX="111.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Why book with us?" wrappingWidth="446.1694679260254">
+            <Text fill="WHITE" layoutX="111.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Why book with us?" wrappingWidth="446.1694679260254">
                <font>
                   <Font name="Dubai Bold" size="53.0" />
                </font>
             </Text>
+            <ImageView fitHeight="53.0" fitWidth="94.0" layoutX="125.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/hotel_1f3e8.png" />
+               </image>
+            </ImageView>
             <ImageView fitHeight="53.0" fitWidth="94.0" layoutX="58.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Images/flight_black.png" />
+                  <Image url="@../Images/flightL.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="53.0" fitWidth="94.0" layoutX="122.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="68.0" fitWidth="76.0" layoutX="190.0" layoutY="115.0" pickOnBounds="true">
                <image>
-                  <Image url="@../Images/hotel_black_icon.png" />
+                  <Image url="@../Images/automobile_1f697.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="53.0" fitWidth="94.0" layoutX="189.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Images/car_black_icon.png" />
-               </image>
-            </ImageView>
-            <Text layoutX="49.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Plan your entire trip in one place">
+            <Text fill="WHITE" layoutX="49.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Plan your entire trip in one place">
                <font>
                   <Font name="Dubai Medium" size="17.0" />
                </font>
             </Text>
             <ImageView fitHeight="69.0" fitWidth="77.0" layoutX="477.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Images/images.png" />
+                  <Image url="@../Images/world.png" />
                </image>
             </ImageView>
-            <Text layoutX="419.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enjoy travel selections by our emplyees in our packages" wrappingWidth="210.58648681640625">
+            <Text fill="WHITE" layoutX="419.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enjoy travel selections by our emplyees in our packages" wrappingWidth="210.58648681640625">
                <font>
                   <Font name="Dubai Medium" size="17.0" />
                </font>
