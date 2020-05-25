@@ -2,41 +2,64 @@ package sample.Model;
 
 public class Package {
 
-    public int packageID;
-    public Flight flight;
-    public Car car;
-    public Hotel hotel;
+    public String flightID;
+    public String carID;
+    public String hotelID;
     public int hotelNights;
     public String departingCity;
     public String arrivingCity;
-    public String name;
     public int carRentalDays;
+    public String packageName;
+    public double price;
+    public String departure_time;
+    public String return_time;
+    public String hotelName;
+    public String carModel;
 
-    public Package(int packageID, Flight flight, Car car, Hotel hotel, int hotelNights, String departingCity, String arrivingCity, int carRentalDays) {
-        this.packageID = packageID;
-        this.flight = flight;
-        this.car = car;
-        this.hotel = hotel;
+    public Package(String packageName, String flightID, String carID, String hotelID, String hotelName, String carModel,
+                   int hotelNights, String departingCity, String arrivingCity, int carRentalDays,
+                   double price, String departure_time, String return_time) {
+        this.packageName=packageName;
+        this.flightID = flightID;
+        this.hotelName = hotelName;
+        this.carID = carID;
+        this.hotelID = hotelID;
         this.hotelNights = hotelNights;
         this.departingCity = departingCity;
         this.arrivingCity = arrivingCity;
         this.carRentalDays = carRentalDays;
+        this.price = price;
+        this.departure_time = departure_time;
+        this.return_time = return_time;
+        this.carModel = carModel;
     }
 
-    public void setPackageID(int packageID) {
-        this.packageID = packageID;
+    public String getCarModel() {
+        return carModel;
     }
 
-    public void setFlight(Flight flight) {
-        this.flight = flight;
+    public String getHotelName() {
+        return hotelName;
     }
 
-    public void setCar(Car car) {
-        this.car = car;
+    public String getDeparture_time() {
+        return departure_time;
     }
 
-    public void setHotel(Hotel hotel) {
-        this.hotel = hotel;
+    public String getReturn_time() {
+        return return_time;
+    }
+
+    public void setFlightID(String flightID) {
+        this.flightID = flightID;
+    }
+
+    public void setCarID(String carID) {
+        this.carID = carID;
+    }
+
+    public void setHotelID(String hotelID) {
+        this.hotelID = hotelID;
     }
 
     public void setHotelNights(int hotelNights) {
@@ -51,20 +74,28 @@ public class Package {
         this.arrivingCity = arrivingCity;
     }
 
-    public int getPackageID() {
-        return packageID;
+    public void setCarRentalDays(int carRentalDays) {
+        this.carRentalDays = carRentalDays;
     }
 
-    public Flight getFlight() {
-        return flight;
+    public void setPackageName(String packageName) {
+        this.packageName = packageName;
     }
 
-    public Car getCar() {
-        return car;
+    public void setPrice(double price) {
+        this.price = price;
     }
 
-    public Hotel getHotel() {
-        return hotel;
+    public String getFlightID() {
+        return flightID;
+    }
+
+    public String getCarID() {
+        return carID;
+    }
+
+    public String getHotelID() {
+        return hotelID;
     }
 
     public int getHotelNights() {
@@ -79,11 +110,15 @@ public class Package {
         return arrivingCity;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public int getCarRentalDays() {
         return carRentalDays;
+    }
+
+    public String getPackageName() {
+        return packageName;
+    }
+
+    public double getPrice() {
+        return price;
     }
 }

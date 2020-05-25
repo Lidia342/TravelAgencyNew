@@ -38,7 +38,7 @@ public class Email {
 
 
             message.setText("Dear " + myData.getUser().getFirstName() + ",\n\n" +
-                        "Your booking for package " + myData.getCurrentPackage().getName() + " has been confirmed. Please, keep this email as proof of your booking.\n\nYour departing flight is on " +
+                        "Your booking for package " + myData.getCurrentPackage().getPackageName() + " has been confirmed. Please, keep this email as proof of your booking.\n\nYour departing flight is on " +
                     ", at " +  ". Thanks for booking!\n!,\n");
 
         Transport.send(message);

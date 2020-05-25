@@ -163,8 +163,9 @@ public class ViewPackageController implements Initializable {
             packageTable1.setItems(pq.getObList());
         }
 
-
+        //SceneSwitcher.SwitchScene(ae, "../View/ViewBookingScene.fxml");
     }
+
     public void RadioButtonsDisabled(){
         rb1.setDisable(true);
         rb2.setDisable(true);
@@ -292,10 +293,10 @@ public class ViewPackageController implements Initializable {
               e.show();
           } else {
               saveToTable();
-              alertSuccess();
+              //alertSuccess();
               ssnTxtField.clear();
               //bookDateTxtField.clear();
-              SceneSwitcher.SwitchScene(ae, "../View/CustomerMenu.fxml");
+              SceneSwitcher.SwitchScene(ae, "../View/ViewBookingScene.fxml");
           }
 
       }

@@ -5,6 +5,8 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 import sample.Model.AdminPackageTable;
 import sample.Model.CustomerPackageTable;
+import sample.Model.Data;
+import sample.Model.Package;
 
 import java.sql.*;
 
@@ -15,6 +17,8 @@ public class PackageQueries extends DatabaseConnection {
 
     private Connection connection;
     private Statement statement;
+
+    Data myData = Data.getInstance();
 
     public PackageQueries() {
         try{
@@ -28,8 +32,8 @@ public class PackageQueries extends DatabaseConnection {
     public void getPackageInfo(String name) throws SQLException {
         try {
             String selectQuery = "select p.packageName, f.departureDate, f.returnDate, f.departureCity, f.arrivalCity," +
-                " f.flightName, h.hotelName, h.numOfNights, h.typeOfRoom, c.carType," +
-                " p.price from package p Join flight f On p.flight_flightID = f.flightID join hotel h " +
+                " f.flightName, h.hotelName, h.hotelID, h.typeOfRoom, c.carType," +
+                " p.price, p.flight_flightID, p.car_carID, p.hotel_hotelID, h.numOfNights, c.carNumOfDays from package p Join flight f On p.flight_flightID = f.flightID join hotel h " +
                 "on p.hotel_hotelID = h.hotelID join car c on p.car_carID =  c.carID where packageName =  " + "\'" + name + "\'";
 
 
@@ -39,6 +43,15 @@ public class PackageQueries extends DatabaseConnection {
                 CustomerPackageTable pt = new CustomerPackageTable("packageName", "departureDate","returnDate",
                         "departureCity", "arrivalCity", "flightName", "hotelName",
                         "numOfNights", "typeOfRoom", "carType", "price");
+                Package currentPackage = new Package(resultSet.getString("packageName")
+                        , resultSet.getString("flight_flightID"), resultSet.getString("car_carID"), resultSet.getString("hotel_hotelID"),
+                        resultSet.getString("hotelName"), resultSet.getString("carType"),
+                        Integer.parseInt(resultSet.getString("numOfNights")), resultSet.getString("departureCity"),
+                        resultSet.getString("arrivalCity"), Integer.parseInt(resultSet.getString("carNumOfDays")), Double.parseDouble(resultSet.getString("price"))
+                , resultSet.getString("departureDate"), resultSet.getString("returnDate"));
+
+                myData.setCurrentPackage(currentPackage);
+
                 pt.setPackageName(resultSet.getString("packageName"));
                 pt.setDepartureDate(resultSet.getString("departureDate"));
                 pt.setReturnDate(resultSet.getString("returnDate"));
@@ -54,12 +67,16 @@ public class PackageQueries extends DatabaseConnection {
                 obList.add(pt);
                 setObList(obList);}
 
+                //System.out.println(resultSet.getString("packageName"));
+
+
 
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
+
     public void updateDate(String departureDate, String returnDate, String flightID){
         String updateQuery = "UPDATE flight SET departureDate = ?, returnDate = ?  WHERE flightId = ?";
 

@@ -27,20 +27,20 @@ public class ViewBookingController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         customerName.setText((myData.getUser().getFirstName())+myData.getUser().getLastName());
-        packageName.setText(myData.getCurrentPackage().getName());
+        packageName.setText(myData.getCurrentPackage().getPackageName());
         destinationName.setText(myData.getCurrentPackage().getArrivingCity());
-        flightDepDate.setText(String.valueOf(myData.getCurrentPackage().getFlight().getDeparture_time()));
-        flightRetDate.setText(String.valueOf(myData.getCurrentPackage().getFlight().getReturn_date()));
-        hotelName.setText(myData.getCurrentPackage().getHotel().getHotelName());
+        flightDepDate.setText(String.valueOf(myData.getCurrentPackage().getDeparture_time()));
+        flightRetDate.setText(String.valueOf(myData.getCurrentPackage().getReturn_time()));
+        hotelName.setText(myData.getCurrentPackage().getHotelName());
         hotelNights.setText(String.valueOf(myData.getCurrentPackage().getHotelNights()));
-        carModel.setText(myData.getCurrentPackage().getCar().getType_car());
+        carModel.setText(myData.getCurrentPackage().getCarModel());
         carRentDays.setText(String.valueOf(myData.getCurrentPackage().getCarRentalDays()));
     }
 
     @FXML
     private void closeStage(ActionEvent event) throws IOException {
 
-        SceneSwitcher.SwitchScene(event, "../View/main_paige");
+        SceneSwitcher.SwitchScene(event, "../View/CustomerMenu.fxml");
     }
 
     @FXML
