@@ -281,27 +281,6 @@ public class ViewPackController implements Initializable {
 
     }
 
-<<<<<<< HEAD:TravelAgencyNew/src/sample/Controllers/ViewPackageController.java
-  @FXML  public void confirmBooking(ActionEvent ae) {
-
-      //String currTime = bookDateTxtField.getText();
-
-
-
-
-
-          if (personQueries.userNotExists(ssnTxtField.getText())) {
-              e.setTitle("Invalid Input!");
-              e.setHeaderText(" check your SSN");
-              e.show();
-          } else {
-              saveToTable();
-              //alertSuccess();
-              ssnTxtField.clear();
-              //bookDateTxtField.clear();
-              SceneSwitcher.SwitchScene(ae, "../View/ViewBookingScene.fxml");
-          }
-=======
     @FXML  public void confirmBooking(ActionEvent ae) {
 
         if (personQueries.userNotExists(ssnTxtField.getText())) {
@@ -312,10 +291,8 @@ public class ViewPackController implements Initializable {
             saveToTable();
             alertSuccess();
             ssnTxtField.clear();
-            SceneSwitcher.SwitchScene(ae, "../View/CustomerMenu.fxml");
+            SceneSwitcher.SwitchScene(ae, "../View/ViewBookingScene.fxml");
         }
->>>>>>> 4a3e242822fa2deed6eeb7b47b67d54d34431f9a:TravelAgencyNew/src/sample/Controllers/ViewPackController.java
-
     }
 
     public void alertSuccess(){
@@ -326,7 +303,7 @@ public class ViewPackController implements Initializable {
     }
     @FXML
     public void back(ActionEvent ae) throws IOException {
-        SceneSwitcher.SwitchScene(ae,"../View/CustomerMenu.fxml");
+        //SceneSwitcher.SwitchScene(ae,"../View/CustomerMenu.fxml");
 
     }
     @FXML public void cancel(){

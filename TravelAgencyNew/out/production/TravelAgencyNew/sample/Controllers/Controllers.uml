@@ -3,17 +3,14 @@
   <ID>JAVA</ID>
   <OriginalElement>sample.Controllers</OriginalElement>
   <nodes>
-    <node x="0.0" y="0.0">sample.Controllers.Admin_updateController</node>
-    <node x="644.0" y="0.0">sample.Controllers.LogInController</node>
     <node x="363.0" y="0.0">sample.Controllers.SignUpController</node>
     <node x="0.0" y="734.0">sample.Controllers.CustomerMenuController</node>
+    <node x="644.0" y="0.0">sample.Controllers.LogInController</node>
   </nodes>
   <notes />
   <edges />
-  <settings layout="Hierarchic Group" zoom="0.7141463414634146" x="427.71607369746397" y="157.86732512582705" />
-  <SelectedNodes>
-    <node>sample.Controllers.Admin_updateController</node>
-  </SelectedNodes>
+  <settings layout="Hierarchic Group" zoom="0.4785643070787637" x="440.0" y="491.5" />
+  <SelectedNodes />
   <Categories>
     <Category>Fields</Category>
     <Category>Constructors</Category>

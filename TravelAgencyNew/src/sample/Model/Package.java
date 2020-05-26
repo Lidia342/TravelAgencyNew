@@ -16,7 +16,7 @@ public class Package {
     public String hotelName;
     public String carModel;
 
-    public Package(String packageName, String flightID, String carID, String hotelID, String hotelName, String carModel,
+    public Package(String packageName, String flightID, String carID,
                    int hotelNights, String departingCity, String arrivingCity, int carRentalDays,
                    double price, String departure_time, String return_time) {
         this.packageName=packageName;
