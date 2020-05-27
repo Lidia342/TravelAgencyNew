@@ -48,7 +48,5 @@
         <jarDirectory url="file://$MODULE_DIR$/../../Libraries/Javafxlib" recursive="false" type="SOURCES" />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="lib" level="project" />
-    <orderEntry type="library" name="mysql-connector-java-8.0.19" level="project" />
   </component>
 </module>
