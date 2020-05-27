@@ -25,17 +25,18 @@ public class EditInformationController implements Initializable {
         @FXML
         Button backButton;
         @FXML
-        Label firstNameLabel, lastNameLabel, emailLabel;
+        Label firstNameLabel, lastNameLabel, emailLabel, addressLabel;
         @FXML
-        Label firstNameLabelNew, lastNameLabelNew, emailLabelNew;
+        Label firstNameLabelNew, lastNameLabelNew, emailLabelNew, addressLabelNew;
         @FXML
-        TextField updateFirstName, updateLastName, updateEmail, updatePassword;
+        TextField updateFirstName, updateLastName, updateEmail, updatePassword, updateAddress;
 
         PersonQueries personQueries = new PersonQueries();
 
         @Override
         public void initialize(URL location, ResourceBundle resources) {
 
+            System.out.println(myData.getUser().getAddress());
             try {
                   personaliseScene();
             } catch (IOException e) {
@@ -70,8 +71,6 @@ public class EditInformationController implements Initializable {
         @FXML
         public void saveClick(ActionEvent event) throws IOException, GeneralSecurityException {
 
-            String userType = myData.getUser().getType();
-
             Alert alertConf = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to update your information?", ButtonType.NO, ButtonType.YES);
             alertConf.showAndWait();
             if(alertConf.getResult() == ButtonType.NO){
@@ -88,7 +87,7 @@ public class EditInformationController implements Initializable {
                         }
                     }
                     else {
-                        Alert alert = new Alert(Alert.AlertType.WARNING, "The email must be of this format: \"example01@gmail.com\"!", ButtonType.OK);
+                        Alert alert = new Alert(Alert.AlertType.WARNING, "The email must be of this format: \"example@gmail.com\"!", ButtonType.OK);
                         alert.showAndWait();
                         if(alert.getResult() == ButtonType.OK){
                             return;
@@ -116,6 +115,13 @@ public class EditInformationController implements Initializable {
                         e.printStackTrace();
                     }
                 }
+                if (!updateAddress.getText().trim().isEmpty()) {
+                    try {
+                        personQueries.editAddress(updateAddress.getText(), myData.getUser().getSSN());
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
                 alertConf.close();
                 SceneSwitcher.SwitchScene(event,"../View/CustomerMenu.fxml");
             }
@@ -133,11 +139,14 @@ public class EditInformationController implements Initializable {
 
             firstNameLabel.setText(currentUser.getFirstName());
             lastNameLabel.setText(currentUser.getLastName());
+            addressLabel.setText(currentUser.getAddress());
             emailLabel.setText(currentUser.getEmail());
+
 
             firstNameLabelNew.setText(firstNameLabel.getText());
             lastNameLabelNew.setText(lastNameLabel.getText());
             emailLabelNew.setText(emailLabel.getText());
+            addressLabelNew.setText(addressLabel.getText());
         }
 
 

@@ -26,7 +26,7 @@
                   <Font size="10.0" />
                </font>
             </Button>
-            <Button fx:id="button3" layoutX="137.0" layoutY="42.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="134.0" style="-fx-background-color: white;" text="Edit Your Info" />
+            <Button fx:id="button3" layoutX="137.0" layoutY="42.0" mnemonicParsing="false" onAction="#editInfoAction" prefHeight="29.0" prefWidth="134.0" style="-fx-background-color: white;" text="Edit Your Info" />
             <Button fx:id="button1" layoutX="130.0" layoutY="99.0" mnemonicParsing="false" onAction="#viewAndBookPackage" prefHeight="29.0" prefWidth="171.0" style="-fx-background-color: white;" text="View &amp; Book Package" />
             <Button fx:id="button2" layoutX="113.0" layoutY="160.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="205.0" style="-fx-background-color: white;" text="View Your Booked Package" />
          </children>

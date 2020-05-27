@@ -2,6 +2,7 @@ package sample.Database;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import sample.Model.Data;
 import sample.Model.UserTable;
 
 import java.sql.*;
@@ -10,6 +11,7 @@ public class PersonQueries extends DatabaseConnection {
     private Connection connection;
     private Statement statement;
     private ResultSet rst;
+    Data myData = Data.getInstance();
 
     private ObservableList<Object> obsList = FXCollections.observableArrayList();
 
@@ -150,6 +152,7 @@ public class PersonQueries extends DatabaseConnection {
         preparedStmt.setString(2, userID);
 
         if (preparedStmt.execute()) {
+            myData.getUser().setPassword(password);
             return true;
         } else {
             return false;
@@ -166,6 +169,7 @@ public class PersonQueries extends DatabaseConnection {
             preparedStmt.setString(1, newName);
             preparedStmt.setString(2, userID);
             preparedStmt.executeUpdate();
+            myData.getUser().setFirstName(newName);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
 
@@ -181,6 +185,7 @@ public class PersonQueries extends DatabaseConnection {
             preparedStmt.setString(1, newName);
             preparedStmt.setString(2, userID);
             preparedStmt.executeUpdate();
+            myData.getUser().setLastName(newName);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -195,6 +200,7 @@ public class PersonQueries extends DatabaseConnection {
             preparedStmt.setString(1, newEmail);
             preparedStmt.setString(2, userID);
             preparedStmt.executeUpdate();
+            myData.getUser().setEmail(newEmail);
         }
     }
 
@@ -231,5 +237,19 @@ public class PersonQueries extends DatabaseConnection {
 
     public void setObsList(ObservableList<Object> obsList) {
         this.obsList = obsList;
+    }
+
+    public boolean editAddress(String address, String ssn) throws SQLException {
+        String editQuery = "UPDATE user SET address=? WHERE SSN=?";
+        PreparedStatement preparedStmt = connection.prepareStatement(editQuery);
+        preparedStmt.setString(1, address);
+        preparedStmt.setString(2, ssn);
+
+        if (preparedStmt.execute()) {
+            myData.getUser().setAddress(address);
+            return true;
+        } else {
+            return false;
+        }
     }
 }
