@@ -12,16 +12,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="546.0" prefWidth="884.0" style="-fx-background-color: #4c3d4c;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.AdminUpdateController">
+<AnchorPane prefHeight="577.0" prefWidth="884.0" style="-fx-background-color: #4c3d4c;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.AdminUpdateController">
     <children>
       <ImageView fitHeight="86.0" fitWidth="119.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Images/newLogo.png" />
          </image>
       </ImageView>
-      <AnchorPane layoutX="99.0" layoutY="84.0" prefHeight="427.0" prefWidth="751.0" style="-fx-background-color: #4c3d4c; -fx-border-color: white; -fx-border-radius: 30;">
+      <AnchorPane layoutX="99.0" layoutY="84.0" prefHeight="463.0" prefWidth="757.0" style="-fx-background-color: #4c3d4c; -fx-border-color: white; -fx-border-radius: 30;">
          <children>
-              <TableView fx:id="table" layoutX="19.0" layoutY="14.0" onKeyPressed="#handleKeyPressed" onMouseClicked="#getSelected" prefHeight="229.0" prefWidth="652.0" style="-fx-background-color: white;">
+              <TableView fx:id="table" layoutX="25.0" layoutY="62.0" onKeyPressed="#handleKeyPressed" onMouseClicked="#getSelected" prefHeight="229.0" prefWidth="652.0" style="-fx-background-color: white;">
                   <columns>
                       <TableColumn fx:id="SSNColumn" prefWidth="108.0" text="SSN" />
                       <TableColumn fx:id="firstNameColumn" prefWidth="78.0" text="First name" />
@@ -39,18 +39,21 @@
                   </ContextMenu>
                </contextMenu>
               </TableView>
-              <Button fx:id="cancelButton" layoutX="659.0" layoutY="375.0" mnemonicParsing="false" onAction="#cancel" prefHeight="17.0" prefWidth="63.0" style="-fx-background-color: white;" text="Cancel" />
-              <Button fx:id="updateButton" layoutX="628.0" layoutY="289.0" mnemonicParsing="false" onAction="#update" prefHeight="25.0" prefWidth="63.0" style="-fx-background-color: white;" text="Update" />
-              <TextField fx:id="passwordTxtField" layoutX="478.0" layoutY="264.0" prefHeight="25.0" prefWidth="119.0" />
-              <Button fx:id="backButton" layoutX="32.0" layoutY="375.0" mnemonicParsing="false" onAction="#back" prefHeight="17.0" prefWidth="63.0" style="-fx-background-color: white;" text="Back" />
-              <TextField fx:id="emailTxtField" layoutX="275.0" layoutY="264.0" prefHeight="25.0" prefWidth="119.0" />
-              <TextField fx:id="ssnTxtField" layoutX="21.0" layoutY="289.0" promptText="SSN" />
-              <TextField fx:id="phoneTxtField" layoutX="278.0" layoutY="318.0" prefHeight="25.0" prefWidth="113.0" />
-              <Label layoutX="190.0" layoutY="322.0" prefHeight="17.0" prefWidth="88.0" text="PhoneNumber:" textFill="WHITE" />
-              <Label layoutX="199.0" layoutY="268.0" prefHeight="17.0" prefWidth="43.0" text="Email:" textFill="WHITE" />
-              <Label layoutX="408.0" layoutY="268.0" text="Password:" textFill="WHITE" />
-              <Label layoutX="408.0" layoutY="322.0" prefHeight="17.0" prefWidth="53.0" text="Address:" textFill="WHITE" />
-              <TextField fx:id="addressTxtField" layoutX="478.0" layoutY="318.0" prefHeight="25.0" prefWidth="119.0" />
+              <Button fx:id="cancelButton" layoutX="664.0" layoutY="413.0" mnemonicParsing="false" onAction="#cancel" prefHeight="17.0" prefWidth="63.0" style="-fx-background-color: white;" text="Cancel" />
+              <Button fx:id="updateButton" layoutX="633.0" layoutY="338.0" mnemonicParsing="false" onAction="#update" prefHeight="25.0" prefWidth="63.0" style="-fx-background-color: white;" text="Update" />
+              <TextField fx:id="passwordTxtField" layoutX="476.0" layoutY="313.0" prefHeight="25.0" prefWidth="119.0" />
+              <Button fx:id="backButton" layoutX="28.0" layoutY="413.0" mnemonicParsing="false" onAction="#back" prefHeight="17.0" prefWidth="63.0" style="-fx-background-color: white;" text="Back" />
+              <TextField fx:id="emailTxtField" layoutX="273.0" layoutY="313.0" prefHeight="25.0" prefWidth="119.0" />
+              <TextField fx:id="ssnTxtField" layoutX="19.0" layoutY="338.0" promptText="SSN" />
+              <TextField fx:id="phoneTxtField" layoutX="276.0" layoutY="367.0" prefHeight="25.0" prefWidth="113.0" />
+              <Label layoutX="188.0" layoutY="371.0" prefHeight="17.0" prefWidth="88.0" text="PhoneNumber:" textFill="WHITE" />
+              <Label layoutX="197.0" layoutY="317.0" prefHeight="17.0" prefWidth="43.0" text="Email:" textFill="WHITE" />
+              <Label layoutX="406.0" layoutY="317.0" text="Password:" textFill="WHITE" />
+              <Label layoutX="406.0" layoutY="371.0" prefHeight="17.0" prefWidth="53.0" text="Address:" textFill="WHITE" />
+              <TextField fx:id="addressTxtField" layoutX="476.0" layoutY="367.0" prefHeight="25.0" prefWidth="119.0" />
+            <TextField fx:id="searchName" layoutX="188.0" layoutY="14.0" onKeyPressed="#searchKey" prefHeight="25.0" prefWidth="163.0" />
+            <Label layoutX="60.0" layoutY="14.0" prefHeight="25.0" prefWidth="113.0" text="Search by first name:" textFill="WHITE" />
+            <Button layoutX="390.0" layoutY="14.0" mnemonicParsing="false" onAction="#allButton" text="All Names" />
          </children>
       </AnchorPane>
       <Label layoutX="250.0" layoutY="19.0" prefHeight="46.0" prefWidth="449.0" text="Edit Customer's Information" textFill="WHITE">

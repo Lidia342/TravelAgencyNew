@@ -12,6 +12,8 @@ public class PersonQueries extends DatabaseConnection {
     private ResultSet rst;
 
     private ObservableList<Object> obsList = FXCollections.observableArrayList();
+    private ObservableList<Object> list = FXCollections.observableArrayList();
+    private ObservableList<Object> searchList = FXCollections.observableArrayList();
 
     public PersonQueries() {
         try {
@@ -68,11 +70,43 @@ public class PersonQueries extends DatabaseConnection {
         }
     }
 
-    public void personTableSelect() {
-        String selectQuery = "SELECT * FROM user WHERE SSN != 199205134561";
+    public void personTableSelect(String name) {
+
+       // String selectQuery = "SELECT * FROM user WHERE SSN != 199205134562 and firstName =  " + "\' " + name +  "\' ";
+        String selectQuery = "SELECT * FROM user WHERE SSN != 199205134562 AND firstName = " + "\'" + name + "\'";
 
         try{
             ResultSet resultSet = connection.createStatement().executeQuery(selectQuery);
+          //  ps.setString(1,name);
+
+            while (resultSet.next()) {
+                UserTable ut = new UserTable("SSN", "firstName", "lastName",
+                        "phoneNumber", "email", "password", "address", "type");
+
+
+                ut.setSSN(resultSet.getString("SSN"));
+                ut.setFirstName(resultSet.getString("firstName"));
+                ut.setLastName(resultSet.getString("lastName"));
+                ut.setPhoneNumber(resultSet.getString("phoneNumber"));
+                ut.setEmail(resultSet.getString("email"));
+                ut.setPassword(resultSet.getString("password"));
+                ut.setAddress(resultSet.getString("address"));
+                ut.setType(resultSet.getString("type"));
+                searchList.add(ut);
+
+            }
+            setSearchList(searchList);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    public void viewCustomer() {
+        String selQuery = "SELECT * FROM user WHERE SSN != 199205134562";
+
+        try{
+            ResultSet resultSet = connection.createStatement().executeQuery(selQuery);
             while (resultSet.next()) {
                 UserTable ut = new UserTable("SSN", "firstName", "lastName",
                         "phoneNumber", "email", "password", "address", "type");
@@ -170,5 +204,21 @@ public class PersonQueries extends DatabaseConnection {
 
     public void setObsList(ObservableList<Object> obsList) {
         this.obsList = obsList;
+    }
+
+    public ObservableList<Object> getList() {
+        return list;
+    }
+
+    public void setList(ObservableList<Object> list) {
+        this.list = list;
+    }
+
+    public ObservableList<Object> getSearchList() {
+        return searchList;
+    }
+
+    public void setSearchList(ObservableList<Object> searchList) {
+        this.searchList = searchList;
     }
 }
