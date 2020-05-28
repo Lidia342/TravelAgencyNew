@@ -59,5 +59,6 @@ public class Booking {
 
     public void setBookingIsPaid(boolean bookingIsPaid) {
         this.bookingIsPaid = bookingIsPaid;
+
     }
 }

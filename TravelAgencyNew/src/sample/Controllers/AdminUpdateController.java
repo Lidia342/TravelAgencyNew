@@ -21,7 +21,7 @@ import java.util.ResourceBundle;
 
 public class AdminUpdateController implements Initializable {
 
-   PersonQueries personQueries = new PersonQueries();
+   private PersonQueries personQueries = new PersonQueries();
 
 
 
@@ -66,9 +66,8 @@ public class AdminUpdateController implements Initializable {
 
    @FXML private Button updateButton;
 
-   int index = -1;
-    private HandlesException handlesException;
-
+    @FXML
+    private TextField searchName;
 
 
     @Override
@@ -99,11 +98,11 @@ public class AdminUpdateController implements Initializable {
         updateButton.setTooltip(updateTool);
 
 
-        select();
-
-        handlesException = new HandlesException();
+        show();
+        HandlesException handlesException = new HandlesException();
         handlesException.onlyNumber(ssnTxtField);
         handlesException.onlyNumber(phoneTxtField);
+        handlesException.onlyLetters(searchName);
 
         handlesException.inputLimit(passwordTxtField,16);
         handlesException.inputLimit(ssnTxtField,12);
@@ -117,23 +116,47 @@ public class AdminUpdateController implements Initializable {
 
     }
 
-
-    public void select(){
-            SSNColumn.setCellValueFactory(new PropertyValueFactory<>("SSN"));
-            firstNameColumn.setCellValueFactory(new PropertyValueFactory<>("firstName"));
-            lastNameColumn.setCellValueFactory(new PropertyValueFactory<>("lastName"));
-            phoNumColumn.setCellValueFactory(new PropertyValueFactory<>("PhoneNumber"));
-            emailColumn.setCellValueFactory(new PropertyValueFactory<>("Email"));
-            passwordColumn.setCellValueFactory(new PropertyValueFactory<>("Password"));
-            addressColumn.setCellValueFactory(new PropertyValueFactory<>("Address"));
-
-        personQueries.personTableSelect();
+    public void show(){
+        tableView();
+        personQueries.viewCustomer();
         table.setItems(personQueries.getObsList());
+    }
+
+    public void tableView(){
+        SSNColumn.setCellValueFactory(new PropertyValueFactory<>("SSN"));
+        firstNameColumn.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        lastNameColumn.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        phoNumColumn.setCellValueFactory(new PropertyValueFactory<>("PhoneNumber"));
+        emailColumn.setCellValueFactory(new PropertyValueFactory<>("Email"));
+        passwordColumn.setCellValueFactory(new PropertyValueFactory<>("Password"));
+        addressColumn.setCellValueFactory(new PropertyValueFactory<>("Address"));
+
+    }
+
+
+
+
+  @FXML  public void searchKey(KeyEvent keyEvent) {
+        if (keyEvent.getCode().equals(KeyCode.ENTER)){
+            tableView();
+            table.getItems().clear();
+            personQueries.personTableSelect(searchName.getText());
+            table.setItems(personQueries.getSearchList());
+
+        }
+
+    }
+
+    @FXML public void allButton(){
+        table.getItems().clear();
+        show();
+
+
     }
 
     @FXML
     public void getSelected(MouseEvent event){
-        index = table.getSelectionModel().getSelectedIndex();
+        int index = table.getSelectionModel().getSelectedIndex();
         if (index <= -1){
             return;
         }
@@ -148,12 +171,12 @@ public class AdminUpdateController implements Initializable {
         public void update () {
 
         try{
-            select();
+            show();
             personQueries.updatePersonTable(phoneTxtField.getText(), passwordTxtField.getText(), addressTxtField.getText(),
                     emailTxtField.getText(), ssnTxtField.getText());
 
             table.getItems().clear();
-            select();
+            show();
             phoneTxtField.clear();
             emailTxtField.clear();
             passwordTxtField.clear();
@@ -164,7 +187,7 @@ public class AdminUpdateController implements Initializable {
         }
 
 
-        }
+    }
     public void clicked(ActionEvent event) {
 
         try{
@@ -177,7 +200,7 @@ public class AdminUpdateController implements Initializable {
                 UserTable uTable = (UserTable) table.getSelectionModel().getSelectedItem();
                 personQueries.removeCustomer(uTable.getSSN());
                 table.getItems().clear();
-                select();
+                show();
             }
         } catch (java.lang.Exception e) {
             System.out.println(e.getMessage());
@@ -198,8 +221,7 @@ public class AdminUpdateController implements Initializable {
                         UserTable uTable = (UserTable) table.getSelectionModel().getSelectedItem();
                         personQueries.removeCustomer(uTable.getSSN());
                         table.getItems().clear();
-                        select();
-
+                        show();
                     }
 
                 }
@@ -219,6 +241,8 @@ public class AdminUpdateController implements Initializable {
     public void cancel(ActionEvent event) {
         System.exit(0);
     }
+
+
 }
 
 

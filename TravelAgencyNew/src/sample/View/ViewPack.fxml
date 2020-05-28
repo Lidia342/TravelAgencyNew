@@ -15,7 +15,7 @@
 
 <AnchorPane maxHeight="1120.0" maxWidth="1684.0" minHeight="452.0" minWidth="800.0" prefHeight="991.0" prefWidth="1323.0" style="-fx-background-color: #4c3d4c;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.ViewPackController">
     <children>
-        <ScrollPane layoutX="14.0" layoutY="77.0" prefHeight="679.0" prefWidth="833.0">
+        <ScrollPane layoutX="14.0" layoutY="77.0" prefHeight="676.0" prefWidth="829.0">
             <content>
                 <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="899.0" prefWidth="905.0" style="-fx-background-color: #4c3d4c;">
                     <children>
@@ -117,29 +117,26 @@
                                 <Font name="Lucida Handwriting Italic" size="18.0" />
                             </font>
                         </RadioButton>
-                        <Label fx:id="ssnLabel" layoutX="350.0" layoutY="787.0" text="SSN:" textFill="WHITE">
+                        <Label fx:id="ssnLabel" layoutX="351.0" layoutY="713.0" text="SSN:" textFill="WHITE">
                             <font>
                                 <Font size="14.0" />
                             </font>
                         </Label>
-                        <TextField fx:id="ssnTxtField" layoutX="394.0" layoutY="784.0" prefHeight="25.0" prefWidth="159.0" promptText="yyyymmdd****" />
-                        <Label fx:id="typeIn" layoutX="333.0" layoutY="741.0" prefHeight="29.0" prefWidth="255.0" text="Type in your information to make order:" textFill="WHITE">
-                            <font>
-                                <Font size="14.0" />
-                            </font>
-                        </Label>
-                        <Button fx:id="bookingButton" layoutX="661.0" layoutY="809.0" mnemonicParsing="false" onAction="#confirmBooking" text="Confirm booking" />
-                        <Label layoutX="335.0" layoutY="686.0" prefHeight="36.0" prefWidth="265.0" text="Press here when you have selected your trip" textFill="WHITE">
+                        <TextField fx:id="ssnTxtField" layoutX="395.0" layoutY="710.0" prefHeight="25.0" prefWidth="159.0" promptText="yyyymmdd****" />
+                        <Button fx:id="bookingButton" layoutX="644.0" layoutY="717.0" mnemonicParsing="false" onAction="#confirmBooking" text="Confirm booking" />
+                        <Label layoutX="335.0" layoutY="673.0" prefHeight="36.0" prefWidth="265.0" text="Press here when you have selected your trip" textFill="WHITE">
                             <font>
                                 <Font size="13.0" />
                             </font>
                         </Label>
-                        <Button fx:id="press" layoutX="641.0" layoutY="691.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="73.0" text="press" />
+                        <Button fx:id="press" layoutX="657.0" layoutY="678.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="73.0" text="press" />
                         <RadioButton fx:id="rb9" layoutX="24.0" layoutY="849.0" mnemonicParsing="false" onAction="#radioSelect1" prefHeight="27.0" prefWidth="267.0" text="Khartoum Trip" textFill="WHITE" toggleGroup="$RadioGroup">
                             <font>
                                 <Font name="Lucida Handwriting Italic" size="18.0" />
                             </font>
                         </RadioButton>
+                  <Button fx:id="downloadPdf" layoutX="351.0" layoutY="770.0" mnemonicParsing="false" onAction="#download" text="Download to pdf" />
+                  <Button fx:id="viewBooking" layoutX="505.0" layoutY="770.0" mnemonicParsing="false" text="View booking" />
                     </children>
                 </AnchorPane>
             </content>

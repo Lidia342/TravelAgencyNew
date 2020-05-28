@@ -20,51 +20,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_19.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Booking Information.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nyLogo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Controllers/PdfController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Model/PdfFile.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/View/Pdf.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/Controllers/PdfController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/Model/PdfFile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/View/Pdf.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/javax_mail.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TravelAgencyNew.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TravelAgencyNew.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Controllers/AdminMenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Controllers/AdminMenuController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Controllers/AdminPackageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Controllers/AdminPackageController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Controllers/AdminUpdateController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Controllers/AdminUpdateController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Controllers/CustomerMenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Controllers/CustomerMenuController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Controllers/EditInformationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Controllers/EditInformationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Controllers/FlightBookingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Controllers/FlightBookingController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Controllers/LogInController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Controllers/LogInController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Controllers/MainPageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Controllers/MainPageController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Controllers/ResetPasswordController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Controllers/ResetPasswordController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Controllers/ResetPasswordController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Controllers/ResetPasswordController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Controllers/SignUpController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Controllers/SignUpController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Controllers/ViewBookedAdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Controllers/ViewBookedAdminController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Controllers/ViewBookingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Controllers/ViewBookingController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Controllers/ViewPackController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Controllers/ViewPackController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Database/BookingQueries.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Database/BookingQueries.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Database/DatabaseConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Database/DatabaseConnection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Database/LogInQueries.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Database/LogInQueries.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Database/PackageQueries.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Database/PackageQueries.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Database/PersonQueries.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Database/PersonQueries.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Model/AdminPackageTable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Model/AdminPackageTable.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Model/Booking.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Model/Booking.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Model/BookingTable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Model/BookingTable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Model/Car.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Model/Car.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Model/CustomerPackageTable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Model/CustomerPackageTable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Model/DBconnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Model/DBconnection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Model/Data.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Model/Data.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Model/Email$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Model/Email$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Model/Email.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Model/Email.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Model/Encryption.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Model/Encryption.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Model/Flight.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Model/Flight.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Model/HandlesException$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Model/HandlesException$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Model/HandlesException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Model/HandlesException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Model/Hotel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Model/Hotel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Model/Package.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Model/Package.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Model/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Model/Person.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Model/SceneSwitcher.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Model/SceneSwitcher.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Model/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Model/UserTable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Model/UserTable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Model/Email.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Model/Email.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/View/AdminUpdate.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/View/AdminUpdate.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/View/ViewPack.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/View/ViewPack.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/View/mainPage.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Controllers/AdminUpdateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controllers/AdminUpdateController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Controllers/ViewPackController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controllers/ViewPackController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Database/BookingQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Database/BookingQueries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Database/PackageQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Database/PackageQueries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Database/PersonQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Database/PersonQueries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Model/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Model/Booking.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/View/AdminUpdate.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/View/AdminUpdate.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/View/ViewPack.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/View/ViewPack.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,8 +107,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -159,7 +145,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Libraries/mysql-connector-java-8.0.19.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Libraries/itextpdf-5.5.9.jar!/" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.16210938" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -167,11 +153,14 @@
     <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Lili\Desktop\Travel\TravelAgencyNew\src\sample\View" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\user1\Desktop\TravelAgencyNew\TravelAgencyNew" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Lili\Desktop\Travel\TravelAgencyNew\src\sample\View" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="sample.Model" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -312,34 +301,19 @@
     <state x="233" y="20" key="#Project_Structure/0.0.1280.720@0.0.1280.720" />
     <state x="96" y="17" key="#com.intellij.execution.impl.EditConfigurationsDialog" />
     <state x="96" y="17" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.720@0.0.1280.720" />
-    <state x="121" y="21" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1617.909@0.0.1617.909" />
-    <state x="446" y="78" key="#com.intellij.ide.util.MemberChooser" />
-    <state x="446" y="78" key="#com.intellij.ide.util.MemberChooser/0.0.1280.720@0.0.1280.720" />
-    <state x="563" y="98" key="#com.intellij.ide.util.MemberChooser/0.0.1617.909@0.0.1617.909" />
     <state x="483" y="251" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" />
     <state x="483" y="251" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1280.720@0.0.1280.720" />
-    <state x="471" y="0" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" />
-    <state x="471" y="0" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.0.1280.720@0.0.1280.720" />
     <state x="421" y="116" key="FileChooserDialogImpl" />
     <state x="421" y="116" key="FileChooserDialogImpl/0.0.1280.720@0.0.1280.720" />
-    <state x="532" y="146" key="FileChooserDialogImpl/0.0.1617.909@0.0.1617.909" />
-    <state width="1237" height="260" key="GridCell.Tab.0.bottom" />
-    <state width="1237" height="260" key="GridCell.Tab.0.bottom/0.0.1280.720@0.0.1280.720" />
-    <state width="1573" height="232" key="GridCell.Tab.0.bottom/0.0.1617.909@0.0.1617.909" />
-    <state width="1237" height="260" key="GridCell.Tab.0.center" />
-    <state width="1237" height="260" key="GridCell.Tab.0.center/0.0.1280.720@0.0.1280.720" />
-    <state width="1573" height="232" key="GridCell.Tab.0.center/0.0.1617.909@0.0.1617.909" />
-    <state width="1237" height="260" key="GridCell.Tab.0.left" />
-    <state width="1237" height="260" key="GridCell.Tab.0.left/0.0.1280.720@0.0.1280.720" />
-    <state width="1573" height="232" key="GridCell.Tab.0.left/0.0.1617.909@0.0.1617.909" />
-    <state width="1237" height="260" key="GridCell.Tab.0.right" />
-    <state width="1237" height="260" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" />
-    <state width="1573" height="232" key="GridCell.Tab.0.right/0.0.1617.909@0.0.1617.909" />
+    <state width="1237" height="194" key="GridCell.Tab.0.bottom" />
+    <state width="1237" height="194" key="GridCell.Tab.0.bottom/0.0.1280.720@0.0.1280.720" />
+    <state width="1237" height="194" key="GridCell.Tab.0.center" />
+    <state width="1237" height="194" key="GridCell.Tab.0.center/0.0.1280.720@0.0.1280.720" />
+    <state width="1237" height="194" key="GridCell.Tab.0.left" />
+    <state width="1237" height="194" key="GridCell.Tab.0.left/0.0.1280.720@0.0.1280.720" />
+    <state width="1237" height="194" key="GridCell.Tab.0.right" />
+    <state width="1237" height="194" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" />
     <state x="121" y="0" key="SettingsEditor" />
     <state x="121" y="0" key="SettingsEditor/0.0.1280.720@0.0.1280.720" />
-    <state x="153" y="0" key="SettingsEditor/0.0.1617.909@0.0.1617.909" />
-    <state x="383" y="52" width="672" height="678" key="search.everywhere.popup" />
-    <state x="303" y="41" key="search.everywhere.popup/0.0.1280.720@0.0.1280.720" />
-    <state x="383" y="52" width="672" height="678" key="search.everywhere.popup/0.0.1617.909@0.0.1617.909" />
   </component>
 </project>

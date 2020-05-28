@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
 
+
 public class BookingQueries extends DatabaseConnection {
 
 
@@ -22,6 +23,8 @@ public class BookingQueries extends DatabaseConnection {
 
     Data myData = Data.getInstance();
     static HashSet packageList = new HashSet<>();
+    private String name1;
+    private ArrayList<BookingPdf> cusBookingInfo = new ArrayList<>();
 
     public BookingQueries() {
         try{
@@ -228,6 +231,44 @@ public class BookingQueries extends DatabaseConnection {
             System.out.println(e.getMessage());
         }
     }
+    public void customerBookingInfo(int id){
+        try {
+            String selQueries = " select b.bookingID,  CONCAT(firstName, ' ', lastName) AS Name,  p.packageName, b.date bookingDate, p.price, " +
+                    "f.departureDate, f.returnDate, f.departureCity, f.arrivalCity, f.flightName, h.hotelName, h.numOfNights," +
+                    " h.typeOfRoom, c.carType from booking b join booking_has_package bhp On bhp.booking_bookingID = b.bookingID " +
+                    "join package p On bhp.package_packageId = p.packageId Join flight f On p.flight_flightID = f.flightID " +
+                    "join hotel h on p.hotel_hotelID = h.hotelID join car c on p.car_carID =  c.carID " +
+                    "join user u  on b.user_SSN = u.SSN where bookingID = " + "\'" + id + "\'";
+
+
+            //resultSet = statement.executeQuery(selQueries);
+            resultSet = connection.createStatement().executeQuery(selQueries);
+            while (resultSet.next()) {
+                BookingPdf bookingpdf = new BookingPdf("",  "", "", "", "", "",
+                        "", "", "", "", "", "", "", "");
+                bookingpdf.setBookingID(resultSet.getString("bookingId"));
+                bookingpdf.setName(resultSet.getString("Name"));
+                bookingpdf.setPackageName(resultSet.getString("packageName"));
+                bookingpdf.setBookingDate(resultSet.getString("bookingDate"));
+                bookingpdf.setPrice(resultSet.getString("price"));
+                bookingpdf.setDepartureDate(resultSet.getString("departureDate"));
+                bookingpdf.setReturnDate(resultSet.getString("returnDate"));
+                bookingpdf.setDepartureCity(resultSet.getString("departureCity"));
+                bookingpdf.setArrivalCity(resultSet.getString("arrivalCity"));
+                bookingpdf.setFlightName(resultSet.getString("flightName"));
+                bookingpdf.setHotelName(resultSet.getString("hotelName"));
+                bookingpdf.setNumOfNights(resultSet.getString("numOfNights"));
+                bookingpdf.setTypeOfRoom(resultSet.getString("typeOfRoom"));
+                bookingpdf.setCarType(resultSet.getString("carType"));
+
+                cusBookingInfo.add(bookingpdf);
+            }
+            setCusBookingInfo(cusBookingInfo);
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
     public void removeBooking(String ssn){
         String removeQuery = "DELETE From booking WHERE bookingID = ?";
@@ -284,5 +325,21 @@ public class BookingQueries extends DatabaseConnection {
 
     public void setViewList(ObservableList<Object> viewList) {
         this.viewList = viewList;
+    }
+
+    public ArrayList<BookingPdf> getCusBookingInfo() {
+        return cusBookingInfo;
+    }
+
+    public void setCusBookingInfo(ArrayList<BookingPdf> cusBookingInfo) {
+        this.cusBookingInfo = cusBookingInfo;
+    }
+
+    public String getName1() {
+        return name1;
+    }
+
+    public void setName1(String name1) {
+        this.name1 = name1;
     }
 }

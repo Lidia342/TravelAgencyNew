@@ -4,12 +4,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.stage.FileChooser;
 import sample.Database.BookingQueries;
 import sample.Database.PackageQueries;
 import sample.Database.PersonQueries;
 import sample.Model.HandlesException;
-import sample.Model.SceneSwitcher;
+import sample.Model.PdfFile;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -67,8 +69,6 @@ public class ViewPackController implements Initializable {
     @FXML private TextField ssnTxtField;
     @FXML private Button bookingButton;
     @FXML private Button press;
-    @FXML private Label typeIn;
-
 
 
     PackageQueries pq = new PackageQueries();
@@ -77,14 +77,13 @@ public class ViewPackController implements Initializable {
     public void setInvisible(){
         ssnTxtField.setVisible(false);
         ssnLabel.setVisible(false);
-        typeIn.setVisible(false);
+
 
     }
 
     public void setVisible(){
         ssnTxtField.setVisible(true);
         ssnLabel.setVisible(true);
-        typeIn.setVisible(true);
 
     }
 
@@ -290,25 +289,37 @@ public class ViewPackController implements Initializable {
         } else {
             saveToTable();
             alertSuccess();
-            ssnTxtField.clear();
-            SceneSwitcher.SwitchScene(ae, "../View/ViewBookingScene.fxml");
+          //  ssnTxtField.clear();
+         //  SceneSwitcher.SwitchScene(ae, "../View/ViewBookingScene.fxml");
+        }
+    }
+    @FXML public void download() {
+        PdfFile pdfFile = new PdfFile();
+
+        FileChooser fc = new FileChooser();
+        File f = fc.showSaveDialog(null);
+        if (f != null) {
+            String filePath = f.getAbsolutePath();
+            pdfFile.createPdfFile(filePath);
+
         }
     }
 
-    public void alertSuccess(){
-        Alert success = new Alert(Alert.AlertType.CONFIRMATION);
-        success.setTitle("Booking Information");
-        success.setHeaderText("you have made your booking Successfully! Thank you");
-        success.show();
-    }
-    @FXML
-    public void back(ActionEvent ae) throws IOException {
-        //SceneSwitcher.SwitchScene(ae,"../View/CustomerMenu.fxml");
+        public void alertSuccess () {
+            Alert success = new Alert(Alert.AlertType.CONFIRMATION);
+            success.setTitle("Booking Information");
+            success.setHeaderText("you have made your booking Successfully! Thank you");
+            success.show();
+        }
+        @FXML
+        public void back (ActionEvent ae) throws IOException {
+            //SceneSwitcher.SwitchScene(ae,"../View/CustomerMenu.fxml");
+
+        }
+        @FXML public void cancel () {
+            System.exit(0);
+        }
+
 
     }
-    @FXML public void cancel(){
-        System.exit(0);
-    }
 
-
-}

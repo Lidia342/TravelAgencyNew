@@ -25,7 +25,6 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" exported="" name="javax.mail" level="project" />
     <orderEntry type="module-library">
       <library>
         <CLASSES>
@@ -38,15 +37,12 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../Libraries/Javafxlib" />
+          <root url="jar://$MODULE_DIR$/../../Libraries/itextpdf-5.5.9.jar!/" />
         </CLASSES>
         <JAVADOC />
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/../../Libraries/Javafxlib" />
-        </SOURCES>
-        <jarDirectory url="file://$MODULE_DIR$/../../Libraries/Javafxlib" recursive="false" />
-        <jarDirectory url="file://$MODULE_DIR$/../../Libraries/Javafxlib" recursive="false" type="SOURCES" />
+        <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="Javafxlib" level="project" />
   </component>
 </module>

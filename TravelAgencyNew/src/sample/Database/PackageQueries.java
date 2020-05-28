@@ -40,7 +40,7 @@ public class PackageQueries extends DatabaseConnection {
 
     }
 
-        public void viewPackage (String name){
+        public void viewPackage (String name) {
 
             try {
                 String selectQuery = "select p.packageName, f.departureDate, f.returnDate, f.departureCity, f.arrivalCity," +
@@ -81,26 +81,25 @@ public class PackageQueries extends DatabaseConnection {
                 ex.printStackTrace();
             }
         }
-
-        public void updateDate (String departureDate, String returnDate, String flightID){
-
-                        String updateQuery = "UPDATE flight SET departureDate = ?, returnDate = ?  WHERE flightId = ?";
+       public void updateDate(String departureDate, String returnDate, String flightID) {
+           String updateQuery = "UPDATE flight SET departureDate = ?, returnDate = ?  WHERE flightId = ?";
 
 
-            try (PreparedStatement preparedStatement = connection.prepareStatement(updateQuery)) {
-                preparedStatement.setString(1, departureDate);
-                preparedStatement.setString(2, returnDate);
-                preparedStatement.setString(3, flightID);
-                preparedStatement.executeUpdate();
+           try (PreparedStatement preparedStatement = connection.prepareStatement(updateQuery)) {
+               preparedStatement.setString(1, departureDate);
+               preparedStatement.setString(2, returnDate);
+               preparedStatement.setString(3, flightID);
+               preparedStatement.executeUpdate();
 
-            } catch (SQLException e) {
-                System.out.println(e.getMessage());
-                Alert er = new Alert(Alert.AlertType.ERROR);
-                er.setTitle("Invalid Input!");
-                er.setHeaderText("Write Date and time in correct format ");
-                er.show();
-            }
-        }
+           } catch (SQLException e) {
+               System.out.println(e.getMessage());
+               Alert er = new Alert(Alert.AlertType.ERROR);
+               er.setTitle("Invalid Input!");
+               er.setHeaderText("Write Date and time in correct format ");
+               er.show();
+           }
+       }
+
 
         public void adminPackage () {
             try {
