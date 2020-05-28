@@ -4,13 +4,16 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import sample.Database.BookingQueries;
+import sample.Model.PdfFile;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("View/AdminUpdate.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("View/Pdf.fxml"));
         primaryStage.setTitle("Travel Agency");
         primaryStage.centerOnScreen();
         //primaryStage.setMaximized(true);
@@ -19,12 +22,20 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root));
 
 
-        //Image image = new Image("C:/Users/Lili/Desktop/Travel/TravelAgencyNew/src/sample/Images.png");
-        //primaryStage.getIcons().add(image);
+        Image image = new Image(String.valueOf(getClass().getResource("Images/newLogo.png")));
+        primaryStage.getIcons().add(image);
 
 
         primaryStage.show();
 
+        PdfFile pf = new PdfFile();
+        pf.createPdfFile();
+        BookingQueries bq = new BookingQueries();
+        bq.customerBookingInfo();
+        for (int i = 0; i <bq.getCusBookingInfo().size() ; i++) {
+            System.out.println(bq.getCusBookingInfo().get(i));
+
+        }
     }
 
 

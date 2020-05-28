@@ -2,9 +2,11 @@ package sample.Database;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import sample.Model.Booking;
 import sample.Model.BookingTable;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class BookingQueries extends DatabaseConnection {
 
@@ -14,6 +16,9 @@ public class BookingQueries extends DatabaseConnection {
     private Connection connection;
     private Statement statement;
     private ResultSet resultSet;
+
+    private String name1;
+    private ArrayList<Booking> cusBookingInfo = new ArrayList<>();
 
     public BookingQueries() {
         try{
@@ -102,6 +107,42 @@ public class BookingQueries extends DatabaseConnection {
             System.out.println(e.getMessage());
         }
     }
+    public void customerBookingInfo(String id){
+        try {
+            String selQueries = " select b.bookingID,  CONCAT(firstName, ' ', lastName) AS Name,  p.packageName, b.date bookingDate, p.price, " +
+                    "f.departureDate, f.returnDate, f.departureCity, f.arrivalCity, f.flightName, h.hotelName, h.numOfNights," +
+                    " h.typeOfRoom, c.carType from booking b join booking_has_package bhp On bhp.booking_bookingID = b.bookingID " +
+                    "join package p On bhp.package_packageId = p.packageId Join flight f On p.flight_flightID = f.flightID " +
+                    "join hotel h on p.hotel_hotelID = h.hotelID join car c on p.car_carID =  c.carID " +
+                    "join user u  on b.user_SSN = u.SSN where SSN = " + "\'" + id + "\'" ;
+            //resultSet = statement.executeQuery(selQueries);
+            resultSet = connection.createStatement().executeQuery(selQueries);
+            while (resultSet.next()) {
+                Booking booking = new Booking("",  "", "", "", "", "",
+                        "", "", "", "", "", "", "", "");
+                booking.setBookingID(resultSet.getString("bookingId"));
+                booking.setName(resultSet.getString("Name"));
+                booking.setPackageName(resultSet.getString("packageName"));
+                booking.setBookingDate(resultSet.getString("bookingDate"));
+                booking.setPrice(resultSet.getString("price"));
+                booking.setDepartureDate(resultSet.getString("departureDate"));
+                booking.setReturnDate(resultSet.getString("returnDate"));
+                booking.setDepartureCity(resultSet.getString("departureCity"));
+                booking.setArrivalCity(resultSet.getString("arrivalCity"));
+                booking.setFlightName(resultSet.getString("flightName"));
+                booking.setHotelName(resultSet.getString("hotelName"));
+                booking.setNumOfNights(resultSet.getString("numOfNights"));
+                booking.setTypeOfRoom(resultSet.getString("typeOfRoom"));
+                booking.setCarType(resultSet.getString("carType"));
+
+                cusBookingInfo.add(booking);
+            }
+            setCusBookingInfo(cusBookingInfo);
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
     public void removeBooking(String ssn){
         String removeQuery = "DELETE From booking WHERE bookingID = ?";
@@ -158,5 +199,21 @@ public class BookingQueries extends DatabaseConnection {
 
     public void setViewList(ObservableList<Object> viewList) {
         this.viewList = viewList;
+    }
+
+    public ArrayList<Booking> getCusBookingInfo() {
+        return cusBookingInfo;
+    }
+
+    public void setCusBookingInfo(ArrayList<Booking> cusBookingInfo) {
+        this.cusBookingInfo = cusBookingInfo;
+    }
+
+    public String getName1() {
+        return name1;
+    }
+
+    public void setName1(String name1) {
+        this.name1 = name1;
     }
 }

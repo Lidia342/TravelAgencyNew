@@ -70,6 +70,7 @@ public class PackageQueries extends DatabaseConnection {
            ex.printStackTrace();
        }
 
+
    }
        public void updateDate(String departureDate, String returnDate, String flightID){
         String updateQuery = "UPDATE flight SET departureDate = ?, returnDate = ?  WHERE flightId = ?";
