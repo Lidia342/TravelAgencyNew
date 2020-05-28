@@ -148,7 +148,10 @@ public class AdminUpdateController implements Initializable {
     }
 
     @FXML public void allButton(){
+        table.getItems().clear();
         show();
+
+
     }
 
     @FXML
