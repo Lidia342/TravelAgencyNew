@@ -10,6 +10,7 @@ import sample.Database.PackageQueries;
 import sample.Database.PersonQueries;
 import sample.Model.HandlesException;
 import sample.Model.PdfFile;
+import sample.Model.SceneSwitcher;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,7 +18,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class ViewPackController implements Initializable {
+public class ViewPackageController implements Initializable {
 
     private HandlesException handlesException;
     Alert e = new Alert(Alert.AlertType.ERROR);
@@ -299,6 +300,7 @@ public class ViewPackController implements Initializable {
         FileChooser fc = new FileChooser();
         File f = fc.showSaveDialog(null);
         if (f != null) {
+
             String filePath = f.getAbsolutePath();
             pdfFile.createPdfFile(filePath);
 
@@ -313,7 +315,7 @@ public class ViewPackController implements Initializable {
         }
         @FXML
         public void back (ActionEvent ae) throws IOException {
-            //SceneSwitcher.SwitchScene(ae,"../View/CustomerMenu.fxml");
+            SceneSwitcher.SwitchScene(ae,"../View/CustomerMenu.fxml");
 
         }
         @FXML public void cancel () {

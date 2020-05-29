@@ -11,7 +11,7 @@ public class CustomerMenuController {
 
 
     @FXML public void viewAndBookPackage(ActionEvent ae){
-        SceneSwitcher.SwitchScene(ae, "../View/ViewPack.fxml");
+        SceneSwitcher.SwitchScene(ae, "../View/ViewPackage.fxml");
 
     }
 

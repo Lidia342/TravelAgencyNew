@@ -16,7 +16,7 @@
       </ImageView>
       <AnchorPane layoutX="73.0" layoutY="104.0" prefHeight="300.0" prefWidth="441.0" style="-fx-background-color: #4c3d4c; -fx-border-color: white; -fx-border-radius: 30;">
          <children>
-              <Button fx:id="buttonBack" layoutX="51.0" layoutY="216.0" mnemonicParsing="false" onAction="#backButton" style="-fx-background-color: white;" text="Back">
+              <Button fx:id="buttonBack" layoutX="51.0" layoutY="216.0" mnemonicParsing="false" onAction="#backButton" style="-fx-background-color: white;" text="Log out">
                <font>
                   <Font size="10.0" />
                </font>

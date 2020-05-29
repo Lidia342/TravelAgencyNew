@@ -28,7 +28,7 @@ public class PdfFile {
 
             bookingQueries.customerBookingInfo(bookingQueries.getBookingId());
             for (int i = 0; i <bookingQueries.getCusBookingInfo().size(); i++){
-                p.add("\n Booking Id :   "+ bookingQueries.getCusBookingInfo().get(i).getBookingID());
+                p.add("\n Reference Number :   "+ bookingQueries.getCusBookingInfo().get(i).getBookingID());
                 p.add("\n Name :   "+ bookingQueries.getCusBookingInfo().get(i).getName());
                 p.add("\n Package Name :   " + bookingQueries.getCusBookingInfo().get(i).getPackageName());
                 p.add("\n Booking Date :   " + bookingQueries.getCusBookingInfo().get(i).getBookingDate());
@@ -42,14 +42,19 @@ public class PdfFile {
                 p.add("\n Number of nights :   " + bookingQueries.getCusBookingInfo().get(i).getNumOfNights());
                 p.add("\n Type of room :   " + bookingQueries.getCusBookingInfo().get(i).getTypeOfRoom());
                 p.add("\n Car type :   " + bookingQueries.getCusBookingInfo().get(i).getCarType());
-                p.add("\n ==========================================================");}
+                p.add("\n =========================================================");
+                p.add("\n\n                                                          " + "Note: Please remember to bring passport when traveling");
+                p.add("\n                                                                                  " + "Email: TravelAgencyNew@gmail.com");
+                p.add("\n                                                                                  " + "Contact us: 0728041232");
+                p.add("\n                                                                                  " + "Have a nice trip :)");
+                }
 
 
 
             document.add(p);
             Image img = Image.getInstance("nyLogo.png");
             img.setAbsolutePosition(455f, 755f);
-//Scale to new height and new width of image
+            //Scale to new height and new width of image
             img.scaleAbsolute(70, 70);
 
 

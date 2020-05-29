@@ -20,37 +20,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Booking Information.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nyLogo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Controllers/PdfController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Model/PdfFile.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/View/Pdf.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/Controllers/PdfController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/Model/PdfFile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/View/Pdf.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/javax_mail.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravelAgencyNew.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TravelAgencyNew.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/META-INF/TravelAgencyNew.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/META-INF/TravelAgencyNew.kotlin_module" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Controllers/AdminPackageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Controllers/AdminPackageController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Controllers/AdminUpdateController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Controllers/AdminUpdateController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Controllers/ViewPackController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Controllers/ViewPackController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Database/BookingQueries.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Database/BookingQueries.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Database/PackageQueries.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Database/PackageQueries.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Database/PersonQueries.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Database/PersonQueries.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Controllers/CustomerMenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Controllers/CustomerMenuController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Controllers/ViewPackController.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Model/Booking.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Model/Booking.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Model/Email.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Model/Email.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Model/PdfFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Model/PdfFile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Model/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/Model/Person.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/View/AdminMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/View/AdminMenu.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/View/AdminUpdate.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/View/AdminUpdate.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/View/ViewPack.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/View/ViewPack.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/View/mainPage.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/View/CustomerMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/View/CustomerMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/View/Pdf.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/View/ViewPack.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/View/ViewPackage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/View/ViewPackage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/View/mainPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelAgencyNew/sample/View/mainPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Controllers/AdminPackageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controllers/AdminPackageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Controllers/AdminUpdateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controllers/AdminUpdateController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Controllers/ViewPackController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controllers/ViewPackController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Database/BookingQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Database/BookingQueries.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Database/PackageQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Database/PackageQueries.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Database/PersonQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Database/PersonQueries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Controllers/CustomerMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controllers/CustomerMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Controllers/ViewPackController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controllers/ViewPackageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Model/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Model/Booking.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Model/PdfFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Model/PdfFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Model/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Model/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/View/AdminMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/View/AdminMenu.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/View/AdminUpdate.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/View/AdminUpdate.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/View/ViewPack.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/View/ViewPack.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/View/CustomerMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/View/CustomerMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/View/MainPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/View/MainPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/View/Pdf.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/View/ViewPack.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/View/ViewPackage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/View/ViewPackage.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

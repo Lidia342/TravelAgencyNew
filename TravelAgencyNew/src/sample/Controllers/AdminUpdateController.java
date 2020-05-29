@@ -73,6 +73,7 @@ public class AdminUpdateController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        ssnTxtField.setEditable(false);
         Tooltip ssnTool = new Tooltip();
         ssnTool.setText("enter your social security number here, it shall be 12 numbers");
         ssnTxtField.setTooltip(ssnTool);
@@ -171,6 +172,14 @@ public class AdminUpdateController implements Initializable {
         public void update () {
 
         try{
+            if (ssnTxtField.getText().trim().isEmpty() || phoneTxtField.getText().trim().isEmpty() || passwordTxtField.getText().trim().isEmpty() ||
+            addressTxtField.getText().trim().isEmpty() || emailTxtField.getText().trim().isEmpty()){
+                Alert a = new Alert(Alert.AlertType.ERROR);
+                a.setHeaderText("Some fields are empty");
+                a.show();
+
+            }
+
             show();
             personQueries.updatePersonTable(phoneTxtField.getText(), passwordTxtField.getText(), addressTxtField.getText(),
                     emailTxtField.getText(), ssnTxtField.getText());
@@ -182,6 +191,9 @@ public class AdminUpdateController implements Initializable {
             passwordTxtField.clear();
             addressTxtField.clear();
             ssnTxtField.clear();
+            Alert b = new Alert(Alert.AlertType.CONFIRMATION);
+            b.setHeaderText("Updated");
+            b.show();
         } catch (java.lang.Exception e) {
             System.out.println(e.getMessage());
         }

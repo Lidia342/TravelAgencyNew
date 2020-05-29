@@ -11,7 +11,7 @@
     <children>
       <AnchorPane layoutX="79.0" layoutY="87.0" prefHeight="328.0" prefWidth="388.0" style="-fx-background-color: #4c3d4c; -fx-border-color: white; -fx-border-radius: 30;">
          <children>
-              <Button fx:id="backButton" layoutX="28.0" layoutY="243.0" mnemonicParsing="false" onAction="#back" prefHeight="15.0" prefWidth="51.0" style="-fx-background-color: white;" text="Back">
+              <Button fx:id="backButton" layoutX="28.0" layoutY="243.0" mnemonicParsing="false" onAction="#back" prefHeight="15.0" prefWidth="51.0" style="-fx-background-color: white;" text="Log out">
                <font>
                   <Font size="10.0" />
                </font>
