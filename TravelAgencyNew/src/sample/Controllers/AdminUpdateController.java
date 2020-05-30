@@ -44,14 +44,8 @@ public class AdminUpdateController implements Initializable {
     private TableColumn<UserTable, String> emailColumn;
 
     @FXML
-    private TableColumn<UserTable, String> passwordColumn;
-
-    @FXML
     private TableColumn<UserTable, String> addressColumn;
 
-
-    @FXML
-    private TextField passwordTxtField;
     @FXML
     private TextField emailTxtField;
 
@@ -86,9 +80,6 @@ public class AdminUpdateController implements Initializable {
         addressTool.setText("Type in your living address");
         addressTxtField.setTooltip(addressTool);
 
-        Tooltip passwordTool = new Tooltip();
-        passwordTool.setText("Enter your password, it shall contain max 16 characters");
-        passwordTxtField.setTooltip(passwordTool);
 
         Tooltip phoneTool = new Tooltip();
         phoneTool.setText("Enter your phone number. It shall be 13 numbers totally");
@@ -104,8 +95,6 @@ public class AdminUpdateController implements Initializable {
         handlesException.onlyNumber(ssnTxtField);
         handlesException.onlyNumber(phoneTxtField);
         handlesException.onlyLetters(searchName);
-
-        handlesException.inputLimit(passwordTxtField,16);
         handlesException.inputLimit(ssnTxtField,12);
         handlesException.inputLimit(phoneTxtField,13);
 
@@ -129,7 +118,6 @@ public class AdminUpdateController implements Initializable {
         lastNameColumn.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         phoNumColumn.setCellValueFactory(new PropertyValueFactory<>("PhoneNumber"));
         emailColumn.setCellValueFactory(new PropertyValueFactory<>("Email"));
-        passwordColumn.setCellValueFactory(new PropertyValueFactory<>("Password"));
         addressColumn.setCellValueFactory(new PropertyValueFactory<>("Address"));
 
     }
@@ -164,7 +152,6 @@ public class AdminUpdateController implements Initializable {
         ssnTxtField.setText(SSNColumn.getCellData(index).toString());
         emailTxtField.setText(emailColumn.getCellData(index).toString());
         addressTxtField.setText(addressColumn.getCellData(index).toString());
-        passwordTxtField.setText(passwordColumn.getCellData(index).toString());
         phoneTxtField.setText(phoNumColumn.getCellData(index).toString());
     }
 
@@ -172,7 +159,7 @@ public class AdminUpdateController implements Initializable {
         public void update () {
 
         try{
-            if (ssnTxtField.getText().trim().isEmpty() || phoneTxtField.getText().trim().isEmpty() || passwordTxtField.getText().trim().isEmpty() ||
+            if (ssnTxtField.getText().trim().isEmpty() || phoneTxtField.getText().trim().isEmpty() ||
             addressTxtField.getText().trim().isEmpty() || emailTxtField.getText().trim().isEmpty()){
                 Alert a = new Alert(Alert.AlertType.ERROR);
                 a.setHeaderText("Some fields are empty");
@@ -181,14 +168,13 @@ public class AdminUpdateController implements Initializable {
             }
 
             show();
-            personQueries.updatePersonTable(phoneTxtField.getText(), passwordTxtField.getText(), addressTxtField.getText(),
+            personQueries.updatePersonTable(phoneTxtField.getText(), addressTxtField.getText(),
                     emailTxtField.getText(), ssnTxtField.getText());
 
             table.getItems().clear();
             show();
             phoneTxtField.clear();
             emailTxtField.clear();
-            passwordTxtField.clear();
             addressTxtField.clear();
             ssnTxtField.clear();
             Alert b = new Alert(Alert.AlertType.CONFIRMATION);
