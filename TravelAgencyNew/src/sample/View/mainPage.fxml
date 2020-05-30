@@ -36,7 +36,7 @@
          <children>
             <Text fill="WHITE" layoutX="89.0" layoutY="15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Why book with us?" wrappingWidth="446.1694679260254">
                <font>
-                  <Font name="Dubai Bold" size="53.0" />
+                  <Font size="45.0" />
                </font>
             </Text>
             <ImageView fitHeight="53.0" fitWidth="94.0" layoutX="124.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">

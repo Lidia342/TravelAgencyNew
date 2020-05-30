@@ -73,6 +73,7 @@ public class AdminPackageController implements Initializable {
     @FXML
     private Button updateButton;
 
+
     int index = -1;
 
     public void display(){
@@ -114,35 +115,6 @@ public class AdminPackageController implements Initializable {
         flightIdTxtField.clear();
 
 
-/*
-        String dateTime = departureDateTxtField.getText();
-        String dateTime1 = returnDateTxtField.getText();
-
-        java.util.Date date = new java.util.Date();
-        java.text.SimpleDateFormat model = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String time = model.format(date);
-
-        try{
-            if (!dateTime.equals(time) ||  !dateTime1.equals(time)) {
-                e.setTitle("Invalid Input!");
-                e.setHeaderText(" check your SSN or date format please");
-                e.show();
-            } else {
-                display();
-                pq.updateDate(departureDateTxtField.getText(), returnDateTxtField.getText(),flightIdTxtField.getText());
-                table.getItems().clear();
-                display();
-                departureDateTxtField.clear();
-                returnDateTxtField.clear();
-                flightIdTxtField.clear();
-            }
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-
- */
-
-
     }
 
 
@@ -163,6 +135,7 @@ public class AdminPackageController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        flightIdTxtField.setEditable(false);
         Tooltip idTool = new Tooltip();
         idTool.setText("Enter the id of the flight as you see from the table");
         flightIdTxtField.setTooltip(idTool);

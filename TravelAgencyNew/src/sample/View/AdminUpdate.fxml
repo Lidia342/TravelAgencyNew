@@ -53,7 +53,7 @@
               <TextField fx:id="addressTxtField" layoutX="476.0" layoutY="367.0" prefHeight="25.0" prefWidth="119.0" />
             <TextField fx:id="searchName" layoutX="188.0" layoutY="14.0" onKeyPressed="#searchKey" prefHeight="25.0" prefWidth="163.0" />
             <Label layoutX="60.0" layoutY="14.0" prefHeight="25.0" prefWidth="113.0" text="Search by first name:" textFill="WHITE" />
-            <Button layoutX="390.0" layoutY="14.0" mnemonicParsing="false" onAction="#allButton" text="All Names" />
+            <Button layoutX="390.0" layoutY="14.0" mnemonicParsing="false" onAction="#allButton" text="All customers" />
          </children>
       </AnchorPane>
       <Label layoutX="250.0" layoutY="19.0" prefHeight="46.0" prefWidth="449.0" text="Edit Customer's Information" textFill="WHITE">
