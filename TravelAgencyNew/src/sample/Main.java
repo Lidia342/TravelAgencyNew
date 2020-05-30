@@ -8,36 +8,33 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import sample.Database.BookingQueries;
 import sample.Model.Encryption;
-import sample.Model.PdfFile;
 
 public class Main extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("View/mainPage.fxml"));
         primaryStage.setTitle("Travel Agency");
         primaryStage.centerOnScreen();
-        //primaryStage.setMaximized(true);
         primaryStage.setMinWidth(primaryStage.getWidth());
         primaryStage.setMinHeight(primaryStage.getHeight());
         primaryStage.setScene(new Scene(root));
         Image image = new Image(String.valueOf(getClass().getResource("Images/newLogo.png")));
         primaryStage.getIcons().add(image);
         primaryStage.show();
-        PdfFile pf = new PdfFile();
+
         Encryption.setKey();
         System.out.println(Encryption.encrypt("miniane321"));
-      //  pf.createPdfFile();
+        //  pf.createPdfFile();
         BookingQueries bq = new BookingQueries();
-       // bq.customerBookingInfo();
-        for (int i = 0; i <bq.getCusBookingInfo().size() ; i++) {
+        // bq.customerBookingInfo();
+        for (int i = 0; i < bq.getCusBookingInfo().size(); i++) {
             System.out.println(bq.getCusBookingInfo().get(i));
 
         }
     }
 
-
-    public static void main(String[] args) {
+    public static void main(String [] args) {
         launch(args);
     }
 

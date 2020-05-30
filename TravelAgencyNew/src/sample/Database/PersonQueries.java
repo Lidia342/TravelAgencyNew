@@ -17,7 +17,6 @@ public class PersonQueries extends DatabaseConnection {
     Data myData = Data.getInstance();
 
     private ObservableList<Object> obsList = FXCollections.observableArrayList();
-    private ObservableList<Object> list = FXCollections.observableArrayList();
     private ObservableList<Object> searchList = FXCollections.observableArrayList();
 
     public PersonQueries() {
@@ -59,17 +58,16 @@ public class PersonQueries extends DatabaseConnection {
         }
     }
 
-    public void updatePersonTable(String phoneNumber, String password, String address,
+    public void updatePersonTable(String phoneNumber, String address,
                                   String email, String SSN) {
-        String updateQuery = "UPDATE user SET phoneNumber = ?, email = ?, password = ?, address = ?  WHERE SSN = ?";
+        String updateQuery = "UPDATE user SET phoneNumber = ?, email = ?, address = ?  WHERE SSN = ?";
 
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(updateQuery)) {
             preparedStatement.setString(1, phoneNumber);
             preparedStatement.setString(2, email);
-            preparedStatement.setString(3, password);
-            preparedStatement.setString(4, address);
-            preparedStatement.setString(5, SSN);
+            preparedStatement.setString(3, address);
+            preparedStatement.setString(4, SSN);
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
@@ -79,12 +77,10 @@ public class PersonQueries extends DatabaseConnection {
 
     public void personTableSelect(String name) {
 
-       // String selectQuery = "SELECT * FROM user WHERE SSN != 199205134562 and firstName =  " + "\' " + name +  "\' ";
         String selectQuery = "SELECT * FROM user WHERE SSN != 199205134562 AND firstName = " + "\'" + name + "\'";
 
         try {
             ResultSet resultSet = connection.createStatement().executeQuery(selectQuery);
-          //  ps.setString(1,name);
 
             while (resultSet.next()) {
                 UserTable ut = new UserTable("SSN", "firstName", "lastName",
@@ -253,13 +249,6 @@ public class PersonQueries extends DatabaseConnection {
         }
     }
 
-    public ObservableList<Object> getList() {
-        return list;
-    }
-
-    public void setList(ObservableList<Object> list) {
-        this.list = list;
-    }
 
     public ObservableList<Object> getSearchList() {
         return searchList;
