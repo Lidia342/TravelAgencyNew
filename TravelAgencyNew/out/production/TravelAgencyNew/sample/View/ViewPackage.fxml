@@ -135,8 +135,6 @@
                                 <Font name="Lucida Handwriting Italic" size="18.0" />
                             </font>
                         </RadioButton>
-                  <Button fx:id="downloadPdf" layoutX="255.0" layoutY="638.0" mnemonicParsing="false" onAction="#download" text="Download to pdf" />
-                  <Button fx:id="viewBooking" layoutX="398.0" layoutY="638.0" mnemonicParsing="false" text="View booking" />
                     </children>
                 </AnchorPane>
             </content>

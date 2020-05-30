@@ -4,15 +4,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.stage.FileChooser;
 import sample.Database.BookingQueries;
 import sample.Database.PackageQueries;
 import sample.Database.PersonQueries;
 import sample.Model.HandlesException;
-import sample.Model.PdfFile;
 import sample.Model.SceneSwitcher;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -294,18 +291,7 @@ public class ViewPackageController implements Initializable {
            SceneSwitcher.SwitchScene(ae, "../View/ViewBookingScene.fxml");
         }
     }
-    @FXML public void download() {
-        PdfFile pdfFile = new PdfFile();
 
-        FileChooser fc = new FileChooser();
-        File f = fc.showSaveDialog(null);
-        if (f != null) {
-
-            String filePath = f.getAbsolutePath();
-            pdfFile.createPdfFile(filePath);
-
-        }
-    }
 
         public void alertSuccess () {
             Alert success = new Alert(Alert.AlertType.CONFIRMATION);

@@ -55,7 +55,7 @@ public class ViewBookedAdminController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         show();
         ObservableList<String> packageName = FXCollections.observableArrayList();
-        packageName.addAll("Amsterdam Trip","Rome Trip","Barcelona Trip","Los Angeles Trip","Rio Trip",
+        packageName.addAll("All packages","Amsterdam Trip","Rome Trip","Barcelona Trip","Los Angeles Trip","Rio Trip",
                 "Maimi Trip","Launda Trip", "Kampala Trip","Khartoum Trip","Massawa Trip");
 
         searchComboBox.setItems(packageName);
@@ -90,7 +90,11 @@ public class ViewBookedAdminController implements Initializable {
         tableView();
         table.getItems().clear();
         bookingQueries.viewBooked(searchComboBox.getValue());
-        table.setItems(bookingQueries.getObList());
+       table.setItems(bookingQueries.getObList());
+
+       if(searchComboBox.getValue().matches("All packages")){
+            show();
+        }
     }
 
     public void clicked(ActionEvent event) {
@@ -107,6 +111,7 @@ public class ViewBookedAdminController implements Initializable {
                 bookingQueries.removeBooking(bTable.getBookingId());
                 table.getItems().clear();
                 show();
+                searchComboBox.setValue("All packages");
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -129,6 +134,7 @@ public class ViewBookedAdminController implements Initializable {
 
                     table.getItems().clear();
                     show();
+                    searchComboBox.setValue("All packages");
                 }
 
             }

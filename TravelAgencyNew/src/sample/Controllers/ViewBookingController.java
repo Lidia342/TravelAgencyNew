@@ -7,10 +7,13 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
 import sample.Model.Data;
 import sample.Model.Email;
+import sample.Model.PdfFile;
 import sample.Model.SceneSwitcher;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -26,7 +29,7 @@ public class ViewBookingController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        customerName.setText((myData.getUser().getFirstName())+myData.getUser().getLastName());
+        customerName.setText((myData.getUser().getFirstName()) + " " + myData.getUser().getLastName());
         packageName.setText(myData.getCurrentPackage().getPackageName());
         destinationName.setText(myData.getCurrentPackage().getArrivingCity());
         flightDepDate.setText(String.valueOf(myData.getCurrentPackage().getDeparture_time()));
@@ -59,5 +62,20 @@ public class ViewBookingController implements Initializable {
             alert.close();
             return;
         }
+    }
+
+    public void downloadPdf(ActionEvent actionEvent) {
+
+            PdfFile pdfFile = new PdfFile();
+
+            FileChooser fc = new FileChooser();
+            File f = fc.showSaveDialog(null);
+            if (f != null) {
+
+                String filePath = f.getAbsolutePath();
+                pdfFile.createPdfFile(filePath);
+
+            }
+
     }
 }

@@ -71,7 +71,7 @@ public class CustomerMenuController {
 
         try {
             myData.setCurrentBooking(bQ.retreiveBooking(myData.getUser().getSSN()));
-            SceneSwitcher.SwitchScene(actionEvent, "../View/ViewBookingCustomer.fxml");
+            SceneSwitcher.SwitchScene(actionEvent, "../View/ViewBookingScene.fxml");
         } catch (SQLException |NullPointerException e) {
             Alert f = new Alert(Alert.AlertType.ERROR);
             f.setTitle("No booking found");
