@@ -27,7 +27,5 @@ public class AdminMenuController {
 
     }
 
-    public void cancel(ActionEvent event) {
-        System.exit(0);
-    }
+    public void cancel(ActionEvent event) { System.exit(0); }
 }

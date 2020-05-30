@@ -26,6 +26,7 @@ public class Main extends Application {
         primaryStage.show();
         PdfFile pf = new PdfFile();
         Encryption.setKey();
+        System.out.println(Encryption.encrypt("miniane321"));
       //  pf.createPdfFile();
         BookingQueries bq = new BookingQueries();
        // bq.customerBookingInfo();
@@ -40,12 +41,5 @@ public class Main extends Application {
         launch(args);
     }
 
-    public static String getPath() {
-
-        String path = ClassLoader.getSystemClassLoader().getResource(".").getPath();
-        if (path.contains("zcinema/bin"))
-            path = path.split("zcinema")[0];
-        return path;
-    }
 }
 
