@@ -4,30 +4,20 @@ import java.util.Date;
 
 public class Booking {
 
+    private Package package1;
     private Date bookingDate;
     private String customerID ;
-    private double bookingTotalPrice;
-    private boolean bookingIsPaid;
-    public Flight flight;
-    public Hotel hotel;
-    public Car car;
 
-       //ArrayList of flights
-       //ArrayList of hotels
-       //ArrayList of cars
-
-
-    public Booking(Date bookingDate, String customerID, boolean bookingIsPaid, double bookingTotalPrice, Flight flight, Hotel hotel, Car car) {
+    public Booking(Date bookingDate, String customerID, Package package1) {
         this.bookingDate = bookingDate;
         this.customerID = customerID;
-        this.bookingIsPaid=bookingIsPaid;
-        this.bookingTotalPrice = bookingTotalPrice;
-        this.flight=flight;
-        this.hotel=hotel;
-        this.car=car;
-
+        this.package1=package1;
     }
 
+
+    public Package getPackage1() {
+        return package1;
+    }
 
     public Date getBookingDate() {
         return bookingDate;
@@ -45,20 +35,4 @@ public class Booking {
         this.customerID = customerID;
     }
 
-    public double getBookingTotalPrice() {
-        return bookingTotalPrice;
-    }
-
-    public void setBookingTotalPrice(double bookingTotalPrice) {
-        this.bookingTotalPrice = bookingTotalPrice;
-    }
-
-    public boolean isBookingIsPaid() {
-        return bookingIsPaid;
-    }
-
-    public void setBookingIsPaid(boolean bookingIsPaid) {
-        this.bookingIsPaid = bookingIsPaid;
-
-    }
 }

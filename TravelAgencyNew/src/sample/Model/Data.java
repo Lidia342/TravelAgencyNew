@@ -7,6 +7,7 @@ public class Data {
     private static Data myData = new Data();
     private User user;
     private Package currentPackage;
+    private Booking currentBooking;
 
     public void setUser(User user) {
         this.user = user;
@@ -31,6 +32,15 @@ public class Data {
     public Package getCurrentPackage() {
         return currentPackage;
     }
+
+    public void setCurrentBooking(Booking currentBooking) {
+        this.currentBooking=currentBooking;
+    }
+
+    public Booking getCurrentBooking() {
+        return currentBooking;
+    }
+
 
     /*
     public void setDatabaseConnection(DatabaseConnection databaseConnection) {

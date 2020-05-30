@@ -2,6 +2,8 @@ package sample.Database;
 
 import sample.Model.User;
 
+import java.io.IOException;
+import java.security.GeneralSecurityException;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -9,6 +11,7 @@ public class LogInQueries extends DatabaseConnection {
 
     private Connection connection;
     private ResultSet resultSet;
+    PersonQueries pQ = new PersonQueries();
 
     public LogInQueries() {
         try {
@@ -20,50 +23,49 @@ public class LogInQueries extends DatabaseConnection {
     }
 
 
-    public boolean validate(String emailId, String password) {
+    public boolean validate(String emailId, String password) throws GeneralSecurityException, IOException {
 
         String select = "SELECT * FROM user WHERE email = ? and password = ? and SSN ='199205134562' ";
 
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(select);
-            {
-                preparedStatement.setString(1, emailId);
-                preparedStatement.setString(2, password);
+            try {
+                PreparedStatement preparedStatement = connection.prepareStatement(select);
+                {
+                    preparedStatement.setString(1, emailId);
+                    preparedStatement.setString(2, password);
 
-                resultSet = preparedStatement.executeQuery();
+                    resultSet = preparedStatement.executeQuery();
 
-                if (resultSet.next()){
-                    return true;
+                    if (resultSet.next()) {
+                        return true;
+                    }
+
                 }
-
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
             }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-        return false;
+            return false;
     }
 
-    public boolean customerLogin(String emailId, String password) {
+    public boolean customerLogin(String emailId, String password) throws GeneralSecurityException, IOException {
 
         String select = "SELECT * FROM user WHERE email = ? and password = ? and SSN !='199205134562' ";
 
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(select);
-            {
-                preparedStatement.setString(1, emailId);
-                preparedStatement.setString(2, password);
+            try {
+                PreparedStatement preparedStatement = connection.prepareStatement(select);
+                {
+                    preparedStatement.setString(1, emailId);
+                    preparedStatement.setString(2, password);
+                    resultSet = preparedStatement.executeQuery();
 
-                resultSet = preparedStatement.executeQuery();
+                    if (resultSet.next()) {
 
-                if (resultSet.next()){
-
-                    return true;
+                        return true;
+                    }
                 }
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
             }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-        return false;
+            return false;
     }
 
     public User establishCurrentCustomer(String email, String password) {

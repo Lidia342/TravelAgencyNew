@@ -16,12 +16,13 @@ import java.util.Base64;
 
 public class Encryption {
 
+
     static byte[] salt = new String("12345678").getBytes();
     static int iterationCount = 40000;
     static int keyLength = 128;
     static SecretKeySpec key;
     
-    static void setKey() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    public static void setKey() throws NoSuchAlgorithmException, InvalidKeySpecException {
 
         key = createSecretKey(("<3UCLCS").toCharArray());
     }
@@ -45,7 +46,7 @@ public class Encryption {
         return base64Encode(iv) + ":" + base64Encode(cryptoText);
     }
 
-    static String decrypt(String string) throws GeneralSecurityException, IOException {
+    public static String decrypt(String string) throws GeneralSecurityException, IOException {
 
         String iv = string.split(":")[0];
         String property = string.split(":")[1];
@@ -63,4 +64,9 @@ public class Encryption {
         
         return Base64.getDecoder().decode(property);
     }
+
+    public static SecretKeySpec getKey() {
+        return key;
+    }
+
 }

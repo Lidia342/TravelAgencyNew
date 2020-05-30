@@ -20,9 +20,11 @@ public class SceneSwitcher {
         }
     }
 
-    public static void SwitchMouseScene(MouseEvent event, String path) {
+    public static void
+    SwitchMouseScene(MouseEvent event, String path) {
         try {
             ((Stage) (((Node) event.getSource()).getScene().getWindow())).setScene(
+
                     new Scene(FXMLLoader.load(SceneSwitcher.class.getResource(path)))
             );
         } catch (IOException e) {

@@ -2,9 +2,6 @@ package sample.Model;
 
 public class Package {
 
-    public String flightID;
-    public String carID;
-    public String hotelID;
     public int hotelNights;
     public String departingCity;
     public String arrivingCity;
@@ -16,14 +13,12 @@ public class Package {
     public String hotelName;
     public String carModel;
 
-    public Package(String packageName, String flightID, String carID,
+    public Package(String packageName, String hotelName, String carModel,
                    int hotelNights, String departingCity, String arrivingCity, int carRentalDays,
                    double price, String departure_time, String return_time) {
         this.packageName=packageName;
-        this.flightID = flightID;
         this.hotelName = hotelName;
-        this.carID = carID;
-        this.hotelID = hotelID;
+        this.hotelName = hotelName;
         this.hotelNights = hotelNights;
         this.departingCity = departingCity;
         this.arrivingCity = arrivingCity;
@@ -50,18 +45,6 @@ public class Package {
         return return_time;
     }
 
-    public void setFlightID(String flightID) {
-        this.flightID = flightID;
-    }
-
-    public void setCarID(String carID) {
-        this.carID = carID;
-    }
-
-    public void setHotelID(String hotelID) {
-        this.hotelID = hotelID;
-    }
-
     public void setHotelNights(int hotelNights) {
         this.hotelNights = hotelNights;
     }
@@ -84,18 +67,6 @@ public class Package {
 
     public void setPrice(double price) {
         this.price = price;
-    }
-
-    public String getFlightID() {
-        return flightID;
-    }
-
-    public String getCarID() {
-        return carID;
-    }
-
-    public String getHotelID() {
-        return hotelID;
     }
 
     public int getHotelNights() {

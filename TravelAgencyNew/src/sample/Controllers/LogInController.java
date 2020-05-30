@@ -8,19 +8,20 @@ import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import sample.Database.LogInQueries;
-import sample.Model.Data;
-import sample.Model.HandlesException;
-import sample.Model.SceneSwitcher;
-import sample.Model.User;
+import sample.Database.PersonQueries;
+import sample.Model.*;
 
 import java.io.IOException;
 import java.net.URL;
+import java.security.GeneralSecurityException;
+import java.sql.*;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class LogInController implements Initializable {
     private HandlesException handlesException;
     Data myDate = Data.getInstance();
+    private PersonQueries pQ;
 
     @FXML
     private Button logInButton;
@@ -46,33 +47,54 @@ public class LogInController implements Initializable {
 
     Alert e = new Alert(Alert.AlertType.ERROR);
 
-
-
-        @FXML void login (ActionEvent ae) throws IOException {
+    @FXML void login (ActionEvent ae) throws IOException, GeneralSecurityException, SQLException {
             String emailId = TfEmail.getText();
             String password = TfPassword.getText();
-
             LogInQueries logInQueries = new LogInQueries();
-            boolean flag = logInQueries.validate(emailId, password);
-            boolean hello = logInQueries.customerLogin(emailId, password);
+            String encrypted="";
 
+        String url = "jdbc:mysql://den1.mysql5.gear.host:3306/travelagency1";
+        String userName = "travelagency1";
+        String password1 = "Cw0Mr?!4KN2V";
+
+        Connection connection = DriverManager.getConnection(url, userName, password1);
+        String select = "SELECT password FROM user WHERE email = ?";
+        try {
+
+            PreparedStatement preparedStatement = connection.prepareStatement(select);
+            preparedStatement.setString(1, emailId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            resultSet.first();
+
+            encrypted=resultSet.getString(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        if(Encryption.decrypt(encrypted).equals(password)) {
+            boolean flag = logInQueries.validate(emailId, encrypted);
+            boolean hello = logInQueries.customerLogin(emailId, encrypted);
             if (!hello && !flag) {
-                Alert f = new Alert(Alert.AlertType.ERROR);
-                f.setTitle("Incorrect");
-                f.setHeaderText("Enter correct password");
-                f.show();
-                TfPassword.clear();
-                TfEmail.clear();
+                logInQueries.customerLogin(emailId, password);
 
             } else if (hello) {
                 customerScene(ae);
-                User currentUser = logInQueries.establishCurrentCustomer(emailId, password);
+                User currentUser = logInQueries.establishCurrentCustomer(emailId, encrypted);
                 currentUser.toString();
                 myDate.setUser(currentUser);
             } else {
                 adminScene(ae);
             }
         }
+        else{
+            Alert f = new Alert(Alert.AlertType.ERROR);
+            f.setTitle("Incorrect");
+            f.setHeaderText("Enter correct password");
+            f.show();
+            TfPassword.clear();
+            TfEmail.clear();
+        }
+    }
 
     @FXML public void cancel(){
         System.exit(0);

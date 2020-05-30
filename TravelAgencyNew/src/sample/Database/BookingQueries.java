@@ -1,13 +1,11 @@
 package sample.Database;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.Alert;
-import sample.Model.Package;
 import sample.Model.*;
+import sample.Model.Package;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashSet;
 
 
@@ -41,117 +39,10 @@ public class BookingQueries extends DatabaseConnection {
         return null;
     }
 
-    public Booking createBooking(double totalPrice, Date bookingDate, String customerID, Flight flight, Hotel hotel, Car car) {
-
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Booking completed successfully");
-
-        if (hotel == null && car == null) {
-
-            String query = String.format("INSERT INTO booking (bookingTotalPrice, bookingDate, customer_customerID, flight_flightID) " +
-                    "VALUES ('" + totalPrice + "', '" + bookingDate + "', '" + hotel.getHotelID() + "', '" + customerID + "', '" + flight.getFlightID() + "')");
-            try {
-                statement.executeQuery(query);
-                Booking booking = new Booking(bookingDate, myData.getUser().getSSN(), false, flight.getPrice(), flight, null, null);
-                alert.show();
-                return booking;
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        } else if (car == null) {
-            String query = String.format("INSERT INTO booking (bookingTotalPrice, bookingDate, hotel_hotelID, customer_customerID, flight_flightID) " +
-                    "VALUES ('" + totalPrice + "', '" + bookingDate + "', '" + hotel.getHotelID() + "', '" + customerID + "', '" + flight.getFlightID() + "', '" + hotel.getHotelID() + "')");
-            try {
-                statement.executeQuery(query);
-                Booking booking = new Booking(bookingDate, myData.getUser().getSSN(), false, flight.getPrice(), flight, hotel, null);
-                alert.show();
-                return booking;
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        } else {
-            String query = String.format("INSERT INTO booking (bookingTotalPrice, bookingDate, hotel_hotelID, customer_customerID, flight_flightID, hotel_hotelID, car_carID) " +
-                    "VALUES ('" + totalPrice + "', '" + bookingDate + "', '" + hotel.getHotelID() + "', '" + customerID + "', '" + flight.getFlightID() + "', '" + hotel.getHotelID() + "', '" + car.getCarId() + "')");
-
-            try {
-                statement.executeQuery(query);
-                Booking booking = new Booking(bookingDate, myData.getUser().getSSN(), false, flight.getPrice(), flight, hotel, car);
-                alert.show();
-                return booking;
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-        return null;
-    }
-
-    public Flight createFlight(Date departureDate, String location, String destination, double price) {
-
-        /*
-        String query1 = String.format("SELECT country_Code FROM country WHERE country_name='" + location + "'");
-        String query2 = String.format("SELECT country_Code FROM country WHERE country_name='" + destination + "'");
-         */
-
-        ArrayList<String> paramters = new ArrayList<>();
-
-        try {
-
-            /*
-            String select = "SELECT country_Code FROM country WHERE country_name = ?";
-
-            PreparedStatement preparedStatement1 = connection.prepareStatement(select);
-            PreparedStatement preparedStatement2 = connection.prepareStatement(select);
-
-            preparedStatement1.setString(1, location);
-            preparedStatement2.setString(1, destination);
-
-
-            ResultSet resultSet1 = preparedStatement1.executeQuery();
-            ResultSet resultSet2 = preparedStatement2.executeQuery();
-
-            resultSet1.first();
-            resultSet2.first();
-
-            System.out.println(resultSet1.getString(1));
-            System.out.println(resultSet2.getString(1));
-
-
-             */
-            String query = "INSERT INTO flight (flightDepartueDate, flightPrice, departing_country, arriving_country)" +
-                    " VALUES (?, ? , ?, ?)";
-            PreparedStatement preparedStatement3 = connection.prepareStatement(query);
-            preparedStatement3.setDate(1, (java.sql.Date) departureDate);
-            preparedStatement3.setDouble(2, 80.0);
-            preparedStatement3.setString(3, location);
-            preparedStatement3.setString(4, destination);
-            preparedStatement3.executeQuery();
-
-            query = "SELECT MAX(flightID) FROM flight";
-
-            PreparedStatement preparedStatement4 = connection.prepareStatement(query);
-            ResultSet resultSet4 = preparedStatement4.executeQuery();
-            resultSet4.first();
-
-
-            //Flight flight = new Flight(Integer.parseInt(resultSet4.getString(1)), departureDate, location, destination, 80.0);
-            return null;
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-            return null;
-    }
-
     public HashSet<Package> getPackagesList(){
 
         return packageList;
     }
-
-    public void deletePackage() {
-    }
-
-    //public Package getPackage
-
-
-
 
 
     public void insertBookedPackageIntoBookingTable(String date, String user_SSN){
@@ -309,6 +200,33 @@ public class BookingQueries extends DatabaseConnection {
             System.out.println(e.getMessage());
             return 0;
         }
+    }
+
+    public Booking retreiveBooking(String userID) throws SQLException {
+
+        String selectQuery = "select p.packageName, b.date from booking b " +
+                "join booking_has_package bhp On bhp.booking_bookingID = b.bookingID join package p " +
+                "On bhp.package_packageId = p.packageId join user u  on b.user_SSN = u.SSN where u.SSN =  " + "\'" + userID + "\'";
+
+        resultSet = connection.createStatement().executeQuery(selectQuery);
+        resultSet.first();
+        String packageName = resultSet.getString("packageName");
+
+        String selectQuery1 = "select f.departureDate, f.returnDate, f.departureCity, f.arrivalCity," +
+                " f.flightName, h.hotelName, h.numOfNights, h.typeOfRoom, c.carType," +
+                " p.price, c.carNumOfDays from package p Join flight f On p.flight_flightID = f.flightID join hotel h " +
+                "on p.hotel_hotelID = h.hotelID join car c on p.car_carID =  c.carID where packageName =  " + "\'" + packageName + "\'";
+
+        ResultSet resultSet1 = connection.createStatement().executeQuery(selectQuery1);
+        resultSet1.first();
+        Package currentPackage = new Package(packageName, resultSet1.getString("hotelName"),
+                resultSet1.getString("carType"), Integer.parseInt(resultSet1.getString("numOfNights")), resultSet1.getString("departureCity"),
+                resultSet1.getString("arrivalCity"), Integer.parseInt(resultSet1.getString("carNumOfDays")), Double.parseDouble(resultSet1.getString("price"))
+                , resultSet1.getString("departureDate"), resultSet1.getString("returnDate"));
+
+        myData.setCurrentPackage(currentPackage);
+        Booking currentBooking = new Booking(resultSet.getDate("date"), myData.getUser().getSSN(), currentPackage);
+        return currentBooking;
     }
 
     public ObservableList<Object> getObList() {

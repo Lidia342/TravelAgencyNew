@@ -10,36 +10,31 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="419.0" prefWidth="664.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.EditInformationController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="378.0" prefWidth="664.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.EditInformationController">
    <AnchorPane layoutX="3.0" layoutY="24.0" prefHeight="374.0" prefWidth="372.0">
       <children>
-         <TextField fx:id="updateFirstName" layoutX="103.0" layoutY="105.0" onKeyPressed="#editUpdateText" onKeyReleased="#editUpdateText" />
-         <TextField fx:id="updateLastName" layoutX="103.0" layoutY="142.0" onKeyPressed="#editUpdateText" onKeyReleased="#editUpdateText" />
-         <TextField fx:id="updateEmail" layoutX="102.0" layoutY="187.0" onKeyPressed="#editUpdateText" onKeyReleased="#editUpdateText" promptText="something@email.com" />
-         <TextField fx:id="updatePassword" layoutX="102.0" layoutY="221.0" onKeyPressed="#editUpdateText" onKeyReleased="#editUpdateText" />
-         <Text layoutX="23.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name:" />
-         <Text layoutX="23.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:" />
-         <Text layoutX="53.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" />
-         <Text layoutX="42.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit Profile:">
+         <TextField fx:id="updateEmail" layoutX="102.0" layoutY="136.0" onKeyPressed="#editUpdateText" onKeyReleased="#editUpdateText" promptText="something@email.com" />
+         <TextField fx:id="updatePassword" layoutX="103.0" layoutY="187.0" onKeyPressed="#editUpdateText" onKeyReleased="#editUpdateText" />
+         <Text layoutX="52.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" />
+         <Text layoutX="110.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit Profile:">
             <font>
                <Font size="18.0" />
             </font>
          </Text>
-         <Text layoutX="26.0" layoutY="238.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" />
-         <TextField fx:id="updateAddress" layoutX="102.0" layoutY="257.0" onKeyPressed="#editUpdateText" onKeyReleased="#editUpdateText" />
-         <Text layoutX="31.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address:" wrappingWidth="56.0" />
-         <Button layoutX="96.0" layoutY="330.0" minWidth="30.0" mnemonicParsing="false" onAction="#saveClick" prefHeight="30.0" prefWidth="162.0" style="-fx-background-color: #353238; -fx-min-width: 40;" text="Save" textFill="WHITE">
+         <Text layoutX="33.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" />
+         <TextField fx:id="updateAddress" layoutX="103.0" layoutY="248.0" onKeyPressed="#editUpdateText" onKeyReleased="#editUpdateText" />
+         <Text layoutX="39.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address:" wrappingWidth="56.0" />
+         <Button layoutX="95.0" layoutY="305.0" minWidth="30.0" mnemonicParsing="false" onAction="#saveClick" prefHeight="30.0" prefWidth="162.0" style="-fx-background-color: #353238; -fx-min-width: 40;" text="Save" textFill="WHITE">
          </Button>
       </children>
    </AnchorPane>
-   <AnchorPane prefHeight="45.0" prefWidth="702.0">
+   <AnchorPane layoutY="64.0" prefHeight="35.0" prefWidth="664.0">
       <children>
-         <MenuBar prefHeight="35.0" prefWidth="664.0" style="-fx-min-width: 100%; -fx-background-color: #353238;" />
+         <MenuBar layoutY="-18.0" prefHeight="35.0" prefWidth="664.0" style="-fx-min-width: 100%; -fx-background-color: #353238;" />
       </children>
    </AnchorPane>
-   <Separator layoutX="345.0" layoutY="38.0" orientation="VERTICAL" prefHeight="374.0" prefWidth="5.0" />
-   <Label fx:id="lastNameLabelNew" layoutX="439.0" layoutY="115.0" />
-   <Text layoutX="406.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Details:">
+   <Separator layoutX="348.0" layoutY="92.0" orientation="VERTICAL" prefHeight="269.0" prefWidth="9.0" />
+   <Text layoutX="398.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Details:">
       <font>
          <Font size="18.0" />
       </font>
@@ -49,18 +44,15 @@
          <Font size="18.0" />
       </font>
    </Text>
-   <Label fx:id="firstNameLabelNew" layoutX="440.0" layoutY="94.0" />
-   <Label fx:id="emailLabelNew" layoutX="416.0" layoutY="143.0">
+   <Label fx:id="emailLabelNew" layoutX="416.0" layoutY="186.0">
       <graphic>
       </graphic>
    </Label>
-   <Label fx:id="lastNameLabel" layoutX="441.0" layoutY="274.0" text="Last Name" />
-   <Label fx:id="firstNameLabel" layoutX="441.0" layoutY="253.0" text="First Name" />
-   <Label fx:id="emailLabel" layoutX="419.0" layoutY="302.0" text="Email">
+   <Label fx:id="emailLabel" layoutX="405.0" layoutY="302.0" text="Email">
       <graphic>
       </graphic>
    </Label>
-   <Button fx:id="backButton" contentDisplay="TOP" graphicTextGap="0.0" layoutX="576.0" layoutY="2.0" minHeight="21.0" mnemonicParsing="false" onAction="#backToPrevScene" prefHeight="35.0" prefWidth="77.0" style="-fx-background-color: none; -fx-label-padding: -10; -fx-font-size: 12;" text="Back" textAlignment="CENTER" textFill="#ebdfdf">
+   <Button fx:id="backButton" contentDisplay="TOP" graphicTextGap="0.0" layoutX="589.0" layoutY="47.0" minHeight="21.0" mnemonicParsing="false" onAction="#backToPrevScene" prefHeight="35.0" prefWidth="64.0" style="-fx-background-color: none; -fx-label-padding: -10; -fx-font-size: 12;" text="Back" textAlignment="CENTER" textFill="WHITE">
       <font>
          <Font size="18.0" />
       </font>
@@ -68,6 +60,6 @@
          <Cursor fx:constant="HAND" />
       </cursor>
    </Button>
-   <Label fx:id="addressLabel" layoutX="440.0" layoutY="331.0" text="Address" />
-   <Label fx:id="addressLabelNew" layoutX="405.0" layoutY="186.0" />
+   <Label fx:id="addressLabel" layoutX="412.0" layoutY="267.0" text="Address" />
+   <Label fx:id="addressLabelNew" layoutX="419.0" layoutY="143.0" />
 </AnchorPane>

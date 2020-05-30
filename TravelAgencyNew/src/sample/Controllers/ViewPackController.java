@@ -10,6 +10,7 @@ import sample.Database.PackageQueries;
 import sample.Database.PersonQueries;
 import sample.Model.HandlesException;
 import sample.Model.PdfFile;
+import sample.Model.SceneSwitcher;
 
 import java.io.File;
 import java.io.IOException;
@@ -290,7 +291,7 @@ public class ViewPackController implements Initializable {
             saveToTable();
             alertSuccess();
           //  ssnTxtField.clear();
-         //  SceneSwitcher.SwitchScene(ae, "../View/ViewBookingScene.fxml");
+           SceneSwitcher.SwitchScene(ae, "../View/ViewBookingScene.fxml");
         }
     }
     @FXML public void download() {

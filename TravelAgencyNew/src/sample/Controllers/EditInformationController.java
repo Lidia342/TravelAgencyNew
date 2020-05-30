@@ -25,11 +25,11 @@ public class EditInformationController implements Initializable {
         @FXML
         Button backButton;
         @FXML
-        Label firstNameLabel, lastNameLabel, emailLabel, addressLabel;
+        Label emailLabel, addressLabel;
         @FXML
-        Label firstNameLabelNew, lastNameLabelNew, emailLabelNew, addressLabelNew;
+        Label emailLabelNew, addressLabelNew;
         @FXML
-        TextField updateFirstName, updateLastName, updateEmail, updatePassword, updateAddress;
+        TextField updateEmail, updatePassword, updateAddress;
 
         PersonQueries personQueries = new PersonQueries();
 
@@ -55,11 +55,9 @@ public class EditInformationController implements Initializable {
                 field.setEditable(true);
 
             switch (((Node) e.getSource()).getId()) {
-                case "updateFirstName":
-                    firstNameLabelNew.setText(updateFirstName.getText());
-                    break;
-                case "updateLastName":
-                    lastNameLabelNew.setText(updateLastName.getText());
+
+                case "updateAddress":
+                    addressLabelNew.setText(updateAddress.getText());
                     break;
                 case "updateEmail":
                     emailLabelNew.setText(updateEmail.getText());
@@ -78,7 +76,7 @@ public class EditInformationController implements Initializable {
                 return;
             } else {
                 if (!updateEmail.getText().trim().isEmpty()) {
-                    if(emailValidator()){
+                    if(emailValidator()&&!personQueries.emailExists(updateEmail.getText().trim())){
 
                         try {
                             personQueries.editEmail(emailLabelNew.getText(), myData.getUser().getSSN());
@@ -86,26 +84,19 @@ public class EditInformationController implements Initializable {
                             e.printStackTrace();
                         }
                     }
-                    else {
+                    else if (!emailValidator()){
                         Alert alert = new Alert(Alert.AlertType.WARNING, "The email must be of this format: \"example@gmail.com\"!", ButtonType.OK);
                         alert.showAndWait();
                         if(alert.getResult() == ButtonType.OK){
                             return;
                         }
                     }
-                }
-                if (!updateFirstName.getText().trim().isEmpty()) {
-                    try {
-                        personQueries.editFirstName(updateFirstName.getText(), myData.getUser().getSSN());
-                    } catch (SQLException e) {
-                        e.printStackTrace();
-                    }
-                }
-                if (!updateLastName.getText().trim().isEmpty()) {
-                    try {
-                        personQueries.editLastName(updateLastName.getText(), myData.getUser().getSSN());
-                    } catch (SQLException e) {
-                        e.printStackTrace();
+                    else if(personQueries.emailExists(updateEmail.getText().trim())){
+                        Alert alert = new Alert(Alert.AlertType.WARNING, "This email already exists! Choose another email", ButtonType.OK);
+                        alert.showAndWait();
+                        if(alert.getResult() == ButtonType.OK){
+                            return;
+                        }
                     }
                 }
                 if (!updatePassword.getText().trim().isEmpty()) {
@@ -137,14 +128,9 @@ public class EditInformationController implements Initializable {
 
             User currentUser=myData.getUser();
 
-            firstNameLabel.setText(currentUser.getFirstName());
-            lastNameLabel.setText(currentUser.getLastName());
             addressLabel.setText(currentUser.getAddress());
             emailLabel.setText(currentUser.getEmail());
 
-
-            firstNameLabelNew.setText(firstNameLabel.getText());
-            lastNameLabelNew.setText(lastNameLabel.getText());
             emailLabelNew.setText(emailLabel.getText());
             addressLabelNew.setText(addressLabel.getText());
         }

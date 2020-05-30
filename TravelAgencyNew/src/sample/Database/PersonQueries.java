@@ -3,12 +3,15 @@ package sample.Database;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import sample.Model.Data;
+import sample.Model.Encryption;
 import sample.Model.UserTable;
 
+import java.io.UnsupportedEncodingException;
+import java.security.GeneralSecurityException;
 import java.sql.*;
 
 public class PersonQueries extends DatabaseConnection {
-    private Connection connection;
+    private Connection connection=getConnection();
     private Statement statement;
     private ResultSet rst;
     Data myData = Data.getInstance();
@@ -175,14 +178,13 @@ public class PersonQueries extends DatabaseConnection {
         } else {
             return false;
         }
-
     }
 
-    public boolean editPassword(String password, String userID) throws SQLException {
+    public boolean editPassword(String password, String userID) throws SQLException, GeneralSecurityException, UnsupportedEncodingException {
 
         String editQuery = "UPDATE user SET password=? WHERE SSN=?";
         PreparedStatement preparedStmt = connection.prepareStatement(editQuery);
-        preparedStmt.setString(1, password);
+        preparedStmt.setString(1, Encryption.encrypt(password.trim()));
         preparedStmt.setString(2, userID);
 
         if (preparedStmt.execute()) {
@@ -193,49 +195,14 @@ public class PersonQueries extends DatabaseConnection {
         }
     }
 
-    public void editFirstName(String newName, String userID) throws SQLException {
-
-        try {
-
-
-            String editQuery = "UPDATE user SET firstName=? WHERE SSN=?";
-            PreparedStatement preparedStmt = connection.prepareStatement(editQuery);
-            preparedStmt.setString(1, newName);
-            preparedStmt.setString(2, userID);
-            preparedStmt.executeUpdate();
-            myData.getUser().setFirstName(newName);
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-
-        }
-    }
-
-
-    public void editLastName(String newName, String userID) throws SQLException {
-
-        try {
-            String editQuery = "UPDATE user SET lastName=? WHERE SSN=?";
-            PreparedStatement preparedStmt = connection.prepareStatement(editQuery);
-            preparedStmt.setString(1, newName);
-            preparedStmt.setString(2, userID);
-            preparedStmt.executeUpdate();
-            myData.getUser().setLastName(newName);
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
-
     public void editEmail(String newEmail, String userID) throws SQLException {
 
-        if (!emailExists(newEmail)) {
             String editQuery = "UPDATE user SET email=? WHERE SSN=?";
             PreparedStatement preparedStmt = connection.prepareStatement(editQuery);
             preparedStmt.setString(1, newEmail);
             preparedStmt.setString(2, userID);
             preparedStmt.executeUpdate();
             myData.getUser().setEmail(newEmail);
-        }
     }
 
 
@@ -252,7 +219,6 @@ public class PersonQueries extends DatabaseConnection {
             System.out.println(e.getMessage());
         }
     }
-
 
     public boolean userNotExists(String SSN) {
         String SSNQuery = "SELECT * FROM user WHERE SSN = ?";

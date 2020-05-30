@@ -35,6 +35,9 @@ public class ViewBookingController implements Initializable {
         hotelNights.setText(String.valueOf(myData.getCurrentPackage().getHotelNights()));
         carModel.setText(myData.getCurrentPackage().getCarModel());
         carRentDays.setText(String.valueOf(myData.getCurrentPackage().getCarRentalDays()));
+
+        //Booking newBooking = new Booking();
+        //myData.setBooking();
     }
 
     @FXML

@@ -13,8 +13,8 @@ public class Email {
 
         Data myData = Data.getInstance();
 
-        final String username = "something@gmail.com";
-        final String password = "password";
+        final String username = "TravelAgencyNew@gmail.com";
+        final String password = "Agency100";
 
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
@@ -31,7 +31,7 @@ public class Email {
         try {
 
         Message message = new MimeMessage(session);
-        message.setFrom(new InternetAddress("@gmail.com"));
+        message.setFrom(new InternetAddress("TravelAgencyNew@gmail.com"));
         message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipient));
 
         message.setSubject("Booking Confirmation");
@@ -39,8 +39,8 @@ public class Email {
 
             message.setText("Dear " + myData.getUser().getFirstName() + ",\n\n" +
                         "Your booking for package " + myData.getCurrentPackage().getPackageName()
-                    + " has been confirmed. Please, keep this email as proof of your booking.\n\nYour departing flight is on " +
-                    ", at " +  ". Thanks for booking!\n!,\n");
+                    + " has been confirmed. Please, keep this email as proof of your booking.\n\nYour departing flight is at " +
+                     myData.getCurrentPackage().getDeparture_time()+". Thanks for booking!\n!,\n");
 
         Transport.send(message);
 
