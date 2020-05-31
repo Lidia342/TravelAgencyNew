@@ -43,7 +43,6 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="lib" level="project" />
     <orderEntry type="library" name="mysql-connector-java-8.0.19" level="project" />
     <orderEntry type="library" name="itextpdf-5.5.9" level="project" />
     <orderEntry type="library" name="javax.mail" level="project" />
@@ -51,5 +50,6 @@
     <orderEntry type="library" name="mailapi-1.5.0" level="project" />
     <orderEntry type="library" name="bcrypt-0.4.1" level="project" />
     <orderEntry type="library" name="bytes-0.4.6" level="project" />
+    <orderEntry type="library" name="lib" level="project" />
   </component>
 </module>

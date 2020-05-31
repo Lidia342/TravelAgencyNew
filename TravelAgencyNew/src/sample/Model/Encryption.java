@@ -65,8 +65,4 @@ public class Encryption {
         return Base64.getDecoder().decode(property);
     }
 
-    public static SecretKeySpec getKey() {
-        return key;
-    }
-
 }

@@ -15,24 +15,10 @@ public class Booking {
     }
 
 
-    public Package getPackage1() {
-        return package1;
-    }
-
     public Date getBookingDate() {
         return bookingDate;
     }
 
-    public void setBookingDate(Date bookingDate) {
-        this.bookingDate = bookingDate;
-    }
 
-    public String getCustomerID() {
-        return customerID;
-    }
-
-    public void setCustomerID(String customerID) {
-        this.customerID = customerID;
-    }
 
 }

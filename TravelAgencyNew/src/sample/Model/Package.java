@@ -45,22 +45,6 @@ public class Package {
         return return_time;
     }
 
-    public void setHotelNights(int hotelNights) {
-        this.hotelNights = hotelNights;
-    }
-
-    public void setDepartingCity(String departingCity) {
-        this.departingCity = departingCity;
-    }
-
-    public void setArrivingCity(String arrivingCity) {
-        this.arrivingCity = arrivingCity;
-    }
-
-    public void setCarRentalDays(int carRentalDays) {
-        this.carRentalDays = carRentalDays;
-    }
-
     public void setPackageName(String packageName) {
         this.packageName = packageName;
     }
@@ -71,10 +55,6 @@ public class Package {
 
     public int getHotelNights() {
         return hotelNights;
-    }
-
-    public String getDepartingCity() {
-        return departingCity;
     }
 
     public String getArrivingCity() {

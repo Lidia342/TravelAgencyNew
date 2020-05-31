@@ -1,7 +1,4 @@
 package sample.Model;
-
-//import Database.DatabaseConnection;
-
 public class Data {
 
     private static Data myData = new Data();
@@ -41,19 +38,4 @@ public class Data {
         return currentBooking;
     }
 
-
-    /*
-    public void setDatabaseConnection(DatabaseConnection databaseConnection) {
-        this.dBconnection = dBconnection;
-    }
-
-    public DatabaseConnection getDatabaseConnection() {
-        return databaseConnection;
-    }
-
-    public void setdBconnection(DBconnection dBconnection) {
-        this.dBconnection = dBconnection;
-    }
-
-     */
 }

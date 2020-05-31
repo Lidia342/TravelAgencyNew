@@ -22,44 +22,16 @@ public class UserTable {
         return SSN.get();
     }
 
-    public SimpleStringProperty SSNProperty() {
-        return SSN;
-    }
-
     public void setSSN(String SSN) {
         this.SSN.set(SSN);
-    }
-
-    public String getFirstName() {
-        return firstName.get();
-    }
-
-    public SimpleStringProperty firstNameProperty() {
-        return firstName;
     }
 
     public void setFirstName(String firstName) {
         this.firstName.set(firstName);
     }
 
-    public String getLastName() {
-        return lastName.get();
-    }
-
-    public SimpleStringProperty lastNameProperty() {
-        return lastName;
-    }
-
     public void setLastName(String lastName) {
         this.lastName.set(lastName);
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber.get();
-    }
-
-    public SimpleStringProperty phoneNumberProperty() {
-        return phoneNumber;
     }
 
     public void setPhoneNumber(String phoneNumber) {
@@ -70,20 +42,12 @@ public class UserTable {
         return email.get();
     }
 
-    public SimpleStringProperty emailProperty() {
-        return email;
-    }
-
     public void setEmail(String email) {
         this.email.set(email);
     }
 
     public String getPassword() {
         return password.get();
-    }
-
-    public SimpleStringProperty passwordProperty() {
-        return password;
     }
 
     public void setPassword(String password) {
@@ -94,16 +58,52 @@ public class UserTable {
         return address.get();
     }
 
-    public SimpleStringProperty addressProperty() {
-        return address;
-    }
-
     public void setAddress(String address) {
         this.address.set(address);
     }
 
     public String getType() {
         return type.get();
+    }
+
+    public SimpleStringProperty SSNProperty() {
+        return SSN;
+    }
+
+    public String getFirstName() {
+        return firstName.get();
+    }
+
+    public SimpleStringProperty firstNameProperty() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName.get();
+    }
+
+    public SimpleStringProperty lastNameProperty() {
+        return lastName;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber.get();
+    }
+
+    public SimpleStringProperty phoneNumberProperty() {
+        return phoneNumber;
+    }
+
+    public SimpleStringProperty emailProperty() {
+        return email;
+    }
+
+    public SimpleStringProperty passwordProperty() {
+        return password;
+    }
+
+    public SimpleStringProperty addressProperty() {
+        return address;
     }
 
     public SimpleStringProperty typeProperty() {

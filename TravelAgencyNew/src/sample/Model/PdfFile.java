@@ -54,7 +54,6 @@ public class PdfFile {
             document.add(p);
             Image img = Image.getInstance("nyLogo.png");
             img.setAbsolutePosition(455f, 755f);
-            //Scale to new height and new width of image
             img.scaleAbsolute(70, 70);
 
 

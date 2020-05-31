@@ -3,7 +3,6 @@ package sample.Controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import sample.Database.BookingQueries;
 import sample.Model.Data;
@@ -15,8 +14,6 @@ public class CustomerMenuController {
 
     BookingQueries bQ = new BookingQueries();
     Data myData = Data.getInstance();
-    @FXML
-    ImageView hempImg;
 
 
     @FXML public void viewAndBookPackage(ActionEvent ae){
@@ -28,26 +25,6 @@ public class CustomerMenuController {
     public void backButton(ActionEvent ae) {
 
         SceneSwitcher.SwitchScene(ae, "../View/Login.fxml");
-    }
-
-    @FXML
-    public void openBookingWindow(ActionEvent ae) {
-
-        SceneSwitcher.SwitchScene(ae, "../View/ViewPackagesScene.fxml");
-    }
-
-    @FXML
-    public void signUpAction(ActionEvent ae) {
-        SceneSwitcher.SwitchScene(ae, "../View/SignUp.fxml");
-    }
-
-    @FXML
-    public void loginAction(ActionEvent ae) {
-        SceneSwitcher.SwitchScene(ae, "../View/Login.fxml");
-    }
-
-    @FXML public void ViewBooking(ActionEvent ae){
-        SceneSwitcher.SwitchScene(ae, "../View/ViewBookingScene.fxml");
     }
 
     @FXML
@@ -71,7 +48,7 @@ public class CustomerMenuController {
 
         try {
             myData.setCurrentBooking(bQ.retreiveBooking(myData.getUser().getSSN()));
-            SceneSwitcher.SwitchScene(actionEvent, "../View/ViewBookingScene.fxml");
+            SceneSwitcher.SwitchScene(actionEvent, "../View/ViewBookingCustomer.fxml");
         } catch (SQLException |NullPointerException e) {
             Alert f = new Alert(Alert.AlertType.ERROR);
             f.setTitle("No booking found");

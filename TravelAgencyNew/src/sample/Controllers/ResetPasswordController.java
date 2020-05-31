@@ -72,7 +72,7 @@ public class ResetPasswordController implements Initializable {
     private Random random = new Random();
     private int randomNumber = random.nextInt(999999);
 
-    @FXML   public void send() {
+    @FXML public void send() {
 
 
         String host = "smtp.gmail.com";
@@ -93,23 +93,31 @@ public class ResetPasswordController implements Initializable {
                 });
 
         try {
-            Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress(username));
-            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(emailTxtFiled.getText()));
-
-            message.setSubject("Reset code");
-            message.setText("The reset code is " + randomNumber);
-            
-            Transport transport = session.getTransport("smtp");
-            transport.connect(host, username, password);
-            transport.sendMessage(message, message.getAllRecipients());
-            transport.close();
-
-
             Alert a = new Alert(Alert.AlertType.CONFIRMATION);
-            a.setHeaderText("Reset code sent");
-            a.show();
-            setVisible();
+
+            if(!emailTxtFiled.getText().matches("[A-Za-z0-9/.]+([/@])[A-Za-z0-9]+[/.][A-Za-z/.]+")){
+                a.setTitle("Email");
+                a.setHeaderText("The email must be of this format: \"example@gmail.com\"!");
+                a.showAndWait();
+            }
+            else {
+                Message message = new MimeMessage(session);
+                message.setFrom(new InternetAddress(username));
+                message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(emailTxtFiled.getText()));
+
+                message.setSubject("Reset code");
+                message.setText("The reset code is " + randomNumber);
+
+                Transport transport = session.getTransport("smtp");
+                transport.connect(host, username, password);
+                transport.sendMessage(message, message.getAllRecipients());
+                transport.close();
+
+
+                a.setHeaderText("Reset code sent");
+                a.show();
+                setVisible();
+            } 
         } catch (MessagingException e) {
             System.out.println(e.getMessage());
             Alert b = new Alert(Alert.AlertType.ERROR);

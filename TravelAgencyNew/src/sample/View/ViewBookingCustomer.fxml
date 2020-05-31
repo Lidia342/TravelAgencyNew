@@ -53,8 +53,8 @@
                <font>
                   <Font size="14.0" />
                </font></Text>
-            <ToggleButton fx:id="closeButton" layoutX="277.0" layoutY="392.0" mnemonicParsing="false" onAction="#closeStage" prefHeight="19.0" prefWidth="75.0" style="-fx-background-color: white;" text="Close" />
-            <ToggleButton fx:id="emailButton" layoutX="161.0" layoutY="390.0" mnemonicParsing="false" onAction="#emailReminder" prefHeight="19.0" prefWidth="79.0" style="-fx-background-color: white;" text="Email" />
+            <ToggleButton fx:id="closeButton" layoutX="294.0" layoutY="402.0" mnemonicParsing="false" onAction="#closeStage" prefHeight="19.0" prefWidth="75.0" style="-fx-background-color: white;" text="Close" />
+            <ToggleButton fx:id="emailButton" layoutX="144.0" layoutY="402.0" mnemonicParsing="false" onAction="#emailReminder" prefHeight="25.0" prefWidth="133.0" style="-fx-background-color: white;" text="Send email reminder" />
             <Text fx:id="hotelName" fill="WHITE" layoutX="198.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
                <font>
                   <Font size="14.0" />
@@ -91,7 +91,7 @@
                <font>
                   <Font size="14.0" />
                </font></Text>
-            <ToggleButton fx:id="downloadButton" layoutX="14.0" layoutY="390.0" mnemonicParsing="false" onAction="#downloadPdf" prefHeight="19.0" prefWidth="110.0" style="-fx-background-color: white;" text="Download PDF" />
+            <ToggleButton fx:id="downloadButton" layoutX="14.0" layoutY="402.0" mnemonicParsing="false" onAction="#downloadPdf" prefHeight="19.0" prefWidth="110.0" style="-fx-background-color: white;" text="Download PDF" />
             <ImageView fitHeight="58.0" fitWidth="67.0" layoutX="113.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Images/flightL.png" />
@@ -107,6 +107,16 @@
                   <Font size="20.0" />
                </font>
             </Label>
+            <Text fill="WHITE" layoutX="101.0" layoutY="378.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Booking date:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text fx:id="bookingDate" fill="WHITE" layoutX="202.0" layoutY="379.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
          </children>
       </AnchorPane>
    </children>

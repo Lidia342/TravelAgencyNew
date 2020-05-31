@@ -91,11 +91,20 @@ public class SignUpController implements Initializable {
             boolean save = true;
 
            if (save) {
-                if (personQueries.emailExists(textFieldEmail.getText())) {
-                    save = false;
-                    a.setTitle("Email");
-                    a.setHeaderText("Email already exist! Please try again");
-                    a.showAndWait();
+                if (personQueries.emailExists(textFieldEmail.getText()) || !textFieldEmail.getText().matches("[A-Za-z0-9/.]+([/@])[A-Za-z0-9]+[/.][A-Za-z/.]+")){
+
+                    if(personQueries.emailExists(textFieldEmail.getText())) {
+                        save = false;
+                        a.setTitle("Email");
+                        a.setHeaderText("Email already exist! Please try again");
+                        a.showAndWait();
+                    }
+                    if(!textFieldEmail.getText().matches("[A-Za-z0-9/.]+([/@])[A-Za-z0-9]+[/.][A-Za-z/.]+")){
+                        save = false;
+                        a.setTitle("Email");
+                        a.setHeaderText("The email must be of this format: \"example@gmail.com\"!");
+                        a.showAndWait();
+                    }
                 }
             }
             if (save) {

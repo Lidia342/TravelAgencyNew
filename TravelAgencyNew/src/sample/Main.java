@@ -6,7 +6,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import sample.Database.BookingQueries;
 import sample.Model.Encryption;
 
 public class Main extends Application {
@@ -25,9 +24,6 @@ public class Main extends Application {
         primaryStage.show();
 
         Encryption.setKey();
-        System.out.println(Encryption.encrypt("miniane321"));
-
-
     }
 
     public static void main(String [] args) {

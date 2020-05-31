@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="523.0" prefWidth="664.0" style="-fx-background-color: #4c3d4c;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.EditInformationController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="516.0" prefWidth="665.0" style="-fx-background-color: #4c3d4c;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.EditInformationController">
    <AnchorPane layoutY="148.0" prefHeight="345.0" prefWidth="340.0">
       <children>
          <TextField fx:id="updateEmail" layoutX="102.0" layoutY="136.0" onKeyPressed="#editUpdateText" onKeyReleased="#editUpdateText" promptText="something@email.com" />
@@ -30,19 +30,7 @@
          </Button>
       </children>
    </AnchorPane>
-   <AnchorPane layoutY="178.0" prefHeight="17.0" prefWidth="665.0">
-      <children>
-         <Button fx:id="backButton" contentDisplay="TOP" graphicTextGap="0.0" layoutX="580.0" minHeight="21.0" mnemonicParsing="false" onAction="#backToPrevScene" prefHeight="35.0" prefWidth="64.0" style="-fx-background-color: none; -fx-label-padding: -10; -fx-font-size: 12;" text="Back" textAlignment="CENTER" textFill="WHITE">
-            <font>
-               <Font size="18.0" />
-            </font>
-            <cursor>
-               <Cursor fx:constant="HAND" />
-            </cursor>
-         </Button>
-         <MenuBar layoutX="1.0" layoutY="-71.0" prefHeight="35.0" prefWidth="664.0" style="-fx-min-width: 100%; -fx-background-color: #353238;" />
-      </children>
-   </AnchorPane>
+   <AnchorPane layoutY="178.0" prefHeight="17.0" prefWidth="665.0" />
    <Separator layoutX="348.0" layoutY="191.0" orientation="VERTICAL" prefHeight="269.0" prefWidth="9.0" />
    <Text fill="WHITE" layoutX="398.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Details:">
       <font>
@@ -54,7 +42,7 @@
          <Font size="18.0" />
       </font>
    </Text>
-   <Label fx:id="emailLabelNew" layoutX="416.0" layoutY="186.0">
+   <Label fx:id="emailLabelNew" layoutX="416.0" layoutY="240.0">
       <graphic>
       </graphic>
    </Label>
@@ -63,10 +51,19 @@
       </graphic>
    </Label>
    <Label fx:id="addressLabel" layoutX="413.0" layoutY="392.0" text="Address" textFill="WHITE" />
-   <Label fx:id="addressLabelNew" layoutX="419.0" layoutY="143.0" />
-   <ImageView fitHeight="72.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true">
+   <Label fx:id="addressLabelNew" layoutX="419.0" layoutY="300.0" />
+   <ImageView fitHeight="90.0" fitWidth="133.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@../Images/newLogo.png" />
       </image>
    </ImageView>
+   <MenuBar layoutX="1.0" layoutY="122.0" prefHeight="61.0" prefWidth="664.0" style="-fx-min-width: 100%; -fx-background-color: #353238;" />
+   <Button fx:id="backButton" contentDisplay="TOP" graphicTextGap="0.0" layoutX="555.0" layoutY="123.0" minHeight="21.0" mnemonicParsing="false" onAction="#backToPrevScene" prefHeight="61.0" prefWidth="98.0" style="-fx-background-color: none; -fx-label-padding: -10; -fx-font-size: 12;" text="Back" textAlignment="CENTER" textFill="WHITE">
+      <font>
+         <Font size="18.0" />
+      </font>
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
+   </Button>
 </AnchorPane>

@@ -19,8 +19,6 @@ public class AdminMenuController {
     public void editBookings(ActionEvent ae) { SceneSwitcher.SwitchScene(ae,"../View/ViewBookedAdmin.fxml");}
 
 
-
-
     @FXML
     public void back(ActionEvent ae) {
         SceneSwitcher.SwitchScene(ae,"../View/Login.fxml");
