@@ -9,39 +9,39 @@
 
 <AnchorPane prefHeight="444.0" prefWidth="600.0" style="-fx-background-color: #4c3d4c; -fx-border-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.HelpMenuController">
    <children>
-      <AnchorPane layoutX="17.0" layoutY="15.0" prefHeight="365.0" prefWidth="567.0" style="-fx-background-color: white; -fx-background-radius: 15;">
+      <AnchorPane layoutX="17.0" layoutY="15.0" prefHeight="365.0" prefWidth="567.0" style="-fx-background-color: #4c3d4c; -fx-background-radius: 15; -fx-border-color: white;">
          <children>
-            <Text layoutX="50.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Within our customer menu we have three options" wrappingWidth="492.1366729736328">
+            <Text fill="WHITE" layoutX="50.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Within our customer menu we have three options" wrappingWidth="492.1366729736328">
                <font>
                   <Font name="Dubai Bold" size="22.0" />
                </font>
             </Text>
-            <Text layoutX="50.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1. Edit information" wrappingWidth="492.1366729736328">
+            <Text fill="WHITE" layoutX="50.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1. Edit information" wrappingWidth="492.1366729736328">
                <font>
                   <Font name="Dubai Bold" size="22.0" />
                </font>
             </Text>
-            <Text layoutX="50.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2. View &amp; book package" wrappingWidth="492.1366729736328">
+            <Text fill="WHITE" layoutX="50.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2. View &amp; book package" wrappingWidth="492.1366729736328">
                <font>
                   <Font name="Dubai Bold" size="22.0" />
                </font>
             </Text>
-            <Text layoutX="50.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3. View booking" wrappingWidth="492.1366729736328">
+            <Text fill="WHITE" layoutX="50.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3. View booking" wrappingWidth="492.1366729736328">
                <font>
                   <Font name="Dubai Bold" size="22.0" />
                </font>
             </Text>
-            <Text layoutX="60.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Clicking this option will take you to a separate page where you can change your email, password, and address" wrappingWidth="492.1366729736328">
+            <Text fill="WHITE" layoutX="60.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Clicking this option will take you to a separate page where you can change your email, password, and address" wrappingWidth="492.1366729736328">
                <font>
                   <Font name="Dubai Bold" size="15.0" />
                </font>
             </Text>
-            <Text layoutX="60.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Clicking this option will allow you to view all of our packages and book a package of your choice using your social security number" wrappingWidth="492.1366729736328">
+            <Text fill="WHITE" layoutX="60.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Clicking this option will allow you to view all of our packages and book a package of your choice using your social security number" wrappingWidth="492.1366729736328">
                <font>
                   <Font name="Dubai Bold" size="15.0" />
                </font>
             </Text>
-            <Text layoutX="60.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Clicking this option will allow you to view the details of any bookings you have made if you have made any" wrappingWidth="492.1366729736328">
+            <Text fill="WHITE" layoutX="60.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Clicking this option will allow you to view the details of any bookings you have made if you have made any. We allow one existing booking for each customer" wrappingWidth="492.1366729736328">
                <font>
                   <Font name="Dubai Bold" size="15.0" />
                </font>
@@ -63,6 +63,6 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <Button layoutX="33.0" layoutY="393.0" mnemonicParsing="false" onAction="#backtoMenu" prefHeight="37.0" prefWidth="91.0" style="-fx-background-color: white; -fx-border-color: #4c3d4c; -fx-border-radius: 12; -fx-background-radius: 14;" text="Back" />
+      <Button layoutX="33.0" layoutY="406.0" mnemonicParsing="false" onAction="#backtoMenu" prefHeight="37.0" prefWidth="91.0" style="-fx-background-color: white; -fx-border-color: #4c3d4c; -fx-border-radius: 12; -fx-background-radius: 14;" text="Back" />
    </children>
 </AnchorPane>

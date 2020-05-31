@@ -42,7 +42,7 @@
          <Font size="18.0" />
       </font>
    </Text>
-   <Label fx:id="emailLabelNew" layoutX="416.0" layoutY="240.0">
+   <Label fx:id="emailLabelNew" layoutX="416.0" layoutY="240.0" textFill="WHITE">
       <graphic>
       </graphic>
    </Label>
@@ -51,7 +51,7 @@
       </graphic>
    </Label>
    <Label fx:id="addressLabel" layoutX="413.0" layoutY="392.0" text="Address" textFill="WHITE" />
-   <Label fx:id="addressLabelNew" layoutX="419.0" layoutY="300.0" />
+   <Label fx:id="addressLabelNew" layoutX="419.0" layoutY="300.0" textFill="WHITE" />
    <ImageView fitHeight="90.0" fitWidth="133.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@../Images/newLogo.png" />

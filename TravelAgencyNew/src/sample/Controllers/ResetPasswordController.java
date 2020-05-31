@@ -117,7 +117,7 @@ public class ResetPasswordController implements Initializable {
                 a.setHeaderText("Reset code sent");
                 a.show();
                 setVisible();
-            } 
+            }
         } catch (MessagingException e) {
             System.out.println(e.getMessage());
             Alert b = new Alert(Alert.AlertType.ERROR);
@@ -144,10 +144,6 @@ public class ResetPasswordController implements Initializable {
             a.show();
         }
     }
-
-
-
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
