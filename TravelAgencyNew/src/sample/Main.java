@@ -6,12 +6,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import sample.Database.BookingQueries;
 import sample.Model.Encryption;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+
         Parent root = FXMLLoader.load(getClass().getResource("View/mainPage.fxml"));
         primaryStage.setTitle("Travel Agency");
         primaryStage.centerOnScreen();
@@ -23,20 +25,14 @@ public class Main extends Application {
         primaryStage.show();
 
         Encryption.setKey();
+        System.out.println(Encryption.encrypt("miniane321"));
+
 
     }
 
-
-    public static void main(String[] args) {
+    public static void main(String [] args) {
         launch(args);
     }
 
-    public static String getPath() {
-
-        String path = ClassLoader.getSystemClassLoader().getResource(".").getPath();
-        if (path.contains("zcinema/bin"))
-            path = path.split("zcinema")[0];
-        return path;
-    }
 }
 

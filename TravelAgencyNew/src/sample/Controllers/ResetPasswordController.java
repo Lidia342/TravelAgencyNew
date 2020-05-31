@@ -4,12 +4,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import sample.Database.PersonQueries;
+import sample.Model.Encryption;
 import sample.Model.HandlesException;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.io.UnsupportedEncodingException;
 import java.net.URL;
+import java.security.GeneralSecurityException;
 import java.util.Properties;
 import java.util.Random;
 import java.util.ResourceBundle;
@@ -115,12 +118,12 @@ public class ResetPasswordController implements Initializable {
         }
 
     }
-        @FXML public void updatePassword(){
+        @FXML public void updatePassword() throws GeneralSecurityException, UnsupportedEncodingException {
         int reset = Integer.parseInt(codeTxtFiled.getText());
 
         if (reset == randomNumber){
             PersonQueries pq = new PersonQueries();
-            pq.sendPassword(passwordTxtField.getText(),ssnTextField.getText());
+            pq.sendPassword(Encryption.encrypt(passwordTxtField.getText()),ssnTextField.getText());
             Alert a = new Alert(Alert.AlertType.CONFIRMATION);
             a.setHeaderText("Password updated");
             a.show();

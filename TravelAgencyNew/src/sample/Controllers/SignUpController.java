@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import sample.Database.PersonQueries;
+import sample.Model.Encryption;
 import sample.Model.HandlesException;
 import sample.Model.SceneSwitcher;
 
@@ -115,7 +116,7 @@ public class SignUpController implements Initializable {
             }
             if (save){
                 personQueries.addPersonInformation(textFieldSSN.getText(),textFieldFirstName.getText(),textFieldLastName.getText(),
-                        textFieldPhoneNum.getText(),textFieldEmail.getText(),passwordTextField.getText(),textFieldAddress.getText(),
+                        textFieldPhoneNum.getText(),textFieldEmail.getText(), Encryption.encrypt(passwordTextField.getText()),textFieldAddress.getText(),
                         "Customer");
 
                 textFieldEmail.clear();
