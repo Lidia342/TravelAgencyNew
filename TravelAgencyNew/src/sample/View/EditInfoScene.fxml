@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="516.0" prefWidth="665.0" style="-fx-background-color: #4c3d4c;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.EditInformationController">
+   <AnchorPane layoutY="148.0" prefHeight="345.0" prefWidth="340.0">
+      <children>
+         <TextField fx:id="updateEmail" layoutX="102.0" layoutY="136.0" onKeyPressed="#editUpdateText" onKeyReleased="#editUpdateText" promptText="something@email.com" />
+         <TextField fx:id="updatePassword" layoutX="103.0" layoutY="187.0" onKeyPressed="#editUpdateText" onKeyReleased="#editUpdateText" />
+         <Text fill="WHITE" layoutX="52.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" />
+         <Text fill="WHITE" layoutX="110.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit Profile:">
+            <font>
+               <Font size="18.0" />
+            </font>
+         </Text>
+         <Text fill="WHITE" layoutX="33.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" />
+         <TextField fx:id="updateAddress" layoutX="103.0" layoutY="248.0" onKeyPressed="#editUpdateText" onKeyReleased="#editUpdateText" />
+         <Text fill="WHITE" layoutX="39.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address:" wrappingWidth="56.0" />
+         <Button layoutX="95.0" layoutY="305.0" minWidth="30.0" mnemonicParsing="false" onAction="#saveClick" prefHeight="17.0" prefWidth="56.0" style="-fx-background-color: white; -fx-min-width: 40;" text="Save">
+         </Button>
+      </children>
+   </AnchorPane>
+   <AnchorPane layoutY="178.0" prefHeight="17.0" prefWidth="665.0" />
+   <Separator layoutX="348.0" layoutY="191.0" orientation="VERTICAL" prefHeight="269.0" prefWidth="9.0" />
+   <Text fill="WHITE" layoutX="398.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Details:">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Text>
+   <Text fill="WHITE" layoutX="407.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Old Details:">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Text>
+   <Label fx:id="emailLabelNew" layoutX="416.0" layoutY="240.0" textFill="WHITE">
+      <graphic>
+      </graphic>
+   </Label>
+   <Label fx:id="emailLabel" layoutX="405.0" layoutY="437.0" text="Email" textFill="WHITE">
+      <graphic>
+      </graphic>
+   </Label>
+   <Label fx:id="addressLabel" layoutX="413.0" layoutY="392.0" text="Address" textFill="WHITE" />
+   <Label fx:id="addressLabelNew" layoutX="419.0" layoutY="300.0" textFill="WHITE" />
+   <ImageView fitHeight="90.0" fitWidth="133.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../Images/newLogo.png" />
+      </image>
+   </ImageView>
+   <MenuBar layoutX="1.0" layoutY="122.0" prefHeight="61.0" prefWidth="664.0" style="-fx-min-width: 100%; -fx-background-color: #353238;" />
+   <Button fx:id="backButton" contentDisplay="TOP" graphicTextGap="0.0" layoutX="555.0" layoutY="123.0" minHeight="21.0" mnemonicParsing="false" onAction="#backToPrevScene" prefHeight="61.0" prefWidth="98.0" style="-fx-background-color: none; -fx-label-padding: -10; -fx-font-size: 12;" text="Back" textAlignment="CENTER" textFill="WHITE">
+      <font>
+         <Font size="18.0" />
+      </font>
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
+   </Button>
+</AnchorPane>

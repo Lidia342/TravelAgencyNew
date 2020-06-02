@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="545.0" prefWidth="900.0" style="-fx-background-color: #4c3d4c;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.ViewBookedAdminController">
+   <children>
+      <Label layoutX="217.0" layoutY="19.0" prefHeight="41.0" prefWidth="479.0" text="View &amp; Delete Package's Booked " textFill="WHITE">
+         <font>
+            <Font name="Lucida Handwriting Italic" size="26.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="97.0" layoutY="68.0" prefHeight="447.0" prefWidth="773.0" style="-fx-background-color: #4c3d4c; -fx-border-color: white; -fx-border-radius: 30;">
+         <children>
+            <TableView fx:id="table" layoutX="42.0" layoutY="61.0" onKeyPressed="#handleKeyPressed" prefHeight="295.0" prefWidth="705.0" style="-fx-background-color: white;">
+              <columns>
+                  <TableColumn fx:id="bookingIdColumn" minWidth="0.0" prefWidth="0.0" text="Booking Id" />
+                  <TableColumn fx:id="packageNameColumn" prefWidth="109.99999749660492" text=" Package Name" />
+                <TableColumn fx:id="firstNameColumn" prefWidth="117.3333511352539" text=" First Name" />
+                  <TableColumn fx:id="lastNameColumn" prefWidth="120.66661071777344" text=" Last Name" />
+                <TableColumn fx:id="ssnColumn" prefWidth="133.3333740234375" text="SSN" />
+                  <TableColumn fx:id="dateColumn" prefWidth="134.00003051757812" text="  Date " />
+                  <TableColumn fx:id="priceColumn" prefWidth="90.66664632161462" text=" Price" />
+              </columns>
+               <contextMenu>
+                  <ContextMenu fx:id="listContextMenu" onAction="#clicked">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Remove" />
+                    </items>
+                  </ContextMenu>
+               </contextMenu>
+            </TableView>
+            <Button fx:id="backButton" layoutX="23.0" layoutY="388.0" mnemonicParsing="false" onAction="#back" prefHeight="29.0" prefWidth="57.0" style="-fx-background-color: white;" text="Back">
+               <font>
+                  <Font size="10.0" />
+               </font></Button>
+            <Button fx:id="cancelButton" layoutX="677.0" layoutY="388.0" mnemonicParsing="false" onAction="#cancel" prefHeight="29.0" prefWidth="64.0" style="-fx-background-color: white;" text="Cancel">
+               <font>
+                  <Font size="10.0" />
+               </font></Button>
+            <Label layoutX="113.0" layoutY="16.0" prefHeight="25.0" prefWidth="241.0" text="Search: by booked package's name" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="searchComboBox" layoutX="388.0" layoutY="14.0" onAction="#display" prefHeight="25.0" prefWidth="199.0" promptText="Package Name's" />
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="78.0" fitWidth="106.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/newLogo.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
