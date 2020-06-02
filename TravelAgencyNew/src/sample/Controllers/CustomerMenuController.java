@@ -37,7 +37,7 @@ public class CustomerMenuController {
     }
 
     public void logOutAction(ActionEvent actionEvent) {
-        SceneSwitcher.SwitchScene(actionEvent, "../View/mainPage.fxml");
+        SceneSwitcher.SwitchScene(actionEvent, "../View/MainPage.fxml");
     }
 
     public void helpMenuAction(MouseEvent event) {
