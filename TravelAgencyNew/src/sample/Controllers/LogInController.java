@@ -51,31 +51,13 @@ public class LogInController implements Initializable {
             String emailId = TfEmail.getText();
             String password = TfPassword.getText();
             LogInQueries logInQueries = new LogInQueries();
-            String encrypted="";
+            String encrypted = logInQueries.getPasswordEnc(TfEmail.getText());
 
-        String url = "jdbc:mysql://den1.mysql5.gear.host:3306/travelagency1";
-        String userName = "travelagency1";
-        String password1 = "Cw0Mr?!4KN2V";
-
-        Connection connection = DriverManager.getConnection(url, userName, password1);
-        String select = "SELECT password FROM user WHERE email = ?";
-        try {
-
-            PreparedStatement preparedStatement = connection.prepareStatement(select);
-            preparedStatement.setString(1, emailId);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            resultSet.first();
-
-            encrypted=resultSet.getString(1);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        if(Encryption.decrypt(encrypted).equals(password)) {
+        if((Encryption.decrypt(encrypted)).equals(password)) {
             boolean flag = logInQueries.validate(emailId, encrypted);
             boolean hello = logInQueries.customerLogin(emailId, encrypted);
             if (!hello && !flag) {
-                logInQueries.customerLogin(emailId, password);
+                logInQueries.customerLogin(emailId, encrypted);
 
             } else if (hello) {
                 customerScene(ae);

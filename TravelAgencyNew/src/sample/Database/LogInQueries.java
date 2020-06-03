@@ -22,6 +22,20 @@ public class LogInQueries extends DatabaseConnection {
         }
     }
 
+    public String getPasswordEnc(String emailId) throws SQLException {
+
+        String select = "SELECT password FROM user WHERE email = ?";
+        try {
+
+            PreparedStatement preparedStatement = connection.prepareStatement(select);
+            preparedStatement.setString(1, emailId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            resultSet.first();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return resultSet.getString(1);
+    }
 
     public boolean validate(String emailId, String password) throws GeneralSecurityException, IOException {
 
