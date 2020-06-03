@@ -7,6 +7,7 @@ import javafx.scene.control.*;
 import sample.Database.BookingQueries;
 import sample.Database.PackageQueries;
 import sample.Database.PersonQueries;
+import sample.Model.Data;
 import sample.Model.HandlesException;
 import sample.Model.SceneSwitcher;
 
@@ -18,6 +19,7 @@ import java.util.ResourceBundle;
 public class ViewPackageController implements Initializable {
 
     private HandlesException handlesException;
+    private Data myData= Data.getInstance()
     Alert e = new Alert(Alert.AlertType.ERROR);
 
     @FXML
@@ -150,7 +152,6 @@ public class ViewPackageController implements Initializable {
             setFields();
         }
 
-        //SceneSwitcher.SwitchScene(ae, "../View/ViewBookingScene.fxml");
     }
 
     public void RadioButtonsDisabled(){
@@ -226,7 +227,7 @@ public class ViewPackageController implements Initializable {
 
     }
 
-    public void saveToTable(){
+    public void saveToTable() throws SQLException {
 
         BookingQueries bq = new BookingQueries();
 
@@ -237,42 +238,52 @@ public class ViewPackageController implements Initializable {
         if (rb1.isSelected()) {
             bq.insertBookedPackageIntoBookingTable(time, ssnTxtField.getText());
             bq.insertBookedIntoBookingHasPackageTable(1, bq.getBookingId());
+            myData.setCurrentBooking(bq.retreiveBooking(myData.getUser().getSSN()));
 
         }if (rb2.isSelected()) {
             bq.insertBookedPackageIntoBookingTable(time, ssnTxtField.getText());
             bq.insertBookedIntoBookingHasPackageTable(2, bq.getBookingId());
+            myData.setCurrentBooking(bq.retreiveBooking(myData.getUser().getSSN()));
 
         }if (rb3.isSelected()) {
             bq.insertBookedPackageIntoBookingTable(time, ssnTxtField.getText());
             bq.insertBookedIntoBookingHasPackageTable(3, bq.getBookingId());
+            myData.setCurrentBooking(bq.retreiveBooking(myData.getUser().getSSN()));
 
         }if (rb4.isSelected()) {
             bq.insertBookedPackageIntoBookingTable(time, ssnTxtField.getText());
             bq.insertBookedIntoBookingHasPackageTable(4, bq.getBookingId());
+            myData.setCurrentBooking(bq.retreiveBooking(myData.getUser().getSSN()));
 
         }if (rb5.isSelected()) {
             bq.insertBookedPackageIntoBookingTable(time, ssnTxtField.getText());
             bq.insertBookedIntoBookingHasPackageTable(5, bq.getBookingId());
+            myData.setCurrentBooking(bq.retreiveBooking(myData.getUser().getSSN()));
 
         }if (rb6.isSelected()) {
             bq.insertBookedPackageIntoBookingTable(time, ssnTxtField.getText());
             bq.insertBookedIntoBookingHasPackageTable(6, bq.getBookingId());
+            myData.setCurrentBooking(bq.retreiveBooking(myData.getUser().getSSN()));
 
         }if (rb7.isSelected()) {
             bq.insertBookedPackageIntoBookingTable(time, ssnTxtField.getText());
             bq.insertBookedIntoBookingHasPackageTable(7, bq.getBookingId());
+            myData.setCurrentBooking(bq.retreiveBooking(myData.getUser().getSSN()));
 
         }if (rb8.isSelected()) {
             bq.insertBookedPackageIntoBookingTable(time, ssnTxtField.getText());
             bq.insertBookedIntoBookingHasPackageTable(8, bq.getBookingId());
+            myData.setCurrentBooking(bq.retreiveBooking(myData.getUser().getSSN()));
 
         }if (rb9.isSelected()) {
             bq.insertBookedPackageIntoBookingTable(time, ssnTxtField.getText());
             bq.insertBookedIntoBookingHasPackageTable(9, bq.getBookingId());
+            myData.setCurrentBooking(bq.retreiveBooking(myData.getUser().getSSN()));
 
         }if (rb10.isSelected()) {
             bq.insertBookedPackageIntoBookingTable(time, ssnTxtField.getText());
             bq.insertBookedIntoBookingHasPackageTable(10, bq.getBookingId());
+            myData.setCurrentBooking(bq.retreiveBooking(myData.getUser().getSSN()));
 
         }
 
@@ -288,7 +299,7 @@ public class ViewPackageController implements Initializable {
             saveToTable();
             alertSuccess();
           //  ssnTxtField.clear();
-           SceneSwitcher.SwitchScene(ae, "../View/ViewBookingScene.fxml");
+           SceneSwitcher.SwitchScene(ae, "../View/ViewBookingCustomer.fxml");
         }
     }
 
