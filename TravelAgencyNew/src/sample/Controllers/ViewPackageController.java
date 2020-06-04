@@ -19,7 +19,7 @@ import java.util.ResourceBundle;
 public class ViewPackageController implements Initializable {
 
     private HandlesException handlesException;
-    private Data myData= Data.getInstance()
+    private Data myData= Data.getInstance();
     Alert e = new Alert(Alert.AlertType.ERROR);
 
     @FXML
