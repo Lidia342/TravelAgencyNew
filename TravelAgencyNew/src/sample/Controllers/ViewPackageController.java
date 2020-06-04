@@ -289,7 +289,7 @@ public class ViewPackageController implements Initializable {
 
     }
 
-    @FXML  public void confirmBooking(ActionEvent ae) {
+    @FXML  public void confirmBooking(ActionEvent ae) throws SQLException {
 
         if (personQueries.userNotExists(ssnTxtField.getText())) {
             e.setTitle("Invalid Input!");
